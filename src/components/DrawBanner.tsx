@@ -9,6 +9,7 @@ import cloudyBottomRightImg from "../assets/images/cloudy-bottom-right.png";
 import unionLeftImg from "../assets/images/union-left.png";
 import unionRightImg from "../assets/images/union-right.png";
 import flowerImg from "../assets/images/flower.png";
+import { a2z } from "@/src/app/fonts";
 
 export default function DrawBanner() {
   return (
@@ -90,10 +91,12 @@ export default function DrawBanner() {
       {/* 컨텐츠 레이어 */}
       <div className="relative z-10 flex flex-col items-center gap-8 pb-6.25">
         <div className="flex flex-col gap-2 text-[#D87875] text-center">
-          <span className="text-[16px] leading-[100%]">Lucky Draw</span>
-          <h1 className="text-[24px] font-bold leading-[150%]">
+          <h1
+            className={`${a2z.className} text-[24px] font-bold leading-[150%]`}
+          >
             아이비의 행운 뽑기
           </h1>
+          <span className="text-[16px] leading-[100%]">Lucky Draw</span>
         </div>
         <div className="relative">
           <Image
