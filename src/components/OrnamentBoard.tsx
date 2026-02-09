@@ -1,6 +1,9 @@
+"use client";
+
+import MessageModal from "@/src/components/MessageModal";
 import { Ornament, ORNAMENTS } from "@/src/data/ornaments";
 import Image from "next/image";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 
 const shuffle = <T,>(arr: T[]): T[] => {
   const a = [...arr];
@@ -29,6 +32,8 @@ const buildBoard = (
 export default function OrnamentBoard() {
   const slots = useMemo(() => buildBoard(ORNAMENTS, 9), []);
 
+  const [selected, setSelected] = useState<Ornament | null>(null);
+
   return (
     <section className="items-center m-auto">
       <div className="grid grid-cols-3 gap-3 items-center justify-center">
@@ -46,6 +51,7 @@ export default function OrnamentBoard() {
                   height={84}
                   alt={item.id}
                   priority={false}
+                  onClick={() => setSelected(item)}
                 />
               ) : (
                 <div className="h-21 w-21" />
@@ -54,6 +60,12 @@ export default function OrnamentBoard() {
           );
         })}
       </div>
+
+      <MessageModal
+        open={!!selected}
+        ornament={selected}
+        onClose={() => setSelected(null)}
+      />
     </section>
   );
 }
