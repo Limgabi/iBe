@@ -52,8 +52,7 @@ export default function MessageModal({
 
       <style jsx global>{`
         .modal-backdrop {
-          background: rgba(0, 0, 0, 0.35);
-          backdrop-filter: blur(3px);
+          background: #0000004d;
           animation: modalFadeIn 160ms ease-out both;
         }
         .modal-card {
