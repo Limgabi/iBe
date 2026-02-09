@@ -1,11 +1,7 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { pretendard } from "@/src/app/fonts";
 import "./globals.css";
 
-const pretendard = localFont({
-  src: "../assets/fonts/PretendardVariable.woff2",
-  display: "swap",
-});
 export const metadata: Metadata = {
   title: "iBe",
   description: "아이비의 행운 뽑기",
