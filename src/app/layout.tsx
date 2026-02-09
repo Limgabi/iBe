@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { pretendard } from "@/src/app/fonts";
 import "./globals.css";
+import KakaoScript from "@/src/components/KakaoScript";
 
 export const metadata: Metadata = {
   title: "iBe",
@@ -14,7 +15,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${pretendard.className} antialiased`}>{children}</body>
+      <body className={`${pretendard.className} antialiased`}>
+        {children}
+        <KakaoScript />
+      </body>
     </html>
   );
 }
