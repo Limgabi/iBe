@@ -6,6 +6,9 @@ import KakaoScript from "@/src/components/KakaoScript";
 export const metadata: Metadata = {
   title: "iBe",
   description: "아이비의 행운 뽑기",
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION,
+  },
 };
 
 export default function RootLayout({
