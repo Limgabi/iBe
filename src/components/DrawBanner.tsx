@@ -11,7 +11,7 @@ import unionRightImg from "../assets/images/union-right.png";
 import flowerImg from "../assets/images/flower.png";
 import rectangleImg from "../assets/icons/rectangle.png";
 import rectangle2Img from "../assets/icons/rectangle-2.png";
-import { a2z, meongiB } from "@/src/app/fonts";
+import { meongiB } from "@/src/app/fonts";
 
 export default function DrawBanner() {
   return (
@@ -72,40 +72,24 @@ export default function DrawBanner() {
           width={16}
           height={16}
           alt="flower-left"
-          className="absolute bottom-3 left-10.5"
-        />
-        <Image
-          src={cloudyBottomLeftImg}
-          width={60}
-          height={69}
-          alt="cloudy-bottom-left"
-          className="absolute bottom-0 left-1"
-        />
-        <Image
-          src={cloudyBottomRightImg}
-          width={60}
-          height={69}
-          alt="cloudy-bottom-right"
-          className="absolute bottom-0 right-0"
+          className="absolute top-60 -right-1"
         />
       </div>
 
-      {/* 컨텐츠 레이어 */}
       <div className="relative z-10 flex flex-col items-center gap-8 pb-6.25">
-        <div className="flex flex-col gap-2 text-[#D87875] text-center">
-          <h1 className={`${meongiB.className} text-[44px] leading-[100%]`}>
+        {/* 컨텐츠 레이어 */}
+        <div className="flex flex-col gap-0.5 text-[#D87875] text-center">
+          <h1 className={`${meongiB.className} text-[56px] leading-[100%]`}>
             LUCKY
             <br />
             DRAW
           </h1>
           <div className="flex gap-1 items-center">
-            <h2
-              className={`${a2z.className} text-[12px] font-medium leading-[150%]`}
-            >
+            <h2 className="text-[16px] font-extrabold leading-[150%]">
               아이비의 행운 뽑기
             </h2>
-            <Image src={rectangleImg} width={5} height={5} alt="rectangle" />
-            <Image src={rectangle2Img} width={5} height={5} alt="rectangle-2" />
+            <Image src={rectangleImg} width={8} height={8} alt="rectangle" />
+            <Image src={rectangle2Img} width={8} height={8} alt="rectangle-2" />
           </div>
         </div>
         <div className="relative">
@@ -114,16 +98,49 @@ export default function DrawBanner() {
             width={333}
             height={244}
             alt="newyear"
-            className="relative z-10"
+            className="relative bottom-3 z-10"
           />
           <Image
             src={shadowImg}
             width={271}
             height={71}
             alt="shadow"
-            className="absolute bottom-0 left-1/2 -translate-x-1/2 z-0"
+            className="absolute bottom-6 left-1/2 -translate-x-1/2 z-0"
           />
         </div>
+      </div>
+
+      <div>
+        {/* 그라데이션 바 */}
+        <div
+          className="h-16.5 w-full pointer-events-none absolute bottom-0 left-0"
+          style={{
+            background:
+              "linear-gradient(180deg, #FFF1EB 0%, #FFFAF7 50%, #FFF1EB 100%)",
+          }}
+        />
+        <Image
+          src={flowerImg}
+          width={16}
+          height={16}
+          alt="flower-left"
+          className="absolute bottom-15 left-13"
+        />
+        {/* 바닥 구름(그라데이션 바 위로) */}
+        <Image
+          src={cloudyBottomLeftImg}
+          width={60}
+          height={69}
+          alt="cloudy-bottom-left"
+          className="pointer-events-none absolute bottom-1 -left-5"
+        />
+        <Image
+          src={cloudyBottomRightImg}
+          width={60}
+          height={69}
+          alt="cloudy-bottom-right"
+          className="pointer-events-none absolute bottom-1 -right-5"
+        />
       </div>
     </div>
   );
