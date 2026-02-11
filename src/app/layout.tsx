@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { pretendard } from "@/src/app/fonts";
 import "./globals.css";
 import KakaoScript from "@/src/components/KakaoScript";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
   title: "iBe",
@@ -27,11 +28,16 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+  const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
+
   return (
     <html lang="en">
       <body className={`${pretendard.className} antialiased`}>
         {children}
         <KakaoScript />
+        {GA_ID ? <GoogleAnalytics gaId={GA_ID} /> : null}
+        {GTM_ID ? <GoogleTagManager gtmId={GTM_ID} /> : null}
       </body>
     </html>
   );
