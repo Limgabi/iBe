@@ -5,13 +5,13 @@ import footerCloudyRightImg from "../assets/images/footer-cloudy-right.png";
 
 export default function FooterSection() {
   return (
-    <div className="relative bottom-0 w-full h-27 overflow-hidden">
+    <div className="relative bottom-0 w-full h-30 overflow-hidden">
       <Image
         src={footerCloudyLeftImg}
         width={216}
         height={50}
         alt="footer-cloudy-left"
-        className="absolute -bottom-10 -left-10"
+        className="absolute -bottom-12 -left-10"
       />
       <Image
         src={footerCloudyCenterImg}
