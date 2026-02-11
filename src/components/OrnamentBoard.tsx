@@ -42,7 +42,7 @@ export default function OrnamentBoard() {
             <button
               key={i}
               className={[
-                "flex text-xs items-start font-medium leading-[150%] text-[#D87875] transition will-change-transform select-none",
+                "flex text-xs items-start font-medium leading-[150%] text-[#EA706C] transition will-change-transform select-none",
                 item && !isDrawing
                   ? "hover:scale-[1.02] active:scale-[0.98]"
                   : "",

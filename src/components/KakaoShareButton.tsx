@@ -45,7 +45,7 @@ export default function KakaoShareButton({ title, message }: LuckyResult) {
       <button onClick={handleClickShare} className="border-none outline-none">
         <Image src={kakaoImg} width={48} height={48} alt="kakao-share-button" />
       </button>
-      <span className="text-xs font-medium leading-[180%] tracking-[-0.03em] text-[#D87875]">
+      <span className="text-xs font-medium leading-[180%] tracking-[-0.03em] text-[#EA706C]">
         카카오톡 공유
       </span>
     </div>
