@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-import linkImg from "../assets/icons/link.png";
+import kakaoImg from "../assets/icons/kakao.png";
 
 interface LuckyResult {
   title: string;
@@ -41,14 +41,13 @@ export default function KakaoShareButton({ title, message }: LuckyResult) {
   };
 
   return (
-    <button
-      className="h-14 w-full rounded-[365px] bg-[#F0ABA9] text-[16px] text-white font-bold transition active:scale-[0.99]"
-      onClick={handleClickShare}
-    >
-      <span className="inline-flex items-center justify-center gap-2">
-        <span>카카오톡 공유하기</span>
-        <Image src={linkImg} alt="" width={16} height={16} />
+    <div className="flex flex-col gap-2 items-center">
+      <button onClick={handleClickShare} className="border-none outline-none">
+        <Image src={kakaoImg} width={48} height={48} alt="kakao-share-button" />
+      </button>
+      <span className="text-xs font-medium leading-[180%] tracking-[-0.03em] text-[#D87875]">
+        카카오톡 공유
       </span>
-    </button>
+    </div>
   );
 }

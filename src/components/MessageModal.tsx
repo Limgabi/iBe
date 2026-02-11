@@ -3,6 +3,11 @@
 import KakaoShareButton from "@/src/components/KakaoShareButton";
 import { Ornament } from "@/src/data/ornaments";
 
+import xImg from "../assets/icons/x.png";
+import Image from "next/image";
+import ImageDownloadButton from "@/src/components/ImageDownloadButton";
+import { meongiB } from "@/src/app/fonts";
+
 interface MessageModalProps {
   open: boolean;
   ornament: Ornament | null;
@@ -22,30 +27,41 @@ export default function MessageModal({
 
       <div className="relative mx-auto flex min-h-screen w-full max-w-97.5 items-center justify-center px-6">
         <div
-          className="w-full max-w-97.5 rounded-[20px] bg-[#FFF6F2] pt-10 px-5 pb-8 modal-card flex flex-col gap-7 text-center"
+          className="w-full max-w-97.5 rounded-[20px] bg-[#FFF6F2] py-8 px-5 modal-card flex flex-col gap-3 text-center"
           onClick={(e) => e.stopPropagation()}
         >
-          <div className="flex flex-col gap-5 text-[#D87875]">
-            <h2 className="text-2xl font-extrabold leading-normal tracking-tight">
-              {ornament.title}
-            </h2>
+          <div className="relative flex w-full items-center">
+            <span
+              className={`${meongiB.className} absolute left-1/2 -translate-x-1/2 text-[14px] leading-[180%] tracking-[-0.03em] text-[#D87875]`}
+            >
+              LUCKY DRAW
+            </span>
 
-            <div className="whitespace-pre-line break-normal text-center text-[14px] tracking-[-0.03em] leading-[1.8] modal-message">
-              {ornament.message}
-            </div>
+            <button type="button" className="ml-auto" onClick={onClose}>
+              <Image src={xImg} width={24} height={24} alt="닫기" />
+            </button>
           </div>
 
-          <div className="flex flex-col gap-2">
-            <KakaoShareButton
-              title={ornament.title}
-              message={ornament.message}
-            />
-            <button
-              className="h-14 w-full rounded-[365px] bg-[#D87875] text-[16px] text-white font-bold transition active:scale-[0.99]"
-              onClick={onClose}
-            >
-              닫기
-            </button>
+          <div className="flex flex-col gap-8">
+            <div className="flex flex-col gap-5 text-[#D87875]">
+              <h2 className="text-2xl font-extrabold leading-normal tracking-tight">
+                {ornament.title}
+              </h2>
+
+              <div className="whitespace-pre-line break-normal text-center text-[14px] tracking-[-0.03em] leading-[1.8] modal-message">
+                {ornament.message}
+              </div>
+            </div>
+
+            <hr className="border border-[#F2D7D6]" />
+
+            <div className="flex gap-7 items-center justify-center">
+              <KakaoShareButton
+                title={ornament.title}
+                message={ornament.message}
+              />
+              <ImageDownloadButton />
+            </div>
           </div>
         </div>
       </div>
