@@ -35,7 +35,7 @@ export default function OrnamentBoard() {
 
   return (
     <section className="items-center m-auto">
-      <div className="grid grid-cols-3 gap-3 items-center justify-center">
+      <div className="grid grid-cols-3 gap-x-4 gap-y-7 items-center justify-center">
         {board.map((item, i) => {
           const isActive = i === drawingIndex;
           return (

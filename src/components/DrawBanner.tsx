@@ -15,7 +15,7 @@ import { meongiB } from "@/src/app/fonts";
 
 export default function DrawBanner() {
   return (
-    <div className="relative flex flex-col gap-8 w-full pt-27 items-center overflow-hidden">
+    <div className="relative flex flex-col gap-8 w-full pt-25 items-center overflow-hidden">
       {/* 배경 레이어 */}
       <div className="pointer-events-none absolute inset-0 z-0">
         <Image
@@ -76,7 +76,7 @@ export default function DrawBanner() {
         />
       </div>
 
-      <div className="relative z-10 flex flex-col items-center gap-8 pb-6.25">
+      <div className="relative z-10 flex flex-col items-center gap-8 pb-4">
         {/* 컨텐츠 레이어 */}
         <div className="flex flex-col gap-0.5 text-[#D87875] text-center">
           <h1 className={`${meongiB.className} text-[56px] leading-[100%]`}>
@@ -98,19 +98,19 @@ export default function DrawBanner() {
             width={333}
             height={244}
             alt="newyear"
-            className="relative bottom-3 z-10"
+            className="relative bottom-2.5 z-10"
           />
           <Image
             src={shadowImg}
             width={271}
             height={71}
             alt="shadow"
-            className="absolute bottom-6 left-1/2 -translate-x-1/2 z-0"
+            className="absolute bottom-5.5 left-1/2 -translate-x-1/2 z-0"
           />
         </div>
       </div>
 
-      <div>
+      <div className="relative w-full">
         {/* 그라데이션 바 */}
         <div
           className="h-16.5 w-full pointer-events-none absolute bottom-0 left-0"
@@ -124,7 +124,7 @@ export default function DrawBanner() {
           width={16}
           height={16}
           alt="flower-left"
-          className="absolute bottom-15 left-13"
+          className="absolute bottom-13 left-13"
         />
         {/* 바닥 구름(그라데이션 바 위로) */}
         <Image
@@ -139,7 +139,7 @@ export default function DrawBanner() {
           width={60}
           height={69}
           alt="cloudy-bottom-right"
-          className="pointer-events-none absolute bottom-1 -right-5"
+          className="pointer-events-none absolute bottom-2 -right-3"
         />
       </div>
     </div>
