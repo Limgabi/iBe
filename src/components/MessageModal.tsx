@@ -32,7 +32,7 @@ export default function MessageModal({
         >
           <div className="relative flex w-full items-center">
             <span
-              className={`${meongiB.className} absolute left-1/2 -translate-x-1/2 text-[14px] leading-[180%] tracking-[-0.03em] text-[#D87875]`}
+              className={`${meongiB.className} absolute left-1/2 -translate-x-1/2 text-[14px] leading-[180%] tracking-[-0.03em] text-[#EA706C]`}
             >
               LUCKY DRAW
             </span>
@@ -43,7 +43,7 @@ export default function MessageModal({
           </div>
 
           <div className="flex flex-col gap-8">
-            <div className="flex flex-col gap-5 text-[#D87875]">
+            <div className="flex flex-col gap-5 text-[#EA706C]">
               <h2 className="text-2xl font-extrabold leading-normal tracking-tight">
                 {ornament.title}
               </h2>
