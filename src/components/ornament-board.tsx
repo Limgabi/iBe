@@ -1,7 +1,7 @@
 "use client";
 
-import MessageModal from "@/src/components/MessageModal";
-import SparkleBurst from "@/src/components/SparkleBurst";
+import MessageModal from "@/src/components/message-modal";
+import SparkleBurst from "@/src/components/sparkle-burst";
 import { buildBoard, Ornament } from "@/src/data/ornaments";
 
 import Image from "next/image";
