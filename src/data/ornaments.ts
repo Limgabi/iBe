@@ -8,6 +8,7 @@ export interface Ornament {
   messageId: string;
   title: string;
   message: string;
+  resultSrc: StaticImageData;
 }
 
 const shuffle = <T>(arr: T[]): T[] => {
@@ -34,6 +35,7 @@ export const buildBoard = (totalSlots = 9): Ornament[] => {
       messageId: msg.id,
       title: msg.title,
       message: msg.message,
+      resultSrc: msg.resultSrc,
     };
   });
 };
