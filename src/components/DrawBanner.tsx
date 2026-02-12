@@ -9,9 +9,8 @@ import cloudyBottomRightImg from "../assets/images/cloudy-bottom-right.png";
 import unionLeftImg from "../assets/images/union-left.png";
 import unionRightImg from "../assets/images/union-right.png";
 import flowerImg from "../assets/images/flower.png";
-import rectangleImg from "../assets/icons/rectangle.png";
-import rectangle2Img from "../assets/icons/rectangle-2.png";
 import { meongiB } from "@/src/app/fonts";
+import Icon from "@/src/components/common/icon/icon";
 
 export default function DrawBanner() {
   return (
@@ -88,8 +87,8 @@ export default function DrawBanner() {
             <h2 className="text-[16px] font-extrabold leading-[150%]">
               아이비의 행운 뽑기
             </h2>
-            <Image src={rectangleImg} width={8} height={8} alt="rectangle" />
-            <Image src={rectangle2Img} width={8} height={8} alt="rectangle-2" />
+            <Icon name="rectangle" width={8} height={8} />
+            <Icon name="rectangle-2" width={8} height={8} />
           </div>
         </div>
         <div className="relative">

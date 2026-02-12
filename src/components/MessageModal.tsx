@@ -3,10 +3,9 @@
 import KakaoShareButton from "@/src/components/KakaoShareButton";
 import { Ornament } from "@/src/data/ornaments";
 
-import xImg from "../assets/icons/x.png";
-import Image from "next/image";
 import ImageDownloadButton from "@/src/components/ImageDownloadButton";
 import { meongiB } from "@/src/app/fonts";
+import Icon from "@/src/components/common/icon/icon";
 
 interface MessageModalProps {
   open: boolean;
@@ -38,7 +37,7 @@ export default function MessageModal({
             </span>
 
             <button type="button" className="ml-auto" onClick={onClose}>
-              <Image src={xImg} width={24} height={24} alt="닫기" />
+              <Icon name="x" width={24} height={24} />
             </button>
           </div>
 
