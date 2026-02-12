@@ -1,5 +1,5 @@
-import { ORNAMENT_ICONS } from "@/src/data/ornamentIcons";
-import { ORNAMENT_MESSAGES } from "@/src/data/ornamentMessage";
+import { ORNAMENT_ICONS } from "@/src/data/ornament-icons";
+import { ORNAMENT_MESSAGES } from "@/src/data/ornament-message";
 import { StaticImageData } from "next/image";
 
 export interface Ornament {

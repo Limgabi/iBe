@@ -1,9 +1,9 @@
 "use client";
 
-import KakaoShareButton from "@/src/components/KakaoShareButton";
+import KakaoShareButton from "@/src/components/kakao-share-button";
 import { Ornament } from "@/src/data/ornaments";
 
-import ImageDownloadButton from "@/src/components/ImageDownloadButton";
+import ImageDownloadButton from "@/src/components/image-download-button";
 import { meongiB } from "@/src/app/fonts";
 import Icon from "@/src/components/common/icon/icon";
 

@@ -1,7 +1,7 @@
-import DrawBanner from "@/src/components/DrawBanner";
-import FooterSection from "@/src/components/FooterSection";
-import GuideSection from "@/src/components/GuideSection";
-import OrnamentBoard from "@/src/components/OrnamentBoard";
+import DrawBanner from "@/src/components/draw-banner";
+import FooterSection from "@/src/components/footer-section";
+import GuideSection from "@/src/components/guide-section";
+import OrnamentBoard from "@/src/components/ornament-board";
 
 export default function Home() {
   return (

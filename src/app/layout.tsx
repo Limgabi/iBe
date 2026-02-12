@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { pretendard } from "@/src/app/fonts";
 import "./globals.css";
-import KakaoScript from "@/src/components/KakaoScript";
+import KakaoScript from "@/src/components/kakao-script";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
