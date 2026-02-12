@@ -3,7 +3,7 @@ import flowerImg from "../assets/images/flower.png";
 
 export default function GuideSection() {
   return (
-    <section className="relative flex flex-col gap-5 pb-18 pt-4 text-center items-center text-sm font-medium leading-[160%] text-[#EA706C] w-full">
+    <section className="relative flex flex-col gap-5 pb-18 pt-10 text-center items-center text-sm font-medium leading-[160%] text-[#EA706C] w-full">
       <div>
         설날이에요 🎉 <br />
         2026년을 시작하는 당신을 위해

@@ -42,7 +42,7 @@ export default function MessageModal({
             </button>
           </div>
 
-          <div className="pt-3 pb-6">
+          <div className="pt-3 pb-6 flex justify-center">
             <Image
               src={ornament.resultSrc}
               width={295}
