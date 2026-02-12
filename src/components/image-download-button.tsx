@@ -16,7 +16,7 @@ export default function ImageDownloadButton({
     const url = resultSrc.src;
 
     const res = await fetch(url);
-    if (!res.ok) throw new Error("이미지 다운로드 실패");
+    if (!res.ok) throw new Error("행운카드 다운로드 실패");
 
     const blob = await res.blob();
     const objectUrl = URL.createObjectURL(blob);
@@ -40,7 +40,7 @@ export default function ImageDownloadButton({
         <Icon name="download" width={16} height={16} />
       </button>
       <span className="text-xs font-medium leading-[180%] tracking-[-0.03em] text-[#EA706C]">
-        이미지 다운로드
+        행운카드 다운로드
       </span>
     </div>
   );
