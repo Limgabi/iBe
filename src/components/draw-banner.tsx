@@ -78,12 +78,12 @@ export default function DrawBanner() {
       <div className="relative z-10 flex flex-col items-center gap-8 pb-4">
         {/* 컨텐츠 레이어 */}
         <div className="flex flex-col gap-0.5 text-[#EA706C] text-center">
-          <h1 className={`${meongiB.className} text-[56px] leading-[100%]`}>
+          <h1 className={`${meongiB.className} text-[56px] leading-[85%]`}>
             LUCKY
             <br />
             DRAW
           </h1>
-          <div className="flex gap-1 items-center">
+          <div className="flex gap-1 items-center justify-center">
             <h2 className="text-[16px] font-extrabold leading-[150%]">
               아이비의 행운 뽑기
             </h2>
