@@ -6,6 +6,7 @@ import { Ornament } from "@/src/data/ornaments";
 import ImageDownloadButton from "@/src/components/image-download-button";
 import { meongiB } from "@/src/app/fonts";
 import Icon from "@/src/components/common/icon/icon";
+import Image from "next/image";
 
 interface MessageModalProps {
   open: boolean;
@@ -26,7 +27,7 @@ export default function MessageModal({
 
       <div className="relative mx-auto flex min-h-screen w-full max-w-97.5 items-center justify-center px-6">
         <div
-          className="w-full max-w-97.5 rounded-[20px] bg-[#FFF6F2] py-8 px-5 modal-card flex flex-col gap-3 text-center"
+          className="w-full max-w-97.5 rounded-[20px] bg-[#FFFFFF] py-8 px-5 modal-card flex flex-col gap-3 text-center"
           onClick={(e) => e.stopPropagation()}
         >
           <div className="relative flex w-full items-center">
@@ -41,26 +42,24 @@ export default function MessageModal({
             </button>
           </div>
 
-          <div className="flex flex-col gap-8">
-            <div className="flex flex-col gap-5 text-[#EA706C]">
-              <h2 className="text-2xl font-extrabold leading-normal tracking-tight">
-                {ornament.title}
-              </h2>
+          <div className="pt-3 pb-6">
+            <Image
+              src={ornament.resultSrc}
+              width={295}
+              height={386}
+              alt={ornament.title}
+            />
+          </div>
 
-              <div className="whitespace-pre-line break-normal text-center text-[14px] tracking-[-0.03em] leading-[1.8] modal-message">
-                {ornament.message}
-              </div>
-            </div>
-
-            <hr className="border border-[#F2D7D6]" />
-
-            <div className="flex gap-7 items-center justify-center">
-              <KakaoShareButton
-                title={ornament.title}
-                message={ornament.message}
-              />
-              <ImageDownloadButton />
-            </div>
+          <div className="flex gap-7 items-center justify-center">
+            <KakaoShareButton
+              title={ornament.title}
+              message={ornament.message}
+            />
+            <ImageDownloadButton
+              resultSrc={ornament.resultSrc}
+              fileName={`iBe_${ornament.title}.png`}
+            />
           </div>
         </div>
       </div>
