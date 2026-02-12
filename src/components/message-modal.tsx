@@ -1,12 +1,13 @@
-"use client";
+'use client';
 
-import KakaoShareButton from "@/src/components/kakao-share-button";
-import { Ornament } from "@/src/data/ornaments";
+import KakaoShareButton from '@/src/components/kakao-share-button';
+import { Ornament } from '@/src/data/ornaments';
 
-import ImageDownloadButton from "@/src/components/image-download-button";
-import { meongiB } from "@/src/app/fonts";
-import Icon from "@/src/components/common/icon/icon";
-import Image from "next/image";
+import ImageDownloadButton from '@/src/components/image-download-button';
+import { meongiB } from '@/src/app/fonts';
+import Icon from '@/src/components/common/icon/icon';
+import Image from 'next/image';
+import { useState } from 'react';
 
 interface MessageModalProps {
   open: boolean;
@@ -19,6 +20,8 @@ export default function MessageModal({
   ornament,
   onClose,
 }: MessageModalProps) {
+  const [loaded, setLoaded] = useState(false);
+
   if (!open || !ornament) return null;
 
   return (
@@ -43,19 +46,23 @@ export default function MessageModal({
           </div>
 
           <div className="pt-3 pb-6 flex justify-center">
+            {!loaded && (
+              <div className="inset-0 rounded-xl bg-gray-100 animate-pulse w-73.75 h-96.5" />
+            )}
+
             <Image
               src={ornament.resultSrc}
               width={295}
               height={386}
+              sizes="295px"
               alt={ornament.title}
+              onLoadingComplete={() => setLoaded(true)}
+              priority
             />
           </div>
 
           <div className="flex gap-7 items-center justify-center">
-            <KakaoShareButton
-              title={ornament.title}
-              message={ornament.message}
-            />
+            <KakaoShareButton title={ornament.title} message={ornament.message} />
             <ImageDownloadButton
               resultSrc={ornament.resultSrc}
               fileName={`iBe_${ornament.title}.png`}
