@@ -1,8 +1,6 @@
 "use client";
 
-import Image from "next/image";
-
-import kakaoImg from "../assets/icons/kakao.png";
+import Icon from "@/src/components/common/icon/icon";
 
 interface LuckyResult {
   title: string;
@@ -43,7 +41,7 @@ export default function KakaoShareButton({ title, message }: LuckyResult) {
   return (
     <div className="flex flex-col gap-2 items-center">
       <button onClick={handleClickShare} className="border-none outline-none">
-        <Image src={kakaoImg} width={48} height={48} alt="kakao-share-button" />
+        <Icon name="kakao" width={48} height={48} />
       </button>
       <span className="text-xs font-medium leading-[180%] tracking-[-0.03em] text-[#EA706C]">
         카카오톡 공유
