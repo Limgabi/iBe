@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import KakaoShareButton from '@/src/components/kakao-share-button';
-import { Ornament } from '@/src/data/ornaments';
+import KakaoShareButton from "@/src/components/kakao-share-button";
+import { Ornament } from "@/src/data/ornaments";
 
-import ImageDownloadButton from '@/src/components/image-download-button';
-import { meongiB } from '@/src/app/fonts';
-import Icon from '@/src/components/common/icon/icon';
-import Image from 'next/image';
-import { useState } from 'react';
+import ImageDownloadButton from "@/src/components/image-download-button";
+import { meongiB } from "@/src/app/fonts";
+import Icon from "@/src/components/common/icon/icon";
+import Image from "next/image";
+import { useState } from "react";
 
 interface MessageModalProps {
   open: boolean;
@@ -25,7 +25,7 @@ export default function MessageModal({
   if (!open || !ornament) return null;
 
   return (
-    <div className="fixed inset-0 z-50" aria-modal="true" role="dialog">
+    <div className="fixed inset-0 z-100" aria-modal="true" role="dialog">
       <div className="absolute inset-0 modal-backdrop" onClick={onClose} />
 
       <div className="relative mx-auto flex min-h-screen w-full max-w-97.5 items-center justify-center px-6">
@@ -62,7 +62,10 @@ export default function MessageModal({
           </div>
 
           <div className="flex gap-7 items-center justify-center">
-            <KakaoShareButton title={ornament.title} message={ornament.message} />
+            <KakaoShareButton
+              title={ornament.title}
+              message={ornament.message}
+            />
             <ImageDownloadButton
               resultSrc={ornament.resultSrc}
               fileName={`iBe_${ornament.title}.png`}
