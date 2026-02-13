@@ -1,6 +1,7 @@
 import DrawBanner from "@/src/components/draw-banner";
 import FooterSection from "@/src/components/footer-section";
 import GuideSection from "@/src/components/guide-section";
+import InquiryButton from "@/src/components/inquiry-button";
 import OrnamentBoard from "@/src/components/ornament-board";
 
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
         <GuideSection />
         <OrnamentBoard />
         <FooterSection />
+        <InquiryButton />
       </main>
     </div>
   );
