@@ -40,7 +40,7 @@ export default function MessageModal({
               LUCKY DRAW
             </span>
 
-            <button type="button" className="ml-auto" onClick={onClose}>
+            <button className="ml-auto cursor-pointer" onClick={onClose}>
               <Icon name="x" width={24} height={24} />
             </button>
           </div>

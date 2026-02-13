@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import MessageModal from '@/src/components/message-modal';
-import SparkleBurst from '@/src/components/sparkle-burst';
-import { buildBoard, Ornament } from '@/src/data/ornaments';
+import MessageModal from "@/src/components/message-modal";
+import SparkleBurst from "@/src/components/sparkle-burst";
+import { buildBoard, Ornament } from "@/src/data/ornaments";
 
-import Image from 'next/image';
-import { useMemo, useRef, useState } from 'react';
+import Image from "next/image";
+import { useMemo, useRef, useState } from "react";
 
 export default function OrnamentBoard() {
   const board = useMemo(() => buildBoard(9), []);
@@ -20,8 +20,8 @@ export default function OrnamentBoard() {
   const preloadOptimized = (src: string, width = 640, quality = 75) => {
     const url = `/_next/image?url=${encodeURIComponent(src)}&w=${width}&q=${quality}`;
     const img = new window.Image();
-    img.decoding = 'async';
-    img.loading = 'eager';
+    img.decoding = "async";
+    img.loading = "eager";
     img.src = url;
   };
 
@@ -48,16 +48,24 @@ export default function OrnamentBoard() {
       <div className="grid grid-cols-3 gap-x-4 gap-y-7 items-center justify-center">
         {board.map((item, i) => {
           const isActive = i === drawingIndex;
+          const isDisabled = !item || isDrawing;
+          const cursorClass = !item
+            ? "cursor-not-allowed"
+            : isDrawing
+              ? "cursor-default"
+              : "cursor-pointer";
+
           return (
             <button
               key={i}
               className={[
-                'flex text-xs items-start font-medium leading-[150%] text-[#EA706C] transition will-change-transform select-none',
-                item && !isDrawing ? 'hover:scale-[1.02] active:scale-[0.98]' : '',
-                isActive ? 'ornament-pop' : '',
-                isDrawing && !isActive ? 'opacity-60' : '',
-              ].join('')}
-              disabled={!item || isDrawing}
+                "flex text-xs items-start font-medium leading-[150%] text-[#EA706C] transition will-change-transform select-none",
+                cursorClass,
+                !isDisabled ? "hover:scale-[1.02] active:scale-[0.98]" : "",
+                isActive ? "ornament-pop" : "",
+                isDrawing && !isActive ? "opacity-60" : "",
+              ].join(" ")}
+              disabled={isDisabled}
               onClick={() => item && onPick(item, i)}
             >
               <span className="align-text-top">{`(${i + 1})`}</span>

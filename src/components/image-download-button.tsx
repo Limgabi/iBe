@@ -35,7 +35,7 @@ export default function ImageDownloadButton({
     <div className="flex flex-col gap-2 items-center">
       <button
         onClick={handleDownload}
-        className="h-12 w-12 rounded-[365px] bg-[#EA706C] flex items-center justify-center"
+        className="h-12 w-12 rounded-[365px] bg-[#EA706C] flex items-center justify-center cursor-pointer"
       >
         <Icon name="download" width={16} height={16} />
       </button>
