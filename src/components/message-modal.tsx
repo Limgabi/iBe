@@ -46,19 +46,28 @@ export default function MessageModal({
           </div>
 
           <div className="pt-3 pb-6 flex justify-center">
-            {!loaded && (
-              <div className="inset-0 rounded-xl bg-gray-100 animate-pulse min-w-73.75 w-73.75 max-w-73.75 h-96.5" />
-            )}
+            <div className="relative w-73.75 h-96.5">
+              <div
+                className={[
+                  "absolute inset-0 rounded-xl bg-gray-100 animate-pulse transition-opacity duration-200",
+                  loaded ? "opacity-0" : "opacity-100",
+                ].join(" ")}
+                aria-hidden="true"
+              />
 
-            <Image
-              src={ornament.resultSrc}
-              width={295}
-              height={386}
-              sizes="295px"
-              alt={ornament.title}
-              onLoadingComplete={() => setLoaded(true)}
-              priority
-            />
+              <Image
+                src={ornament.resultSrc}
+                fill
+                sizes="295px"
+                alt={ornament.title}
+                priority
+                className={[
+                  "object-contain rounded-xl transition-opacity duration-200",
+                  loaded ? "opacity-100" : "opacity-0",
+                ].join(" ")}
+                onLoadingComplete={() => setLoaded(true)}
+              />
+            </div>
           </div>
 
           <div className="flex gap-7 items-center justify-center">
