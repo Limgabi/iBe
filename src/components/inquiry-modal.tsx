@@ -16,6 +16,11 @@ export default function InquiryModal({ open, onClose }: InquiryModalProps) {
 
   const isEmpty = !inquiryText.trim();
   const isDisabled = isSending || isEmpty;
+  const cursorClass = isSending
+    ? "cursor-default"
+    : isEmpty
+      ? "cursor-not-allowed"
+      : "cursor-pointer";
 
   const handleSendInquiry = async () => {
     const url = GAS_WEB_APP_URL;
@@ -74,7 +79,7 @@ export default function InquiryModal({ open, onClose }: InquiryModalProps) {
                 LUCKY DRAW
               </span>
 
-              <button type="button" className="ml-auto" onClick={onClose}>
+              <button className="ml-auto cursor-pointer" onClick={onClose}>
                 <Icon name="x" width={24} height={24} />
               </button>
             </div>
@@ -107,6 +112,7 @@ export default function InquiryModal({ open, onClose }: InquiryModalProps) {
                 : isEmpty
                   ? "bg-[#BDBDBD]"
                   : "bg-[#EA706C]",
+              cursorClass,
             ].join(" ")}
           >
             {isSending ? (
