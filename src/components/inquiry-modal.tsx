@@ -1,12 +1,60 @@
 import { meongiB } from "@/src/app/fonts";
 import Icon from "@/src/components/common/icon/icon";
+import { useState } from "react";
+import LoadingDots from "@/src/components/common/icon/loading/loading-dots";
 
 interface InquiryModalProps {
   open: boolean;
   onClose: () => void;
 }
 
+const GAS_WEB_APP_URL = process.env.NEXT_PUBLIC_GAS_WEB_APP_URL;
+
 export default function InquiryModal({ open, onClose }: InquiryModalProps) {
+  const [inquiryText, setInquiryText] = useState("");
+  const [isSending, setIsSending] = useState(false);
+
+  const isEmpty = !inquiryText.trim();
+  const isDisabled = isSending || isEmpty;
+
+  const handleSendInquiry = async () => {
+    const url = GAS_WEB_APP_URL;
+    if (!url) {
+      console.error(
+        "환경변수 NEXT_PUBLIC_GAS_WEB_APP_URL이 설정되어 있지 않습니다.",
+      );
+      return;
+    }
+
+    const message = inquiryText.trim();
+    if (!message) return;
+
+    try {
+      setIsSending(true);
+
+      const res = await fetch(GAS_WEB_APP_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+        },
+        body: new URLSearchParams({ message }).toString(),
+      });
+
+      const json = await res.json().catch(() => ({}));
+      if (!json.ok)
+        throw new Error(
+          json.error || "의견 전송에 실패했어요. 잠시 후 다시 시도해주세요.",
+        );
+
+      setInquiryText("");
+      onClose();
+    } catch (e) {
+      console.error(e);
+    } finally {
+      setIsSending(false);
+    }
+  };
+
   if (!open) return null;
 
   return (
@@ -42,16 +90,51 @@ export default function InquiryModal({ open, onClose }: InquiryModalProps) {
                 </p>
               </div>
               <textarea
-                className="border border-[#CBD5E1] rounded-md px-4 py-3 text-[14px] text-[#5F5F5F] leading-[150%] resize-none h-31 placeholder:text-[#A7ABB1]"
+                className="border border-[#CBD5E1] rounded-md px-4 py-3 text-[14px] text-[#5F5F5F] leading-[150%] resize-none h-31 outline-[#FBB4B2] placeholder:text-[#A7ABB1]"
                 placeholder="의견을 남겨주세요."
-              ></textarea>
+                onChange={(e) => setInquiryText(e.target.value)}
+                value={inquiryText}
+              />
             </div>
           </div>
-          <button className="rounded-[365px] h-12 py-3 w-full bg-[#EA706C] font-bold text-[16px] leading-[150%] text-white">
-            의견 보내기
+          <button
+            onClick={handleSendInquiry}
+            disabled={isDisabled}
+            className={[
+              "rounded-[365px] h-12 py-3 w-full font-bold text-[16px] leading-[150%] text-white",
+              isSending
+                ? "bg-[#FE8682]"
+                : isEmpty
+                  ? "bg-[#BDBDBD]"
+                  : "bg-[#EA706C]",
+            ].join(" ")}
+          >
+            {isSending ? (
+              <div className="flex items-center gap-2 justify-center">
+                <span>보내는 중</span>
+                <LoadingDots />
+              </div>
+            ) : (
+              "의견 보내기"
+            )}
           </button>
         </div>
       </div>
+      <style jsx global>{`
+        .modal-backdrop {
+          background: #0000004d;
+          animation: modalFadeIn 160ms ease-out both;
+        }
+
+        @keyframes modalFadeIn {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+      `}</style>
     </div>
   );
 }
