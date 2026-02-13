@@ -47,7 +47,7 @@ export default function MessageModal({
 
           <div className="pt-3 pb-6 flex justify-center">
             {!loaded && (
-              <div className="inset-0 rounded-xl bg-gray-100 animate-pulse w-73.75 h-96.5" />
+              <div className="inset-0 rounded-xl bg-gray-100 animate-pulse min-w-73.75 w-73.75 max-w-73.75 h-96.5" />
             )}
 
             <Image
