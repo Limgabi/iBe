@@ -40,16 +40,11 @@ export default function KakaoShareButton({ id, title, message }: LuckyResult) {
   };
 
   return (
-    <div className="flex flex-col gap-2 items-center">
-      <button
-        onClick={handleClickShare}
-        className="border-none outline-none cursor-pointer"
-      >
-        <Icon name="kakao" width={48} height={48} />
-      </button>
-      <span className="text-xs font-medium leading-[180%] tracking-[-0.03em] text-[#EA706C]">
-        카카오톡 공유
-      </span>
-    </div>
+    <button
+      onClick={handleClickShare}
+      className="border-none outline-none cursor-pointer"
+    >
+      <Icon name="kakao" width={295} height={48} />
+    </button>
   );
 }
