@@ -1,6 +1,6 @@
-import { ORNAMENT_ICONS } from "@/src/data/ornament-icons";
-import { ORNAMENT_MESSAGES } from "@/src/data/ornament-message";
-import { StaticImageData } from "next/image";
+import { ORNAMENT_ICONS } from '@/src/data/ornament-icons';
+import { ORNAMENT_MESSAGES } from '@/src/data/ornament-message';
+import { StaticImageData } from 'next/image';
 
 export interface Ornament {
   iconId: string;
@@ -8,7 +8,7 @@ export interface Ornament {
   messageId: string;
   title: string;
   message: string;
-  resultSrc: StaticImageData;
+  resultSrc: string;
 }
 
 const shuffle = <T>(arr: T[]): T[] => {

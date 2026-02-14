@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import MessageModal from "@/src/components/message-modal";
-import SparkleBurst from "@/src/components/sparkle-burst";
-import { buildBoard, Ornament } from "@/src/data/ornaments";
+import MessageModal from '@/src/components/message-modal';
+import SparkleBurst from '@/src/components/sparkle-burst';
+import { buildBoard, Ornament } from '@/src/data/ornaments';
 
-import Image from "next/image";
-import { useMemo, useRef, useState } from "react";
+import Image from 'next/image';
+import { useMemo, useRef, useState } from 'react';
 
 export default function OrnamentBoard() {
   const board = useMemo(() => buildBoard(9), []);
@@ -20,15 +20,15 @@ export default function OrnamentBoard() {
   const preloadOptimized = (src: string, width = 640, quality = 75) => {
     const url = `/_next/image?url=${encodeURIComponent(src)}&w=${width}&q=${quality}`;
     const img = new window.Image();
-    img.decoding = "async";
-    img.loading = "eager";
+    img.decoding = 'async';
+    img.loading = 'eager';
     img.src = url;
   };
 
   const onPick = (item: Ornament, index: number) => {
     if (isDrawing) return;
 
-    preloadOptimized(item.resultSrc.src, 640, 75);
+    preloadOptimized(item.resultSrc, 640, 75);
 
     setDrawingIndex(index);
     setBurstSeed((s) => s + 1);
@@ -50,21 +50,21 @@ export default function OrnamentBoard() {
           const isActive = i === drawingIndex;
           const isDisabled = !item || isDrawing;
           const cursorClass = !item
-            ? "cursor-not-allowed"
+            ? 'cursor-not-allowed'
             : isDrawing
-              ? "cursor-default"
-              : "cursor-pointer";
+              ? 'cursor-default'
+              : 'cursor-pointer';
 
           return (
             <button
               key={i}
               className={[
-                "flex text-xs items-start font-medium leading-[150%] text-[#EA706C] transition will-change-transform select-none",
+                'flex text-xs items-start font-medium leading-[150%] text-[#EA706C] transition will-change-transform select-none',
                 cursorClass,
-                !isDisabled ? "hover:scale-[1.02] active:scale-[0.98]" : "",
-                isActive ? "ornament-pop" : "",
-                isDrawing && !isActive ? "opacity-60" : "",
-              ].join(" ")}
+                !isDisabled ? 'hover:scale-[1.02] active:scale-[0.98]' : '',
+                isActive ? 'ornament-pop' : '',
+                isDrawing && !isActive ? 'opacity-60' : '',
+              ].join(' ')}
               disabled={isDisabled}
               onClick={() => item && onPick(item, i)}
             >

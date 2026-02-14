@@ -1,27 +1,26 @@
-"use client";
+'use client';
 
-import Icon from "@/src/components/common/icon/icon";
-import { StaticImageData } from "next/image";
+import Icon from '@/src/components/common/icon/icon';
 
 interface ImageDownloadButtonProps {
-  resultSrc: StaticImageData;
+  resultSrc: string;
   fileName?: string;
 }
 
 export default function ImageDownloadButton({
   resultSrc,
-  fileName = "iBe_행운카드.png",
+  fileName = 'iBe_행운카드.png',
 }: ImageDownloadButtonProps) {
   const handleDownload = async () => {
-    const url = resultSrc.src;
+    const url = resultSrc;
 
     const res = await fetch(url);
-    if (!res.ok) throw new Error("행운카드 다운로드 실패");
+    if (!res.ok) throw new Error('행운카드 다운로드 실패');
 
     const blob = await res.blob();
     const objectUrl = URL.createObjectURL(blob);
 
-    const a = document.createElement("a");
+    const a = document.createElement('a');
     a.href = objectUrl;
     a.download = fileName;
     document.body.appendChild(a);
