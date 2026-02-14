@@ -1,20 +1,8 @@
-import { StaticImageData } from 'next/image';
-
-import veryGoodLuckTodayImg from '../assets/images/very-good-luck-today.png';
-import youreAnAngleImg from '../assets/images/youre-an-angel.png';
-import luckyPocketMoneyImg from '../assets/images/lucky-pocket-money.png';
-import noNaggingImg from '../assets/images/no-nagging.png';
-import laughterFullImg from '../assets/images/laughter-full.png';
-import foodLuckFullImg from '../assets/images/food-luck-full.png';
-import blessingMagnet100Img from '../assets/images/blessing-magnet-100.png';
-import goodLuckMaxImg from '../assets/images/good-luck-max.png';
-import cutenessMaxImg from '../assets/images/cuteness-max.png';
-
 export interface OrnamentMessage {
   id: string;
   title: string;
   message: string;
-  resultSrc: StaticImageData;
+  resultSrc: string;
 }
 
 export const ORNAMENT_MESSAGES: OrnamentMessage[] = [
@@ -23,62 +11,62 @@ export const ORNAMENT_MESSAGES: OrnamentMessage[] = [
     title: '오늘 운세 매우 좋음',
     message:
       "축하합니다!\n오늘의 운세는 ‘상상 이상의 좋음'이에요!\n움직이는 것마다 행운이 따라오고,\n시도하는 것마다 기분 좋은 결과가 찾아올 예정!\n오늘 하루를 맘껏 즐기세요~",
-    resultSrc: veryGoodLuckTodayImg,
+    resultSrc: '/cards/very-good-luck-today.png',
   },
   {
     id: 'youre-an-angel',
     title: '당신은 천사',
     message:
       '헉 당신은 사실 인간계에\n잠시 머물러 있는 천사였군요!\n왜인지 당신 곁에 있으면 기분이 좋아지더라고요.\n오늘 천사인 당신에게는 작은 행운들이\n톡톡 튀어나올 거예요!',
-    resultSrc: youreAnAngleImg,
+    resultSrc: '/cards/youre-an-angel.png',
   },
   {
     id: 'lucky-pocket-money',
     title: '세뱃돈 기운 UP',
     message:
       '럭키!\n당신의 지갑에 기분 좋은 기운이 스며들었어요!\n직접 받든 마음으로 받든 왠지 모르게\n든든한 하루가 될 거예요.\n풍요로운 설날 보내요!',
-    resultSrc: luckyPocketMoneyImg,
+    resultSrc: '/cards/lucky-pocket-money.png',
   },
   {
     id: 'no-nagging',
     title: '잔소리 NO',
     message:
       '축하합니다!\n오늘 하루만큼은 잔소리가 스스르\n피해 가는 행운이 찾아왔어요.\n잔소리 걱정 없이 마음 편히\n웃으면서 설날을 즐기세요!',
-    resultSrc: noNaggingImg,
+    resultSrc: '/cards/no-nagging.png',
   },
   {
     id: 'laughter-full',
     title: '웃음 가득',
     message:
       '오늘은 웃음이 자동 재생되는 마법의 하루예요!\n가족과의 대화 속에서 빵 터지고\n소소한 말 한마디가\n따뜻한 기억으로 남는 설날이 될 거예요!\n너무 웃어서 광대 아플 수 있으니 조심해요!',
-    resultSrc: laughterFullImg,
+    resultSrc: '/cards/laughter-full.png',
   },
   {
     id: 'food-luck-full',
     title: '먹을 복 가득',
     message:
       '축하합니다!\n당신은 오늘 맛있는 설음식들을 한가득 먹을 예정이에요!\n먹어도 살이 안 찐다는 어마어마한 행운!\n오늘 하루가 맛있는 행복으로 가득할 거예요!',
-    resultSrc: foodLuckFullImg,
+    resultSrc: '/cards/food-luck-full.png',
   },
   {
     id: 'blessing-magnet-100',
     title: '덕담 흡수력 100%',
     message:
       '축하합니다!\n오늘 들은 덕담이 하나도 빠짐없이\n당신에게 착 달라붙는 날이에요.\n좋은 말은 다 당신 것!\n풍요로운 설날 보내요!',
-    resultSrc: blessingMagnet100Img,
+    resultSrc: '/cards/blessing-magnet-100.png',
   },
   {
     id: 'good-luck-max',
     title: '복 기운 MAX',
     message:
       '축하합니다!\n새해 복이 단단히 포장되어 당신에게\n전달되었어요!\n열기만 하면 되는 상태!\n설날 하루 종일 든든한 기운이 함께할 거예요.',
-    resultSrc: goodLuckMaxImg,
+    resultSrc: '/cards/good-luck-max.png',
   },
   {
     id: 'cuteness-max',
     title: '귀여움 MAX',
     message:
       '주의!!!\n오늘은 평소보다 20% 더 귀여움이\n업그레이드되는 날이에요!\n당신의 작은 행동 하나에도 사람들이 쓰러지니\n추파를 조심하세요!',
-    resultSrc: cutenessMaxImg,
+    resultSrc: '/cards/cuteness-max.png',
   },
 ];
