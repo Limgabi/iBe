@@ -1,7 +1,7 @@
 import { meongiB } from '@/src/app/fonts';
 import Icon from '@/src/components/common/icon/icon';
 import { useState } from 'react';
-import LoadingDots from '@/src/components/common/icon/loading/loading-dots';
+import LoadingDots from '@/src/components/common/loading/loading-dots';
 
 interface InquiryModalProps {
   open: boolean;
