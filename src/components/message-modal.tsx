@@ -34,9 +34,9 @@ export default function MessageModal({
         >
           <div className="relative flex w-full items-center">
             <span
-              className={`${meongiB.className} absolute left-1/2 -translate-x-1/2 text-[14px] leading-[180%] tracking-[-0.03em] text-[#EA706C]`}
+              className={`${meongiB.className} absolute left-1/2 -translate-x-1/2 text-modal-service text-[#EA706C]`}
             >
-              LUCKY DRAW
+              iBe-Lucky
             </span>
 
             <button className="ml-auto cursor-pointer" onClick={onClose}>

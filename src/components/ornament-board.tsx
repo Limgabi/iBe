@@ -59,7 +59,7 @@ export default function OrnamentBoard() {
             <button
               key={i}
               className={[
-                'flex text-xs items-start font-medium leading-[150%] text-[#EA706C] transition will-change-transform select-none',
+                'flex items-start text-ornament-number text-[#EA706C] transition will-change-transform select-none',
                 cursorClass,
                 !isDisabled ? 'hover:scale-[1.02] active:scale-[0.98]' : '',
                 isActive ? 'ornament-pop' : '',
