@@ -3,10 +3,9 @@
 import KakaoShareButton from '@/src/components/kakao-share-button';
 import { Ornament } from '@/src/data/ornaments';
 
-import { meongiB } from '@/src/app/fonts';
-import Icon from '@/src/components/common/icon/icon';
 import Image from 'next/image';
 import { useState } from 'react';
+import Modal from './common/modal/modal';
 
 interface MessageModalProps {
   open: boolean;
@@ -24,107 +23,43 @@ export default function MessageModal({
   if (!open || !ornament) return null;
 
   return (
-    <div className="fixed inset-0 z-100" aria-modal="true" role="dialog">
-      <div className="absolute inset-0 modal-backdrop" onClick={onClose} />
+    <Modal onClose={onClose}>
+      <div className="flx flex-col">
+        <div className="pt-3 flex justify-center">
+          <div className="relative w-73.75 h-96.5">
+            <div
+              className={[
+                'absolute inset-0 rounded-xl bg-gray-100 animate-pulse transition-opacity duration-200',
+                loaded ? 'opacity-0' : 'opacity-100',
+              ].join(' ')}
+              aria-hidden="true"
+            />
 
-      <div className="relative mx-auto flex min-h-screen w-full max-w-97.5 items-center justify-center px-6">
-        <div
-          className="w-full max-w-97.5 rounded-[20px] bg-[#FFFFFF] py-8 px-5 modal-card flex flex-col gap-3 text-center"
-          onClick={(e) => e.stopPropagation()}
-        >
-          <div className="relative flex w-full items-center">
-            <span
-              className={`${meongiB.className} absolute left-1/2 -translate-x-1/2 text-modal-service text-[#EA706C]`}
-            >
-              iBe-Lucky
-            </span>
-
-            <button className="ml-auto cursor-pointer" onClick={onClose}>
-              <Icon name="x" width={24} height={24} />
-            </button>
-          </div>
-
-          <div className="flx flex-col">
-            <div className="pt-3 flex justify-center">
-              <div className="relative w-73.75 h-96.5">
-                <div
-                  className={[
-                    'absolute inset-0 rounded-xl bg-gray-100 animate-pulse transition-opacity duration-200',
-                    loaded ? 'opacity-0' : 'opacity-100',
-                  ].join(' ')}
-                  aria-hidden="true"
-                />
-
-                <Image
-                  src={ornament.resultSrc}
-                  fill
-                  sizes="295px"
-                  alt={ornament.title}
-                  priority
-                  className={[
-                    'object-contain rounded-xl transition-opacity duration-200',
-                    loaded ? 'opacity-100' : 'opacity-0',
-                  ].join(' ')}
-                  onLoadingComplete={() => setLoaded(true)}
-                />
-              </div>
-            </div>
-
-            <p className="py-5 font-bold text-[14px] leading-[150%] tracking-[-0.03em] text-[#5F5F5F]">
-              이미지를 꾹 눌러 저장해 보세요!
-            </p>
-
-            <KakaoShareButton
-              id={ornament.messageId}
-              title={ornament.title}
-              message={ornament.message}
+            <Image
+              src={ornament.resultSrc}
+              fill
+              sizes="295px"
+              alt={ornament.title}
+              priority
+              className={[
+                'object-contain rounded-xl transition-opacity duration-200',
+                loaded ? 'opacity-100' : 'opacity-0',
+              ].join(' ')}
+              onLoadingComplete={() => setLoaded(true)}
             />
           </div>
         </div>
+
+        <p className="py-5 font-bold text-[14px] leading-[150%] tracking-[-0.03em] text-[#5F5F5F]">
+          이미지를 꾹 눌러 저장해 보세요!
+        </p>
+
+        <KakaoShareButton
+          id={ornament.messageId}
+          title={ornament.title}
+          message={ornament.message}
+        />
       </div>
-
-      <style jsx global>{`
-        .modal-backdrop {
-          background: #0000004d;
-          animation: modalFadeIn 160ms ease-out both;
-        }
-        .modal-card {
-          transform-origin: 50% 70%;
-          animation: modalCardIn 220ms cubic-bezier(0.2, 0.9, 0.2, 1) both;
-        }
-        .modal-message {
-          animation: modalRise 260ms ease-out 60ms both;
-        }
-
-        @keyframes modalFadeIn {
-          from {
-            opacity: 0;
-          }
-          to {
-            opacity: 1;
-          }
-        }
-        @keyframes modalCardIn {
-          from {
-            opacity: 0;
-            transform: translateY(10px) scale(0.96);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-          }
-        }
-        @keyframes modalRise {
-          from {
-            opacity: 0;
-            transform: translateY(6px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      `}</style>
-    </div>
+    </Modal>
   );
 }
