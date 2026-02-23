@@ -1,7 +1,9 @@
 "use client";
 
 import { meongiB } from "@/src/app/fonts";
+import Modal from "@/src/components/common/modal/modal";
 import { useToast } from "@/src/components/common/toast/toast";
+import EggCrackContent from "@/src/components/egg-crack-content";
 import { useEffect, useRef, useState } from "react";
 
 export default function Logo() {
@@ -47,7 +49,6 @@ export default function Logo() {
   const onPointerDown = () => {
     if (open) return;
 
-    // 롱프레스 타이머 시작
     longPressTimerRef.current = window.setTimeout(() => {
       showToast("…🥚", 1200);
       startTapMode();
@@ -66,7 +67,7 @@ export default function Logo() {
     tapCountRef.current += 1;
 
     if (tapCountRef.current >= TAP_TARGET) {
-      showToast("계란 발견!", 3000);
+      showToast("계란 발견!", 800);
       setOpen(true);
       endTapMode();
     }
@@ -97,6 +98,12 @@ export default function Logo() {
           DRAW
         </h1>
       </button>
+
+      {open && (
+        <Modal onClose={() => setOpen(false)}>
+          <EggCrackContent />
+        </Modal>
+      )}
     </>
   );
 }
