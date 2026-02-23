@@ -1,16 +1,16 @@
-import Image from 'next/image';
-import newyearImg from '../assets/images/newyear.png';
-import shadowImg from '../assets/images/shadow.png';
-import cloudyTopImg from '../assets/images/cloudy-top.png';
-import cloudyRightImg from '../assets/images/cloudy-right.png';
-import cloudyLeftImg from '../assets/images/cloudy-left.png';
-import cloudyBottomLeftImg from '../assets/images/cloudy-bottom-left.png';
-import cloudyBottomRightImg from '../assets/images/cloudy-bottom-right.png';
-import unionLeftImg from '../assets/images/union-left.png';
-import unionRightImg from '../assets/images/union-right.png';
-import flowerImg from '../assets/images/flower.png';
-import { meongiB } from '@/src/app/fonts';
-import Icon from '@/src/components/common/icon/icon';
+import Image from "next/image";
+import newyearImg from "../assets/images/newyear.png";
+import shadowImg from "../assets/images/shadow.png";
+import cloudyTopImg from "../assets/images/cloudy-top.png";
+import cloudyRightImg from "../assets/images/cloudy-right.png";
+import cloudyLeftImg from "../assets/images/cloudy-left.png";
+import cloudyBottomLeftImg from "../assets/images/cloudy-bottom-left.png";
+import cloudyBottomRightImg from "../assets/images/cloudy-bottom-right.png";
+import unionLeftImg from "../assets/images/union-left.png";
+import unionRightImg from "../assets/images/union-right.png";
+import flowerImg from "../assets/images/flower.png";
+import Icon from "@/src/components/common/icon/icon";
+import Logo from "@/src/components/logo";
 
 export default function DrawBanner() {
   return (
@@ -78,11 +78,7 @@ export default function DrawBanner() {
       <div className="relative z-10 flex flex-col items-center gap-10 pb-8">
         {/* 컨텐츠 레이어 */}
         <div className="flex flex-col gap-0.5 text-[#EA706C] text-center">
-          <h1 className={`${meongiB.className} text-main-title`}>
-            LUCKY
-            <br />
-            DRAW
-          </h1>
+          <Logo />
           <div className="flex gap-1 items-center justify-center">
             <h2 className="text-service-subtitle">아이비의 행운 뽑기</h2>
             <Icon name="rectangle" width={8} height={8} />
@@ -113,7 +109,7 @@ export default function DrawBanner() {
           className="h-16.5 w-full pointer-events-none absolute bottom-0 left-0"
           style={{
             background:
-              'linear-gradient(180deg, #FFF1EB 0%, #FFFAF7 50%, #FFF1EB 100%)',
+              "linear-gradient(180deg, #FFF1EB 0%, #FFFAF7 50%, #FFF1EB 100%)",
           }}
         />
         <Image

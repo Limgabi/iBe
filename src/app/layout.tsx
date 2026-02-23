@@ -3,6 +3,7 @@ import { pretendard } from "@/src/app/fonts";
 import "./globals.css";
 import KakaoScript from "@/src/components/kakao-script";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
+import { ToastProvider } from "@/src/components/common/toast/toast";
 
 export const metadata: Metadata = {
   title: "iBe",
@@ -34,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${pretendard.className} antialiased`}>
-        {children}
+        <ToastProvider>{children}</ToastProvider>
         <KakaoScript />
         {GA_ID ? <GoogleAnalytics gaId={GA_ID} /> : null}
         {GTM_ID ? <GoogleTagManager gtmId={GTM_ID} /> : null}
