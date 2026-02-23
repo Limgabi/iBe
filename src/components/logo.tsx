@@ -88,11 +88,12 @@ export default function Logo() {
         onPointerUp={onPointerUp}
         onPointerCancel={onPointerUp}
         onPointerLeave={onPointerUp}
-        className="touch-manipulation"
+        className="touch-manipulation select-none"
         aria-label="iBe logo easter egg"
         onClick={onClick}
+        onDragStart={(e) => e.preventDefault()}
       >
-        <h1 className={`${meongiB.className} text-main-title`}>
+        <h1 className={`${meongiB.className} text-main-title select-none`}>
           LUCKY
           <br />
           DRAW
