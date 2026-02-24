@@ -9,25 +9,14 @@ import { useEffect, useRef, useState } from "react";
 export default function Logo() {
   const { showToast } = useToast();
 
-  const longPressTimerRef = useRef<number | null>(null);
   const tapModeTimerRef = useRef<number | null>(null);
-
   const tapModeRef = useRef(false);
   const tapCountRef = useRef(0);
 
   const [open, setOpen] = useState(false);
 
-  const LONGPRESS_MS = 700;
   const TAP_WINDOW_MS = 5000;
   const TAP_TARGET = 3;
-
-  const clearTimers = () => {
-    if (longPressTimerRef.current)
-      window.clearTimeout(longPressTimerRef.current);
-    if (tapModeTimerRef.current) window.clearTimeout(tapModeTimerRef.current);
-    longPressTimerRef.current = null;
-    tapModeTimerRef.current = null;
-  };
 
   const endTapMode = () => {
     tapModeRef.current = false;
@@ -46,24 +35,17 @@ export default function Logo() {
     }, TAP_WINDOW_MS);
   };
 
-  const onPointerDown = () => {
+  const onClick = () => {
     if (open) return;
 
-    longPressTimerRef.current = window.setTimeout(() => {
+    // 첫 클릭 시 힌트 토스트 + 탭 모드 시작
+    if (!tapModeRef.current) {
       showToast("…🥚", 1200);
       startTapMode();
-    }, LONGPRESS_MS);
-  };
+      return;
+    }
 
-  const onPointerUp = () => {
-    if (longPressTimerRef.current)
-      window.clearTimeout(longPressTimerRef.current);
-    longPressTimerRef.current = null;
-  };
-
-  const onClick = () => {
-    if (!tapModeRef.current || open) return;
-
+    // 탭 모드 중이면 3탭 카운트
     tapCountRef.current += 1;
 
     if (tapCountRef.current >= TAP_TARGET) {
@@ -74,20 +56,13 @@ export default function Logo() {
   };
 
   useEffect(() => {
-    return () => {
-      clearTimers();
-      endTapMode();
-    };
+    return () => endTapMode();
   }, []);
 
   return (
     <>
       <button
         type="button"
-        onPointerDown={onPointerDown}
-        onPointerUp={onPointerUp}
-        onPointerCancel={onPointerUp}
-        onPointerLeave={onPointerUp}
         className="touch-manipulation select-none"
         aria-label="iBe logo easter egg"
         onClick={onClick}
