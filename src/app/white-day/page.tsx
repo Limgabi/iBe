@@ -30,7 +30,7 @@ export default function Home() {
             name="heartSecondary"
             width={40}
             height={38}
-            style={{ position: 'absolute', top: 55, right: '35%' }}
+            style={{ position: 'absolute', top: 55, right: '25%' }}
           />
           <Icon
             name="candy"
