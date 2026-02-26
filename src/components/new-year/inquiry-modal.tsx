@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import LoadingDots from '@/src/components/common/loading/loading-dots';
-import Modal from './common/modal/modal';
+import { useState } from "react";
+import LoadingDots from "@/src/components/common/loading/loading-dots";
+import Modal from "../common/modal/modal";
 
 interface InquiryModalProps {
   open: boolean;
@@ -10,22 +10,22 @@ interface InquiryModalProps {
 const GAS_WEB_APP_URL = process.env.NEXT_PUBLIC_GAS_WEB_APP_URL;
 
 export default function InquiryModal({ open, onClose }: InquiryModalProps) {
-  const [inquiryText, setInquiryText] = useState('');
+  const [inquiryText, setInquiryText] = useState("");
   const [isSending, setIsSending] = useState(false);
 
   const isEmpty = !inquiryText.trim();
   const isDisabled = isSending || isEmpty;
   const cursorClass = isSending
-    ? 'cursor-default'
+    ? "cursor-default"
     : isEmpty
-      ? 'cursor-not-allowed'
-      : 'cursor-pointer';
+      ? "cursor-not-allowed"
+      : "cursor-pointer";
 
   const handleSendInquiry = async () => {
     const url = GAS_WEB_APP_URL;
     if (!url) {
       console.error(
-        '환경변수 NEXT_PUBLIC_GAS_WEB_APP_URL이 설정되어 있지 않습니다.',
+        "환경변수 NEXT_PUBLIC_GAS_WEB_APP_URL이 설정되어 있지 않습니다.",
       );
       return;
     }
@@ -37,9 +37,9 @@ export default function InquiryModal({ open, onClose }: InquiryModalProps) {
       setIsSending(true);
 
       const res = await fetch(GAS_WEB_APP_URL, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
         },
         body: new URLSearchParams({ message }).toString(),
       });
@@ -47,10 +47,10 @@ export default function InquiryModal({ open, onClose }: InquiryModalProps) {
       const json = await res.json().catch(() => ({}));
       if (!json.ok)
         throw new Error(
-          json.error || '의견 전송에 실패했어요. 잠시 후 다시 시도해주세요.',
+          json.error || "의견 전송에 실패했어요. 잠시 후 다시 시도해주세요.",
         );
 
-      setInquiryText('');
+      setInquiryText("");
       onClose();
     } catch (e) {
       console.error(e);
@@ -86,10 +86,14 @@ export default function InquiryModal({ open, onClose }: InquiryModalProps) {
           onClick={handleSendInquiry}
           disabled={isDisabled}
           className={[
-            'rounded-[365px] h-12 py-3 w-full text-button text-white',
-            isSending ? 'bg-[#FE8682]' : isEmpty ? 'bg-[#BDBDBD]' : 'bg-[#EA706C]',
+            "rounded-[365px] h-12 py-3 w-full text-button text-white",
+            isSending
+              ? "bg-[#FE8682]"
+              : isEmpty
+                ? "bg-[#BDBDBD]"
+                : "bg-[#EA706C]",
             cursorClass,
-          ].join(' ')}
+          ].join(" ")}
         >
           {isSending ? (
             <div className="flex items-center gap-2 justify-center">
@@ -97,7 +101,7 @@ export default function InquiryModal({ open, onClose }: InquiryModalProps) {
               <LoadingDots />
             </div>
           ) : (
-            '의견 보내기'
+            "의견 보내기"
           )}
         </button>
       </div>

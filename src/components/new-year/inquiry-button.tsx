@@ -1,7 +1,7 @@
 "use client";
 
 import Icon from "@/src/components/common/icon/icon";
-import InquiryModal from "@/src/components/inquiry-modal";
+import InquiryModal from "@/src/components/new-year/inquiry-modal";
 import { useState } from "react";
 
 export default function InquiryButton() {

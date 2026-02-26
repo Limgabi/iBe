@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { pretendard } from "@/src/app/fonts";
 import "./globals.css";
-import KakaoScript from "@/src/components/kakao-script";
+import KakaoScript from "@/src/components/common/kakao-script/kakao-script";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import { ToastProvider } from "@/src/components/common/toast/toast";
 

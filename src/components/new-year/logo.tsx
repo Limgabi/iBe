@@ -3,7 +3,7 @@
 import { meongiB } from "@/src/app/fonts";
 import Modal from "@/src/components/common/modal/modal";
 import { useToast } from "@/src/components/common/toast/toast";
-import EggCrackContent from "@/src/components/egg-crack-content";
+import EggCrackContent from "@/src/components/new-year/egg-crack-content";
 import { useEffect, useRef, useState } from "react";
 
 export default function Logo() {

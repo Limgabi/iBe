@@ -1,5 +1,5 @@
-import Image from 'next/image';
-import flowerImg from '../assets/images/flower.png';
+import Image from "next/image";
+import flowerImg from "@/src/assets/images/new-year/flower.png";
 
 export default function GuideSection() {
   return (
