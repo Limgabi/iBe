@@ -1,7 +1,7 @@
 import Image from "next/image";
-import footerCloudyLeftImg from "../assets/images/footer-cloudy-left.png";
-import footerCloudyCenterImg from "../assets/images/footer-cloudy-center.png";
-import footerCloudyRightImg from "../assets/images/footer-cloudy-right.png";
+import footerCloudyLeftImg from "@/src/assets/images/new-year/footer-cloudy-left.png";
+import footerCloudyCenterImg from "@/src/assets/images/new-year/footer-cloudy-center.png";
+import footerCloudyRightImg from "@/src/assets/images/new-year/footer-cloudy-right.png";
 
 export default function FooterSection() {
   return (

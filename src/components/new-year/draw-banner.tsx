@@ -1,16 +1,16 @@
 import Image from "next/image";
-import newyearImg from "../assets/images/newyear.png";
-import shadowImg from "../assets/images/shadow.png";
-import cloudyTopImg from "../assets/images/cloudy-top.png";
-import cloudyRightImg from "../assets/images/cloudy-right.png";
-import cloudyLeftImg from "../assets/images/cloudy-left.png";
-import cloudyBottomLeftImg from "../assets/images/cloudy-bottom-left.png";
-import cloudyBottomRightImg from "../assets/images/cloudy-bottom-right.png";
-import unionLeftImg from "../assets/images/union-left.png";
-import unionRightImg from "../assets/images/union-right.png";
-import flowerImg from "../assets/images/flower.png";
+import newyearImg from "@/src/assets/images/new-year/newyear.png";
+import shadowImg from "@/src/assets/images/new-year/shadow.png";
+import cloudyTopImg from "@/src/assets/images/new-year/cloudy-top.png";
+import cloudyRightImg from "@/src/assets/images/new-year/cloudy-right.png";
+import cloudyLeftImg from "@/src/assets/images/new-year/cloudy-left.png";
+import cloudyBottomLeftImg from "@/src/assets/images/new-year/cloudy-bottom-left.png";
+import cloudyBottomRightImg from "@/src/assets/images/new-year/cloudy-bottom-right.png";
+import unionLeftImg from "@/src/assets/images/new-year/union-left.png";
+import unionRightImg from "@/src/assets/images/new-year/union-right.png";
+import flowerImg from "@/src/assets/images/new-year/flower.png";
 import Icon from "@/src/components/common/icon/icon";
-import Logo from "@/src/components/logo";
+import Logo from "@/src/components/new-year/logo";
 
 export default function DrawBanner() {
   return (

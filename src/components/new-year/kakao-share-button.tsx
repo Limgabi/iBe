@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import Icon from '@/src/components/common/icon/icon';
+import Icon from "@/src/components/common/icon/icon";
 
 interface LuckyResult {
   id: string;
@@ -15,24 +15,24 @@ export default function KakaoShareButton({ id, title, message }: LuckyResult) {
     if (!window.Kakao.isInitialized()) return;
 
     window.Kakao.Share.sendDefault({
-      objectType: 'feed',
+      objectType: "feed",
       content: {
         title: `iBe - 행운 뽑기 | 오늘의 운세: ${title}`,
         description: message,
-        imageUrl: `https://ibe-lucky.vercel.app/cards/${id}.png`,
+        imageUrl: `https://ibe-lucky.vercel.app/cards/new-year/${id}.png`,
         imageWidth: 295,
         imageHeight: 386,
         link: {
-          mobileWebUrl: 'https://ibe-lucky.vercel.app',
-          webUrl: 'https://ibe-lucky.vercel.app',
+          mobileWebUrl: "https://ibe-lucky.vercel.app",
+          webUrl: "https://ibe-lucky.vercel.app",
         },
       },
       buttons: [
         {
-          title: '나도 뽑으러 가기',
+          title: "나도 뽑으러 가기",
           link: {
-            mobileWebUrl: 'https://ibe-lucky.vercel.app',
-            webUrl: 'https://ibe-lucky.vercel.app',
+            mobileWebUrl: "https://ibe-lucky.vercel.app",
+            webUrl: "https://ibe-lucky.vercel.app",
           },
         },
       ],
