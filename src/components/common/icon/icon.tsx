@@ -1,13 +1,12 @@
-import css from "styled-jsx/css";
-
-import { iconMap, IconTypes } from "@/src/components/common/icon/icon-map";
+import { iconMap, IconTypes } from '@/src/components/common/icon/icon-map';
 
 interface IconProps {
   name: IconTypes;
   width?: number;
   height?: number;
   color?: string;
-  customStyle?: ReturnType<typeof css>;
+  className?: string;
+  style?: React.CSSProperties;
   onClick?: React.MouseEventHandler<SVGSVGElement>;
 }
 
@@ -16,7 +15,8 @@ export default function Icon({
   width,
   height,
   color,
-  customStyle,
+  className,
+  style,
   onClick,
 }: IconProps) {
   const IconComponent = iconMap[name];
@@ -26,30 +26,16 @@ export default function Icon({
   }
 
   const w = width ?? 16;
-  const h = height;
 
   return (
     <IconComponent
       width={w}
-      {...(h ? { height: h } : {})}
+      {...(height ? { height } : {})}
       onClick={onClick}
-      role={onClick ? "button" : undefined}
-      css={[
-        css`
-          display: inline-block;
-          vertical-align: middle;
-          cursor: ${onClick ? "pointer" : "inherit"};
-          ${color
-            ? css`
-                * {
-                  fill: ${color};
-                  stroke: ${color};
-                }
-              `
-            : css``}
-        `,
-        customStyle,
-      ]}
+      role={onClick ? 'button' : undefined}
+      className={className}
+      style={style}
+      {...(color ? { color } : {})}
     />
   );
 }
