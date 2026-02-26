@@ -1,13 +1,13 @@
 import { StaticImageData } from "next/image";
-import yakgwaImg from "@/src/assets/images/new-year/yakgwa.png";
-import envelopeImg from "@/src/assets/images/new-year/envelope.png";
-import kiteImg from "@/src/assets/images/new-year/kite.png";
-import luckyPouchImg from "@/src/assets/images/new-year/lucky-pouch.png";
-import moonJarImg from "@/src/assets/images/new-year/moon-jar.png";
-import songpyeonImg from "@/src/assets/images/new-year/songpyeon.png";
-import jeogoriImg from "@/src/assets/images/new-year/jeogori.png";
-import spoonImg from "@/src/assets/images/new-year/spoon.png";
-import yutImg from "@/src/assets/images/new-year/yut.png";
+import yakgwaImg from "../assets/images/new-year/yakgwa.png";
+import envelopeImg from "../assets/images/new-year/envelope.png";
+import kiteImg from "../assets/images/new-year/kite.png";
+import luckyPouchImg from "../assets/images/new-year/lucky-pouch.png";
+import moonJarImg from "../assets/images/new-year/moon-jar.png";
+import songpyeonImg from "../assets/images/new-year/songpyeon.png";
+import jeogoriImg from "../assets/images/new-year/jeogori.png";
+import spoonImg from "../assets/images/new-year/spoon.png";
+import yutImg from "../assets/images/new-year/yut.png";
 
 export type OrnamentId =
   | "yakgwa"
