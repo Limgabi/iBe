@@ -1,11 +1,10 @@
 import Icon from "@/src/components/common/icon/icon";
 import Input from "@/src/components/common/input/input";
+import { useWhiteDayContext } from "@/src/contexts/white-day";
 import Link from "next/link";
-import { useState } from "react";
 
 export default function Step1() {
-  const [sender, setSender] = useState("");
-  const [receiver, setReceiver] = useState("");
+  const { sender, receiver, setSender, setReceiver } = useWhiteDayContext();
 
   return (
     <div className="flex flex-col justify-between items-center flex-1 h-full min-h-0">
