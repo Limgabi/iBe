@@ -85,7 +85,9 @@ export default function Step2() {
             <LoadingDots background="#B5644E" />
           </div>
 
-          <div className="text-[200px]">{emoji}</div>
+          <span className="inline-flex items-center text-[200px] leading-none">
+            {emoji}
+          </span>
         </div>
       ) : (
         <div className="flex flex-col justify-between items-center flex-1 h-full min-h-0 gap-15">
