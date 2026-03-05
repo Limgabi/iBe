@@ -1,4 +1,4 @@
-import type { WhiteDaySelections } from '@/src/contexts/white-day';
+import type { MBTI, WhiteDaySelections } from '@/src/contexts/white-day';
 
 type OptionItem<T> = { value: T; label: string };
 type OptionGroup<T> = { title: string; options: readonly OptionItem<T>[] };
@@ -73,24 +73,6 @@ type Result = {
   formal: string;
   fun: string;
 };
-
-export type MBTI =
-  | 'INFJ'
-  | 'ENFJ'
-  | 'ISTJ'
-  | 'ISFJ'
-  | 'ENFP'
-  | 'ESFP'
-  | 'INTP'
-  | 'ESFJ'
-  | 'ISFP'
-  | 'INFP'
-  | 'ESTP'
-  | 'ESTJ'
-  | 'ENTJ'
-  | 'INTJ'
-  | 'ENTP'
-  | 'ISTP';
 
 const EMOJI_BY_MBTI: Record<MBTI, string> = {
   INFJ: '🧁',
