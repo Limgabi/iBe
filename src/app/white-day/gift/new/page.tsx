@@ -1,11 +1,8 @@
 import { meongiB } from "@/src/app/fonts";
 import GiftCreateFlow from "@/src/components/white-day/gift-create-flow";
+import { Suspense } from "react";
 
-export default function Home({
-  searchParams,
-}: {
-  searchParams: { step?: string };
-}) {
+export default function Home() {
   return (
     <div className="mx-auto max-w-md px-5 pt-8 pb-14.25 flex flex-1 flex-col min-h-screen gap-12">
       <div className="flex flex-col gap-3">
@@ -16,7 +13,10 @@ export default function Home({
         </span>
         {/** TODO: steps */}
       </div>
-      <GiftCreateFlow stepParam={searchParams.step} />
+
+      <Suspense fallback={null}>
+        <GiftCreateFlow />
+      </Suspense>
     </div>
   );
 }
