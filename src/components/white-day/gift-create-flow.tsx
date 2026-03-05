@@ -3,20 +3,21 @@
 import Step1 from "@/src/components/white-day/step-1";
 import Step2 from "@/src/components/white-day/step-2";
 import { WhiteDayProvider } from "@/src/contexts/white-day";
-import { useSearchParams } from "next/navigation";
 import { useMemo } from "react";
 
-export default function GiftCreateFlow() {
-  const searchParams = useSearchParams();
+interface GiftCreateFlowParams {
+  stepParam?: string;
+}
 
+export default function GiftCreateFlow({ stepParam }: GiftCreateFlowParams) {
   const clamp = (n: number, min: number, max: number) =>
     Math.max(min, Math.min(max, n));
 
   const step = useMemo(() => {
-    const raw = Number(searchParams.get("step") ?? "1");
+    const raw = Number(stepParam ?? "1");
     const safe = Number.isFinite(raw) ? raw : 1;
     return clamp(safe, 1, 5);
-  }, [searchParams]);
+  }, [stepParam]);
 
   return (
     <WhiteDayProvider>
