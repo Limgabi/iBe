@@ -1,6 +1,7 @@
 import Button from "@/src/components/common/button/button";
 import Icon from "@/src/components/common/icon/icon";
 import LoadingDots from "@/src/components/common/loading/loading-dots";
+import RadioGroup from "@/src/components/common/radio-group/radio-group";
 import {
   DESSERT_ICONS,
   WHITE_DAY_KEYS,
@@ -95,33 +96,14 @@ export default function Step2() {
                 const group = WHITE_DAY_OPTIONS[key];
 
                 return (
-                  <div
-                    key={key}
-                    className="flex flex-col gap-3 font-semibold text-sm leading-[160%] text-[#B5644E]"
-                  >
-                    <label>{group.title}</label>
-
-                    <div className="flex justify-between gap-3">
-                      {group.options.map((opt) => {
-                        const selected = selections[key] === opt.value;
-
-                        return (
-                          <button
-                            key={opt.value}
-                            className={[
-                              "w-[50%] py-2 rounded-4xl border outline-none cursor-pointer",
-                              selected
-                                ? "bg-[#F8DCC4] border-[#B5644E]"
-                                : "border-[#F8DCC4] bg-[#FFFDF6]",
-                            ].join(" ")}
-                            onClick={() => setSelection(key, opt.value)}
-                          >
-                            {opt.label}
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </div>
+                  <RadioGroup
+                    key={group.title}
+                    theme="white-day"
+                    label={group.title}
+                    options={group.options}
+                    value={selections[key]}
+                    onChange={(v) => setSelection(key, v)}
+                  />
                 );
               })}
             </div>
