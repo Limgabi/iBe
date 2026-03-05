@@ -1,3 +1,4 @@
+import Button from "@/src/components/common/button/button";
 import Icon from "@/src/components/common/icon/icon";
 import LoadingDots from "@/src/components/common/loading/loading-dots";
 import {
@@ -23,7 +24,10 @@ const pickUnique = <T,>(arr: readonly T[], count: number) => {
 
 export default function Step2() {
   const router = useRouter();
+
   const { receiver, selections, setSelection } = useWhiteDayContext();
+
+  const allSelected = WHITE_DAY_KEYS.every((k) => selections[k] != null);
 
   const [isLoading, setIsLoading] = useState(false);
   const [emoji, setEmoji] = useState<DessertIcon>("🧁");
@@ -32,6 +36,7 @@ export default function Step2() {
 
   const handleClickNext = () => {
     if (isLoading) return;
+    if (!allSelected) return;
 
     setIsLoading(true);
 
@@ -122,13 +127,13 @@ export default function Step2() {
             </div>
           </div>
 
-          <button
-            className="flex w-fit items-center gap-1 rounded-[365px] bg-[#B5644E] px-6 py-3 text-button text-white"
+          <Button
+            text="다음으로"
+            icon={<Icon name="arrowRight" width={16} height={16} />}
             onClick={handleClickNext}
-          >
-            <span>다음으로</span>
-            <Icon name="arrowRight" width={16} height={16} />
-          </button>
+            theme="white-day"
+            disabled={!allSelected}
+          />
         </div>
       )}
     </>

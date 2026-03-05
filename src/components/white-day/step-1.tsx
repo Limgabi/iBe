@@ -1,10 +1,17 @@
+import Button from "@/src/components/common/button/button";
 import Icon from "@/src/components/common/icon/icon";
 import Input from "@/src/components/common/input/input";
 import { useWhiteDayContext } from "@/src/contexts/white-day";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function Step1() {
+  const router = useRouter();
+
   const { sender, receiver, setSender, setReceiver } = useWhiteDayContext();
+
+  const handleClickNext = () => {
+    router.push("/white-day/gift/new?step=2");
+  };
 
   return (
     <div className="flex flex-col justify-between items-center flex-1 h-full min-h-0">
@@ -33,13 +40,13 @@ export default function Step1() {
         </div>
       </div>
 
-      <Link
-        href="/white-day/gift/new?step=2"
-        className="flex w-fit items-center gap-1 rounded-[365px] bg-[#B5644E] px-6 py-3 text-button text-white"
-      >
-        <span>다음으로</span>
-        <Icon name="arrowRight" width={16} height={16} />
-      </Link>
+      <Button
+        text="다음으로"
+        icon={<Icon name="arrowRight" width={16} height={16} />}
+        onClick={handleClickNext}
+        theme="white-day"
+        disabled={!sender || !receiver}
+      />
     </div>
   );
 }
