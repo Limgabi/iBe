@@ -13,7 +13,7 @@ export default function Step3() {
   const handleClickNext = () => {
     router.push('/white-day/gift/new?step=4');
   };
-  console.log(result);
+
   return (
     <div className="flex flex-col justify-between items-center flex-1 h-full min-h-0 gap-15">
       <div className="flex flex-col gap-12 w-full items-center">

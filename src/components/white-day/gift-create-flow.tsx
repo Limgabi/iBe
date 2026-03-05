@@ -6,6 +6,7 @@ import { WhiteDayProvider } from '@/src/contexts/white-day';
 import { useSearchParams } from 'next/navigation';
 import { useMemo } from 'react';
 import Step3 from './step-3';
+import Step4 from './step-4';
 
 export default function GiftCreateFlow() {
   const searchParams = useSearchParams();
@@ -21,10 +22,11 @@ export default function GiftCreateFlow() {
 
   return (
     <WhiteDayProvider>
-      <div className="flex flex-col flex-1 min-h-0 w-full">
+      <div className="flex flex-col flex-1 min-h-0 w-full px-[14px]">
         {step === 1 && <Step1 />}
         {step === 2 && <Step2 />}
         {step === 3 && <Step3 />}
+        {step === 4 && <Step4 />}
       </div>
     </WhiteDayProvider>
   );
