@@ -1,15 +1,17 @@
-import Button from "@/src/components/common/button/button";
-import Icon from "@/src/components/common/icon/icon";
-import LoadingDots from "@/src/components/common/loading/loading-dots";
-import RadioGroup from "@/src/components/common/radio-group/radio-group";
+import Button from '@/src/components/common/button/button';
+import Icon from '@/src/components/common/icon/icon';
+import LoadingDots from '@/src/components/common/loading/loading-dots';
+import RadioGroup from '@/src/components/common/radio-group/radio-group';
 import {
   DESSERT_ICONS,
   WHITE_DAY_KEYS,
   WHITE_DAY_OPTIONS,
-} from "@/src/components/white-day/constants";
-import { useWhiteDayContext } from "@/src/contexts/white-day";
-import { useRouter } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+  WHITE_DAY_RESULT_BY_MBTI,
+} from '@/src/components/white-day/constants';
+import { useWhiteDayContext } from '@/src/contexts/white-day';
+import { useRouter } from 'next/navigation';
+import { useEffect, useRef, useState } from 'react';
+import { getMbtiFromSelections } from './get-mbti-from-selections';
 
 type DessertIcon = (typeof DESSERT_ICONS)[number];
 const pickUnique = <T,>(arr: readonly T[], count: number) => {
@@ -26,12 +28,12 @@ const pickUnique = <T,>(arr: readonly T[], count: number) => {
 export default function Step2() {
   const router = useRouter();
 
-  const { receiver, selections, setSelection } = useWhiteDayContext();
+  const { receiver, selections, setSelection, setMbtiResult } = useWhiteDayContext();
 
   const allSelected = WHITE_DAY_KEYS.every((k) => selections[k] != null);
 
   const [isLoading, setIsLoading] = useState(false);
-  const [emoji, setEmoji] = useState<DessertIcon>("🧁");
+  const [emoji, setEmoji] = useState<DessertIcon>('🧁');
 
   const timersRef = useRef<{ intervalId?: number; timeoutId?: number }>({});
 
@@ -39,22 +41,25 @@ export default function Step2() {
     if (isLoading) return;
     if (!allSelected) return;
 
-    setIsLoading(true);
+    // mbti 및 결과 저장
+    const mbti = getMbtiFromSelections(selections);
+    if (!mbti) return;
 
+    const res = WHITE_DAY_RESULT_BY_MBTI[mbti];
+    setMbtiResult(mbti, res);
+
+    setIsLoading(true);
     const seq = pickUnique(DESSERT_ICONS, 5);
     setEmoji(seq[0]);
-
     let idx = 0;
     const intervalId = window.setInterval(() => {
       idx = Math.min(idx + 1, 4);
       setEmoji(seq[idx]);
     }, 1000);
-
     const timeoutId = window.setTimeout(() => {
       window.clearInterval(intervalId);
-      router.push("/white-day/gift/new?step=3");
+      router.push('/white-day/gift/new?step=3');
     }, 5000);
-
     timersRef.current = { intervalId, timeoutId };
   };
 
@@ -80,7 +85,9 @@ export default function Step2() {
             <LoadingDots background="#B5644E" />
           </div>
 
-          <div className="text-[200px]">{emoji}</div>
+          <span className="inline-flex items-center text-[200px] leading-none">
+            {emoji}
+          </span>
         </div>
       ) : (
         <div className="flex flex-col justify-between items-center flex-1 h-full min-h-0 gap-15">
