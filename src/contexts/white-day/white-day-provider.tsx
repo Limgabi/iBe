@@ -24,6 +24,7 @@ export function WhiteDayProvider({ children }: WhiteDayProviderProps) {
   });
   const [mbti, setMbti] = useState<MBTI | null>(null);
   const [result, setResult] = useState<WhiteDayResult | null>(null);
+  const [letter, setLetter] = useState('');
 
   const setSelection: WhiteDayActions['setSelection'] = (key, value) => {
     setSelections((prev) => ({ ...prev, [key]: value }));
@@ -64,8 +65,11 @@ export function WhiteDayProvider({ children }: WhiteDayProviderProps) {
       result,
       setMbtiResult,
       resetResult,
+
+      letter,
+      setLetter,
     };
-  }, [sender, receiver, selections, mbti, result]);
+  }, [sender, receiver, selections, mbti, result, letter]);
 
   return (
     <WhiteDayContext.Provider value={value}>{children}</WhiteDayContext.Provider>

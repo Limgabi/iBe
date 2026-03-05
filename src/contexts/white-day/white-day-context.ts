@@ -49,6 +49,8 @@ export type WhiteDayState = {
 
   mbti: MBTI | null;
   result: WhiteDayResult | null;
+
+  letter: string;
 };
 
 export type WhiteDayActions = {
@@ -63,6 +65,8 @@ export type WhiteDayActions = {
 
   setMbtiResult: (mbti: MBTI, result: WhiteDayResult) => void;
   resetResult: () => void;
+
+  setLetter: (v: string) => void;
 };
 
 export type WhiteDayContextValue = WhiteDayState & WhiteDayActions;
