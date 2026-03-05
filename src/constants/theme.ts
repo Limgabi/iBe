@@ -19,7 +19,7 @@ export const THEME_UI = {
       primary: '#F8DCC4',
       primarySoft: '#6ED3C4',
       disabled: '#BDBDBD',
-      outline: '#A7E5DC',
+      outline: '#F8DCC4',
     },
   },
 };
