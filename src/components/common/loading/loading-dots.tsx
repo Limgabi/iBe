@@ -1,4 +1,14 @@
-export default function LoadingDots() {
+interface LoadingDotsProps {
+  width?: string;
+  height?: string;
+  background?: string;
+}
+
+export default function LoadingDots({
+  width = "8px",
+  height = "8px",
+  background = "#ffffff",
+}: LoadingDotsProps) {
   return (
     <span className="loading-dots" aria-label="loading">
       <span className="dot d1" />
@@ -15,10 +25,10 @@ export default function LoadingDots() {
         .dot {
           position: absolute;
           top: 0;
-          width: 8px;
-          height: 8px;
+          width: ${width};
+          height: ${height};
           border-radius: 9999px;
-          background: #ffffff;
+          background: ${background};
           opacity: 0.25;
           transform: scale(0.9);
           animation: pulse 0.9s infinite ease-in-out;
