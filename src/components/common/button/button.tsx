@@ -26,7 +26,7 @@ export default function Button({
       disabled={disabled}
       onClick={onClick}
       className={[
-        "flex w-fit items-center gap-2 rounded-[365px] px-6 py-3 text-button text-white",
+        "flex w-fit items-center gap-2 rounded-[365px] px-6 py-3 text-button text-white cursor-pointer",
         "disabled:bg-[#BDBDBD] disabled:cursor-not-allowed",
         theme === "new-year" && "bg-[#EA706C]",
         theme === "white-day" && "bg-[#B5644E]",
