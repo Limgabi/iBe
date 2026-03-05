@@ -48,3 +48,22 @@ export const WHITE_DAY_OPTIONS = {
     ],
   },
 } as const satisfies WhiteDayOptions;
+
+export const DESSERT_ICONS = [
+  "🧁",
+  "🍰",
+  "🍩",
+  "🍮",
+  "🍭",
+  "🍬",
+  "🍪",
+  "🍯",
+  "🍨",
+  "🍧",
+  "🥞",
+  "🥨",
+  "🥐",
+  "🥯",
+  "🧇",
+  "🥧",
+] as const;
