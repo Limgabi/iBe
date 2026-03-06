@@ -1,5 +1,6 @@
 import Button from "@/src/components/common/button/button";
 import LoadingDots from "@/src/components/common/loading/loading-dots";
+import GiftCard from "@/src/components/white-day/gift-card";
 import KakaoShareButton from "@/src/components/white-day/kakao-share-button";
 import { useWhiteDayContext } from "@/src/contexts/white-day";
 import { db } from "@/src/lib/firebase";
@@ -90,38 +91,7 @@ export default function Step5() {
           선물이 준비되었어요!
         </p>
 
-        <div className="flex flex-col gap-5 rounded-lg py-6 px-5 border border-[#F8DCC4] bg-[#FFFFFF] text-[#B5644E] w-full items-center">
-          <span className="text-sm leading-[160%] font-black">{`To. ${gift.receiver}`}</span>
-
-          <div className="flex flex-col gap-3">
-            <span className="inline-flex h-30 items-center text-[120px] leading-none">
-              {gift.emoji}
-            </span>
-            <span className="font-extrabold text-sm leading-[160%]">
-              {gift.title}
-            </span>
-          </div>
-
-          <div className="rounded-lg bg-[#FFFBE8] p-4">
-            <div
-              className="whitespace-pre-wrap text-sm font-medium text-[#B5644E]"
-              style={{
-                lineHeight: "25px",
-                backgroundImage: `
-        repeating-linear-gradient(
-          to bottom,
-          transparent 0,
-          transparent 24px,
-          #FFE1BE 24px,
-          #FFE1BE 25px
-        )
-      `,
-              }}
-            >
-              {gift.letter}
-            </div>
-          </div>
-        </div>
+        <GiftCard gift={gift} />
       </div>
 
       <div className="flex flex-col gap-2">
