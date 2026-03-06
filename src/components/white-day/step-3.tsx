@@ -1,21 +1,21 @@
-import { useWhiteDayContext } from '@/src/contexts/white-day';
-import Button from '../common/button/button';
-import Icon from '../common/icon/icon';
-import { useRouter } from 'next/navigation';
+import { useWhiteDayContext } from "@/src/contexts/white-day";
+import Button from "../common/button/button";
+import Icon from "../common/icon/icon";
+import { useRouter } from "next/navigation";
 
 export default function Step3() {
   const router = useRouter();
 
   const { receiver, result } = useWhiteDayContext();
 
-  const dessertType = result?.title.split(' ')[0];
+  const dessertType = result?.title.split(" ")[0];
 
   const handleClickNext = () => {
-    router.push('/white-day/gift/new?step=4');
+    router.push("/white-day/gift/new?step=4");
   };
 
   return (
-    <div className="flex flex-col justify-between items-center flex-1 h-full min-h-0 gap-15">
+    <div className="flex flex-col justify-between items-center flex-1 h-full min-h-0 gap-15 overflow-y-auto">
       <div className="flex flex-col gap-12 w-full items-center">
         <p className="text-2xl text-center font-bold leading-[130%] tracking-[-0.02em] text-[#B5644E]">
           [{receiver}]님은

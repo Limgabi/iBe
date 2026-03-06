@@ -1,11 +1,11 @@
-import { useWhiteDayContext } from '@/src/contexts/white-day';
-import { useRouter } from 'next/navigation';
-import Button from '../common/button/button';
-import Icon from '../common/icon/icon';
-import { useState } from 'react';
-import Textarea from '../common/textarea/textarea';
+import { useWhiteDayContext } from "@/src/contexts/white-day";
+import { useRouter } from "next/navigation";
+import Button from "../common/button/button";
+import Icon from "../common/icon/icon";
+import { useState } from "react";
+import Textarea from "../common/textarea/textarea";
 
-type Tone = 'formal' | 'fun';
+type Tone = "formal" | "fun";
 
 export default function Step4() {
   const router = useRouter();
@@ -13,20 +13,20 @@ export default function Step4() {
   const { receiver, result, setLetter } = useWhiteDayContext();
 
   const [selectedTone, setSelectedTone] = useState<Tone | null>(null);
-  const [letterText, setLetterText] = useState('');
+  const [letterText, setLetterText] = useState("");
 
   const recommend = [
-    { tone: 'formal' as const, text: result?.formal ?? '' },
-    { tone: 'fun' as const, text: result?.fun ?? '' },
+    { tone: "formal" as const, text: result?.formal ?? "" },
+    { tone: "fun" as const, text: result?.fun ?? "" },
   ].filter((x) => x.text);
 
   const handleClickNext = () => {
     setLetter(letterText);
-    router.push('/white-day/gift/new?step=5');
+    router.push("/white-day/gift/new?step=5");
   };
 
   return (
-    <div className="flex flex-col justify-between items-center flex-1 h-full min-h-0 gap-15">
+    <div className="flex flex-col justify-between items-center flex-1 h-full min-h-0 gap-15 overflow-y-auto">
       <div className="flex flex-col gap-12 w-full items-center">
         <p className="text-2xl text-center font-bold leading-[130%] tracking-[-0.02em] text-[#B5644E]">
           [{receiver}]님에게
@@ -51,11 +51,11 @@ export default function Step4() {
                     setLetterText(text);
                   }}
                   className={[
-                    'py-3 px-4 rounded-md text-left border  leading-[150%] cursor-pointer',
+                    "py-3 px-4 rounded-md text-left border  leading-[150%] cursor-pointer",
                     selected
-                      ? 'font-bold bg-[#F8DCC4] border-[#B5644E]'
-                      : 'font-medium bg-[#FFFFFF] border-[#F8DCC4]',
-                  ].join(' ')}
+                      ? "font-bold bg-[#F8DCC4] border-[#B5644E]"
+                      : "font-medium bg-[#FFFFFF] border-[#F8DCC4]",
+                  ].join(" ")}
                 >
                   {text}
                 </button>
