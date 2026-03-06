@@ -1,31 +1,31 @@
-import { createContext } from 'react';
+import { createContext } from "react";
 
 /** 디저트 모드 */
-export type DessertMode = 'share' | 'solo';
+export type DessertMode = "share" | "solo";
 /** 디저트 취향 */
-export type DessertTaste = 'newbie' | 'classic';
+export type DessertTaste = "newbie" | "classic";
 /** 디저트 감상평 */
-export type DessertComment = 'neat' | 'soft';
+export type DessertComment = "neat" | "soft";
 /** 선물 스타일 */
-export type GiftStyle = 'planned' | 'vibes';
+export type GiftStyle = "planned" | "vibes";
 
 export type MBTI =
-  | 'INFJ'
-  | 'ENFJ'
-  | 'ISTJ'
-  | 'ISFJ'
-  | 'ENFP'
-  | 'ESFP'
-  | 'INTP'
-  | 'ESFJ'
-  | 'ISFP'
-  | 'INFP'
-  | 'ESTP'
-  | 'ESTJ'
-  | 'ENTJ'
-  | 'INTJ'
-  | 'ENTP'
-  | 'ISTP';
+  | "INFJ"
+  | "ENFJ"
+  | "ISTJ"
+  | "ISFJ"
+  | "ENFP"
+  | "ESFP"
+  | "INTP"
+  | "ESFJ"
+  | "ISFP"
+  | "INFP"
+  | "ESTP"
+  | "ESTJ"
+  | "ENTJ"
+  | "INTJ"
+  | "ENTP"
+  | "ISTP";
 
 export type WhiteDaySelections = {
   dessertMode: DessertMode | null;
@@ -61,12 +61,12 @@ export type WhiteDayActions = {
     key: K,
     value: WhiteDaySelections[K],
   ) => void;
-  resetSelections: () => void;
 
   setMbtiResult: (mbti: MBTI, result: WhiteDayResult) => void;
-  resetResult: () => void;
 
   setLetter: (v: string) => void;
+
+  resetWhiteDay: () => void;
 };
 
 export type WhiteDayContextValue = WhiteDayState & WhiteDayActions;

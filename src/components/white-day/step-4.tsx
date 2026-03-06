@@ -28,7 +28,7 @@ export default function Step4() {
 
     const dessertType = result?.title?.split(" ")?.[0] ?? "";
 
-    await addDoc(collection(db, "gifts"), {
+    const docRef = await addDoc(collection(db, "gifts"), {
       sender,
       receiver,
       emoji: result?.emoji ?? "",
@@ -36,7 +36,7 @@ export default function Step4() {
       letter: letterText,
     });
 
-    router.push("/white-day/gift/new?step=5");
+    router.push(`/white-day/gift/new?step=5&giftId=${docRef.id}`);
   }, [letterText, result, sender, receiver, router, setLetter]);
 
   const debouncedCreate = useMemo(
