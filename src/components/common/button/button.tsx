@@ -5,6 +5,7 @@ interface ButtonProps {
   text: string;
   icon?: ReactNode;
   iconPosition?: "left" | "right";
+  className?: string;
   theme: ThemeKey;
   disabled?: boolean;
   onClick?: () => void;
@@ -15,6 +16,7 @@ export default function Button({
   text,
   icon,
   iconPosition = "right",
+  className,
   theme,
   disabled = false,
   onClick,
@@ -30,10 +32,11 @@ export default function Button({
         "disabled:bg-[#BDBDBD] disabled:cursor-not-allowed",
         theme === "new-year" && "bg-[#EA706C]",
         theme === "white-day" && "bg-[#B5644E]",
+        className,
       ].join(" ")}
     >
       {iconPosition === "left" && icon}
-      <span>{text}</span>
+      <span className="w-full">{text}</span>
       {iconPosition === "right" && icon}
     </button>
   );
