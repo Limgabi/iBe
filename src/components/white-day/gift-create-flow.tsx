@@ -8,6 +8,7 @@ import { useMemo } from "react";
 import Step3 from "./step-3";
 import Step4 from "./step-4";
 import Stepper from "@/src/components/common/stepper/stepper";
+import Step5 from "@/src/components/white-day/step-5";
 
 export default function GiftCreateFlow() {
   const searchParams = useSearchParams();
@@ -31,6 +32,7 @@ export default function GiftCreateFlow() {
           { key: "s2", content: <Step2 /> },
           { key: "s3", content: <Step3 /> },
           { key: "s4", content: <Step4 /> },
+          { key: "s5", content: <Step5 /> },
         ]}
       />
     </WhiteDayProvider>

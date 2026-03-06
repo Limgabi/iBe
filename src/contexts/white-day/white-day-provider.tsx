@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from "react";
 
 import {
   MBTI,
@@ -7,15 +7,22 @@ import {
   WhiteDayContextValue,
   WhiteDayResult,
   WhiteDaySelections,
-} from './white-day-context';
+} from "./white-day-context";
 
 type WhiteDayProviderProps = {
   children: React.ReactNode;
 };
 
+const initialSelections: WhiteDaySelections = {
+  dessertMode: null,
+  dessertTaste: null,
+  dessertComment: null,
+  giftStyle: null,
+};
+
 export function WhiteDayProvider({ children }: WhiteDayProviderProps) {
-  const [sender, setSender] = useState('');
-  const [receiver, setReceiver] = useState('');
+  const [sender, setSender] = useState("");
+  const [receiver, setReceiver] = useState("");
   const [selections, setSelections] = useState<WhiteDaySelections>({
     dessertMode: null,
     dessertTaste: null,
@@ -24,19 +31,10 @@ export function WhiteDayProvider({ children }: WhiteDayProviderProps) {
   });
   const [mbti, setMbti] = useState<MBTI | null>(null);
   const [result, setResult] = useState<WhiteDayResult | null>(null);
-  const [letter, setLetter] = useState('');
+  const [letter, setLetter] = useState("");
 
-  const setSelection: WhiteDayActions['setSelection'] = (key, value) => {
+  const setSelection: WhiteDayActions["setSelection"] = (key, value) => {
     setSelections((prev) => ({ ...prev, [key]: value }));
-  };
-
-  const resetSelections = () => {
-    setSelections({
-      dessertMode: null,
-      dessertTaste: null,
-      dessertComment: null,
-      giftStyle: null,
-    });
   };
 
   const setMbtiResult = (mbti: MBTI, result: WhiteDayResult) => {
@@ -44,10 +42,14 @@ export function WhiteDayProvider({ children }: WhiteDayProviderProps) {
     setResult(result);
   };
 
-  const resetResult = () => {
+  const resetWhiteDay = useCallback(() => {
+    setSender("");
+    setReceiver("");
+    setSelections(initialSelections);
     setMbti(null);
     setResult(null);
-  };
+    setLetter("");
+  }, []);
 
   const value = useMemo<WhiteDayContextValue>(() => {
     return {
@@ -59,19 +61,21 @@ export function WhiteDayProvider({ children }: WhiteDayProviderProps) {
 
       selections,
       setSelection,
-      resetSelections,
 
       mbti,
       result,
       setMbtiResult,
-      resetResult,
 
       letter,
       setLetter,
+
+      resetWhiteDay,
     };
-  }, [sender, receiver, selections, mbti, result, letter]);
+  }, [sender, receiver, selections, mbti, result, letter, resetWhiteDay]);
 
   return (
-    <WhiteDayContext.Provider value={value}>{children}</WhiteDayContext.Provider>
+    <WhiteDayContext.Provider value={value}>
+      {children}
+    </WhiteDayContext.Provider>
   );
 }
