@@ -4,13 +4,15 @@ import Button from "../common/button/button";
 import Icon from "../common/icon/icon";
 import { useState } from "react";
 import Textarea from "../common/textarea/textarea";
+import { addDoc, collection } from "firebase/firestore";
+import { db } from "@/src/lib/firebase";
 
 type Tone = "formal" | "fun";
 
 export default function Step4() {
   const router = useRouter();
 
-  const { receiver, result, setLetter } = useWhiteDayContext();
+  const { sender, receiver, result, setLetter } = useWhiteDayContext();
 
   const [selectedTone, setSelectedTone] = useState<Tone | null>(null);
   const [letterText, setLetterText] = useState("");
@@ -20,8 +22,19 @@ export default function Step4() {
     { tone: "fun" as const, text: result?.fun ?? "" },
   ].filter((x) => x.text);
 
-  const handleClickNext = () => {
+  const handleClickNext = async () => {
     setLetter(letterText);
+
+    const dessertType = result?.title?.split(" ")?.[0] ?? "";
+
+    await addDoc(collection(db, "gifts"), {
+      sender,
+      receiver,
+      emoji: result?.emoji ?? "",
+      title: `당신은 ${dessertType} 타입 ${result?.emoji ?? ""}`,
+      letter: letterText,
+    });
+
     router.push("/white-day/gift/new?step=5");
   };
 
