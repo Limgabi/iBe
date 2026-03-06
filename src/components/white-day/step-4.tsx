@@ -2,10 +2,11 @@ import { useWhiteDayContext } from "@/src/contexts/white-day";
 import { useRouter } from "next/navigation";
 import Button from "../common/button/button";
 import Icon from "../common/icon/icon";
-import { useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import Textarea from "../common/textarea/textarea";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "@/src/lib/firebase";
+import debounce from "@/src/utils/debounce";
 
 type Tone = "formal" | "fun";
 
@@ -22,7 +23,7 @@ export default function Step4() {
     { tone: "fun" as const, text: result?.fun ?? "" },
   ].filter((x) => x.text);
 
-  const handleClickNext = async () => {
+  const handleClickNext = useCallback(async () => {
     setLetter(letterText);
 
     const dessertType = result?.title?.split(" ")?.[0] ?? "";
@@ -36,7 +37,15 @@ export default function Step4() {
     });
 
     router.push("/white-day/gift/new?step=5");
-  };
+  }, [letterText, result, sender, receiver, router, setLetter]);
+
+  const debouncedCreate = useMemo(
+    () =>
+      debounce(() => {
+        void handleClickNext();
+      }, 600),
+    [handleClickNext],
+  );
 
   return (
     <div className="flex flex-col justify-between items-center flex-1 h-full min-h-0 gap-15 overflow-y-auto">
@@ -92,9 +101,9 @@ export default function Step4() {
       <Button
         text="만들어진 선물 확인하기"
         icon={<Icon name="arrowRight" width={16} height={16} />}
-        onClick={handleClickNext}
-        theme="white-day"
+        onClick={debouncedCreate}
         disabled={!letterText}
+        theme="white-day"
       />
     </div>
   );
