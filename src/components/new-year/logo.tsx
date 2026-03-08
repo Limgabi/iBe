@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { meongiB } from "@/src/app/fonts";
-import Modal from "@/src/components/common/modal/modal";
-import { useToast } from "@/src/components/common/toast/toast";
-import EggCrackContent from "@/src/components/new-year/egg-crack-content";
-import { useEffect, useRef, useState } from "react";
+import { meongiB } from '@/src/app/fonts';
+import Modal from '@/src/components/common/modal/modal';
+import { useToast } from '@/src/components/common/toast/toast';
+import EggCrackContent from '@/src/components/new-year/egg-crack-content';
+import { useEffect, useRef, useState } from 'react';
 
 export default function Logo() {
   const { showToast } = useToast();
@@ -40,7 +40,7 @@ export default function Logo() {
 
     // 첫 클릭 시 힌트 토스트 + 탭 모드 시작
     if (!tapModeRef.current) {
-      showToast("…🥚", 1200);
+      showToast('…🥚', 1200);
       startTapMode();
       return;
     }
@@ -49,7 +49,7 @@ export default function Logo() {
     tapCountRef.current += 1;
 
     if (tapCountRef.current >= TAP_TARGET) {
-      showToast("계란 발견!", 800);
+      showToast('계란 발견!', 800);
       setOpen(true);
       endTapMode();
     }
@@ -76,7 +76,7 @@ export default function Logo() {
       </button>
 
       {open && (
-        <Modal onClose={() => setOpen(false)}>
+        <Modal theme="new-year" onClose={() => setOpen(false)}>
           <EggCrackContent />
         </Modal>
       )}
