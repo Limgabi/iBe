@@ -1,4 +1,4 @@
-import { Gift } from "@/src/components/white-day/step-5";
+import { Gift } from '@/src/components/white-day/step-5';
 
 interface GiftCardProps {
   gift: Gift;
@@ -13,16 +13,16 @@ export default function GiftCard({ gift }: GiftCardProps) {
         <span className="inline-flex h-30 items-center text-[120px] leading-none">
           {gift.emoji}
         </span>
-        <span className="font-extrabold text-sm leading-[160%]">
+        <span className="font-extrabold text-sm leading-[160%] text-center">
           {gift.title}
         </span>
       </div>
 
-      <div className="rounded-lg bg-[#FFFBE8] p-4">
+      <div className="rounded-lg bg-[#FFFBE8] p-4 w-full">
         <div
           className="whitespace-pre-wrap text-sm font-medium text-[#B5644E]"
           style={{
-            lineHeight: "25px",
+            lineHeight: '25px',
             backgroundImage: `
         repeating-linear-gradient(
           to bottom,

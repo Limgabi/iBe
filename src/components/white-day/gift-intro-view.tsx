@@ -1,8 +1,8 @@
-import Image from "next/image";
-import heartImg from "@/src/assets/images/white-day/heart.png";
-import heart2Img from "@/src/assets/images/white-day/heart2.png";
-import giftBoxImg from "@/src/assets/images/white-day/gift-box.png";
-import { Dispatch, SetStateAction } from "react";
+import Image from 'next/image';
+import heartImg from '@/src/assets/images/white-day/heart.png';
+import heart2Img from '@/src/assets/images/white-day/heart2.png';
+import giftBoxImg from '@/src/assets/images/white-day/gift-box.png';
+import { Dispatch, SetStateAction } from 'react';
 
 interface GiftIntroViewProps {
   receiver: string;
@@ -47,7 +47,7 @@ export default function GiftIntroView({
 
       <div className="relative z-10 flex h-full flex-col gap-20 items-center justify-center text-[#B5644E]">
         <p className="text-2xl text-center font-bold leading-[130%] tracking-[-0.02em] pt-15">
-          [{receiver}]님에게
+          {receiver}님에게
           <br />
           선물이
           <br />
