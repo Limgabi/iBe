@@ -19,7 +19,7 @@ export default function InquiryButton({ theme }: InquiryButtonProps) {
         <div className="relative w-full">
           <button
             className="absolute right-5.5 bottom-0 h-12 w-12 rounded-full flex items-center justify-center cursor-pointer"
-            style={{ backgroundColor: ui.primary }}
+            style={{ backgroundColor: ui.iconButton }}
             aria-label="문의하기"
             onClick={() => setIsModalOpen(true)}
           >

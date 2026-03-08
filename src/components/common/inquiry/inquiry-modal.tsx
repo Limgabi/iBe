@@ -66,7 +66,7 @@ export default function InquiryModal({ theme, open, onClose }: InquiryModalProps
   if (!open) return null;
 
   return (
-    <Modal onClose={onClose} gapClassName="gap-4" zClassName="z-50">
+    <Modal theme={theme} onClose={onClose} gapClassName="gap-4" zClassName="z-50">
       <div className="flex flex-col gap-7">
         <div className="flex flex-col gap-5">
           <div className="flex flex-col gap-2 text-start">
@@ -99,7 +99,7 @@ export default function InquiryModal({ theme, open, onClose }: InquiryModalProps
               ? ui.primarySoft
               : isEmpty
                 ? ui.disabled
-                : ui.primary,
+                : ui.textButton,
           }}
         >
           {isSending ? (

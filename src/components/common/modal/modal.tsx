@@ -1,8 +1,10 @@
 import { meongiB } from '@/src/app/fonts';
 import { ReactNode } from 'react';
 import Icon from '../icon/icon';
+import { ThemeKey } from '@/src/constants/theme';
 
 interface ModalProps {
+  theme: ThemeKey;
   onClose: () => void;
   children: ReactNode;
   gapClassName?: string; // ex) gap-3 | gap-4 | gap-6
@@ -17,11 +19,22 @@ interface ModalProps {
  * - zClassName: 모달 컨테이너의 z-index 지정 (기본: z-100)
  */
 export default function Modal({
+  theme,
   onClose,
   children,
   gapClassName = 'gap-3',
   zClassName = 'z-100',
 }: ModalProps) {
+  const modalTitle = () => {
+    switch (theme) {
+      case 'new-year':
+        return 'iBe-Lucky';
+      case 'white-day':
+        return 'Sweet Letter';
+      default:
+        return 'iBe';
+    }
+  };
   return (
     <div className={`fixed inset-0 ${zClassName}`} aria-modal="true" role="dialog">
       {/** 오버레이 */}
@@ -37,9 +50,13 @@ export default function Modal({
           {/** 헤더 (서비스명 + 닫기 버튼) */}
           <div className="relative flex w-full items-center">
             <span
-              className={`${meongiB.className} absolute left-1/2 -translate-x-1/2 text-modal-service text-[#EA706C]`}
+              className={[
+                `${meongiB.className} absolute left-1/2 -translate-x-1/2 text-modal-service`,
+                theme === 'new-year' && 'text-[#EA706C]',
+                theme === 'white-day' && 'text-[#B5644E]',
+              ].join(' ')}
             >
-              iBe-Lucky
+              {modalTitle()}
             </span>
 
             <button className="ml-auto cursor-pointer" onClick={onClose}>
