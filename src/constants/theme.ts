@@ -35,3 +35,16 @@ export const THEME_UI = {
     },
   },
 };
+
+export const THEME_META_DATA = {
+  'new-year': {
+    title: 'iBe',
+    description: '아이비의 행운 뽑기',
+    ogImage: '/new-year/og-card.png',
+  },
+  'white-day': {
+    title: 'iBe',
+    description: '아이비의 행운 뽑기',
+    ogImage: '/white-day/og-card.png',
+  },
+};
