@@ -19,7 +19,7 @@ export default function KakaoShareButton({ id, title, message }: LuckyResult) {
       content: {
         title: `iBe - 행운 뽑기 | 오늘의 운세: ${title}`,
         description: message,
-        imageUrl: `https://ibe-lucky.vercel.app/cards/new-year/${id}.png`,
+        imageUrl: `https://ibe-lucky.vercel.app/new-year/cards/${id}.png`,
         imageWidth: 295,
         imageHeight: 386,
         link: {
