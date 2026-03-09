@@ -1,17 +1,14 @@
-"use client";
+'use client';
 
-import Icon from "@/src/components/common/icon/icon";
-import { Gift } from "@/src/components/white-day/step-5";
+import Icon from '@/src/components/common/icon/icon';
+import { Gift } from '@/src/components/white-day/step-5';
 
 interface KakaoShareButtonProps {
   giftId: string;
   gift: Gift;
 }
 
-export default function KakaoShareButton({
-  giftId,
-  gift,
-}: KakaoShareButtonProps) {
+export default function KakaoShareButton({ giftId, gift }: KakaoShareButtonProps) {
   const handleClickShare = () => {
     if (!window.Kakao) return;
 
@@ -20,11 +17,11 @@ export default function KakaoShareButton({
     const targetUrl = `https://ibe-lucky.vercel.app/white-day/gift/${giftId}`;
 
     window.Kakao.Share.sendDefault({
-      objectType: "feed",
+      objectType: 'feed',
       content: {
-        title: "iBe - 행운 뽑기 | 선물이 도착했어요!",
+        title: 'iBe - 행운 뽑기 | 선물이 도착했어요!',
         description: `To. ${gift.receiver}\n${gift.title}`,
-        imageUrl: `https://ibe-lucky.vercel.app/white-day/og-card.png`,
+        imageUrl: `https://ibe-lucky.vercel.app/white-day/share-thumbnail.png`,
         imageWidth: 375,
         imageHeight: 242,
         link: {
@@ -34,7 +31,7 @@ export default function KakaoShareButton({
       },
       buttons: [
         {
-          title: "선물 받으러 가기",
+          title: '선물 받으러 가기',
           link: {
             mobileWebUrl: targetUrl,
             webUrl: targetUrl,
