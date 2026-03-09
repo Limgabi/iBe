@@ -1,24 +1,11 @@
-import type { Metadata } from "next";
-import { pretendard } from "@/src/app/fonts";
-import "./globals.css";
-import KakaoScript from "@/src/components/common/kakao-script/kakao-script";
-import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
-import { ToastProvider } from "@/src/components/common/toast/toast";
+import type { Metadata } from 'next';
+import { pretendard } from '@/src/app/fonts';
+import './globals.css';
+import KakaoScript from '@/src/components/common/kakao-script/kakao-script';
+import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google';
+import { ToastProvider } from '@/src/components/common/toast/toast';
 
 export const metadata: Metadata = {
-  title: "iBe",
-  description: "아이비의 행운 뽑기",
-  openGraph: {
-    type: "website",
-    locale: "ko_KR",
-    title: "iBe",
-    description: "아이비의 행운 뽑기",
-    images: [
-      {
-        url: "/og-card.png",
-      },
-    ],
-  },
   verification: {
     google: process.env.GOOGLE_SITE_VERIFICATION,
   },
