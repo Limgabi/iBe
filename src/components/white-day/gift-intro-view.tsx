@@ -1,16 +1,15 @@
-import Image from 'next/image';
-import heartImg from '@/src/assets/images/white-day/heart.png';
-import heart2Img from '@/src/assets/images/white-day/heart2.png';
-import giftBoxImg from '@/src/assets/images/white-day/gift-box.png';
-import { Dispatch, SetStateAction } from 'react';
+import Image from "next/image";
+import heartImg from "@/src/assets/images/white-day/heart.png";
+import heart2Img from "@/src/assets/images/white-day/heart2.png";
+import giftGif from "@/src/assets/images/white-day/gift.gif";
 
 interface GiftIntroViewProps {
   receiver: string;
-  setIsViewDetail: Dispatch<SetStateAction<boolean>>;
+  onOpenGift: () => void;
 }
 export default function GiftIntroView({
   receiver,
-  setIsViewDetail,
+  onOpenGift,
 }: GiftIntroViewProps) {
   return (
     <>
@@ -32,21 +31,21 @@ export default function GiftIntroView({
         <Image
           src={heart2Img}
           alt="heart2"
-          width={118}
-          height={118}
-          className="absolute rotate-25 opacity-20 right-3 bottom-15"
+          width={102}
+          height={102}
+          className="absolute rotate-25 opacity-20 right-3 bottom-5"
         />
         <Image
           src={heartImg}
           alt="heart"
           width={200}
           height={200}
-          className="absolute rotate-25 opacity-10 -left-10 -bottom-20"
+          className="absolute rotate-25 opacity-10 -left-10 -bottom-25"
         />
       </div>
 
       <div className="relative z-10 flex h-full flex-col gap-20 items-center justify-center text-[#B5644E]">
-        <p className="text-2xl text-center font-bold leading-[130%] tracking-[-0.02em] pt-15">
+        <p className="text-2xl text-center font-bold leading-[130%] tracking-[-0.02em] pt-10">
           {receiver}님에게
           <br />
           선물이
@@ -61,12 +60,12 @@ export default function GiftIntroView({
             선물을 받아보세요!
           </p>
           <Image
-            src={giftBoxImg}
+            src={giftGif}
             alt="giftBox"
-            width={281}
-            height={261}
-            className="cursor-pointer"
-            onClick={() => setIsViewDetail(true)}
+            width={280}
+            height={280}
+            className="cursor-pointer rounded-[365px]"
+            onClick={onOpenGift}
           />
         </div>
       </div>

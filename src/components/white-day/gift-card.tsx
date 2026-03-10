@@ -1,4 +1,4 @@
-import { Gift } from '@/src/components/white-day/step-5';
+import { Gift } from "@/src/components/white-day/step-5";
 
 interface GiftCardProps {
   gift: Gift;
@@ -6,7 +6,7 @@ interface GiftCardProps {
 
 export default function GiftCard({ gift }: GiftCardProps) {
   return (
-    <div className="flex flex-col gap-5 rounded-lg py-6 px-5 border border-[#F8DCC4] bg-[#FFFFFF] text-[#B5644E] w-full items-center">
+    <div className="flex flex-col gap-5 rounded-lg py-6 px-5 bg-[#FFFFFF] text-[#B5644E] w-full items-center shadow-[0px_0px_12px_0px_#0000001A]">
       <span className="text-sm leading-[160%] font-black">{`To. ${gift.receiver}`}</span>
 
       <div className="flex flex-col gap-3">
@@ -22,7 +22,7 @@ export default function GiftCard({ gift }: GiftCardProps) {
         <div
           className="whitespace-pre-wrap text-sm font-medium text-[#B5644E]"
           style={{
-            lineHeight: '25px',
+            lineHeight: "25px",
             backgroundImage: `
         repeating-linear-gradient(
           to bottom,
