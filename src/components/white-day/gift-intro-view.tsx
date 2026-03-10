@@ -2,15 +2,14 @@ import Image from "next/image";
 import heartImg from "@/src/assets/images/white-day/heart.png";
 import heart2Img from "@/src/assets/images/white-day/heart2.png";
 import giftGif from "@/src/assets/images/white-day/gift.gif";
-import { Dispatch, SetStateAction } from "react";
 
 interface GiftIntroViewProps {
   receiver: string;
-  setIsViewDetail: Dispatch<SetStateAction<boolean>>;
+  onOpenGift: () => void;
 }
 export default function GiftIntroView({
   receiver,
-  setIsViewDetail,
+  onOpenGift,
 }: GiftIntroViewProps) {
   return (
     <>
@@ -66,7 +65,7 @@ export default function GiftIntroView({
             width={280}
             height={280}
             className="cursor-pointer rounded-[365px]"
-            onClick={() => setIsViewDetail(true)}
+            onClick={onOpenGift}
           />
         </div>
       </div>

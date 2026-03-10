@@ -9,12 +9,15 @@ import { useEffect, useState } from "react";
 import GiftIntroView from "@/src/components/white-day/gift-intro-view";
 import GiftDetailView from "@/src/components/white-day/gift-detail-view";
 import LoadingDots from "@/src/components/common/loading/loading-dots";
+import GiftOpeningView from "@/src/components/white-day/gift-opening-view";
+
+type ViewPhase = "intro" | "opening" | "detail";
 
 export default function GiftViewer() {
   const { id: giftId } = useParams();
 
   const [gift, setGift] = useState<Gift | null>(null);
-  const [isViewDetail, setIsViewDetail] = useState(false);
+  const [viewPhase, setViewPhase] = useState<ViewPhase>("intro");
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -46,6 +49,14 @@ export default function GiftViewer() {
     void fetchGift();
   }, [giftId]);
 
+  const handleOpenGift = () => {
+    setViewPhase("opening");
+
+    window.setTimeout(() => {
+      setViewPhase("detail");
+    }, 1600);
+  };
+
   if (isLoading) {
     return (
       <div className="flex flex-col gap-5 items-center flex-1 h-full min-h-0 justify-center">
@@ -69,14 +80,13 @@ export default function GiftViewer() {
 
   return (
     <div className="relative flex-1 overflow-hidden">
-      {!isViewDetail && (
-        <GiftIntroView
-          receiver={gift.receiver}
-          setIsViewDetail={setIsViewDetail}
-        />
+      {viewPhase === "intro" && (
+        <GiftIntroView receiver={gift.receiver} onOpenGift={handleOpenGift} />
       )}
 
-      {isViewDetail && <GiftDetailView gift={gift} />}
+      {viewPhase === "opening" && <GiftOpeningView />}
+
+      {viewPhase === "detail" && <GiftDetailView gift={gift} />}
     </div>
   );
 }
