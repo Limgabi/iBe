@@ -1,12 +1,12 @@
-import Button from '@/src/components/common/button/button';
-import LoadingDots from '@/src/components/common/loading/loading-dots';
-import GiftCard from '@/src/components/white-day/gift-card';
-import KakaoShareButton from '@/src/components/white-day/kakao-share-button';
-import { useWhiteDayContext } from '@/src/contexts/white-day';
-import { db } from '@/src/lib/firebase';
-import { doc, getDoc } from 'firebase/firestore';
-import { useRouter, useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import Button from "@/src/components/common/button/button";
+import LoadingDots from "@/src/components/common/loading/loading-dots";
+import GiftCard from "@/src/components/white-day/gift-card";
+import KakaoShareButton from "@/src/components/white-day/kakao-share-button";
+import { useWhiteDayContext } from "@/src/contexts/white-day";
+import { db } from "@/src/lib/firebase";
+import { doc, getDoc } from "firebase/firestore";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export type Gift = {
   sender: string;
@@ -20,7 +20,7 @@ export default function Step5() {
   const router = useRouter();
 
   const searchParams = useSearchParams();
-  const giftId = searchParams.get('giftId');
+  const giftId = searchParams.get("giftId");
 
   const { resetWhiteDay } = useWhiteDayContext();
 
@@ -35,7 +35,7 @@ export default function Step5() {
       }
 
       try {
-        const giftRef = doc(db, 'gifts', giftId);
+        const giftRef = doc(db, "gifts", giftId);
         const giftSnap = await getDoc(giftRef);
 
         if (giftSnap.exists()) {
@@ -44,7 +44,7 @@ export default function Step5() {
           setGift(null);
         }
       } catch (error) {
-        console.error('Failed to fetch gift:', error);
+        console.error("Failed to fetch gift:", error);
         setGift(null);
       } finally {
         setIsLoading(false);
@@ -55,7 +55,7 @@ export default function Step5() {
   }, [giftId]);
 
   const handleClickCreateNewGift = () => {
-    router.push('/white-day');
+    router.push("/white-day");
     resetWhiteDay();
   };
 
@@ -81,7 +81,7 @@ export default function Step5() {
   }
 
   return (
-    <div className="flex flex-col justify-between items-center flex-1 h-full min-h-0 gap-15 overflow-y-auto">
+    <div className="flex flex-col justify-between items-center flex-1 h-full min-h-0 gap-15 overflow-y-auto scrollbar-hide">
       <div className="flex flex-col gap-12 w-full items-center">
         <p className="text-2xl text-center font-bold leading-[130%] tracking-[-0.02em] text-[#B5644E]">
           {gift.sender}님의
