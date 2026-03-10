@@ -14,7 +14,7 @@ export default function Step1() {
   };
 
   return (
-    <div className="flex flex-col justify-between items-center flex-1 min-h-0 overflow-y-auto">
+    <div className="flex flex-col justify-between items-center flex-1 min-h-0 overflow-y-auto scrollbar-hide">
       <div className="flex flex-col gap-12 w-full">
         <p className="text-2xl text-center font-bold leading-[130%] tracking-[-0.02em] text-[#B5644E]">
           누구에게
