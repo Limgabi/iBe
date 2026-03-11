@@ -1,16 +1,13 @@
-import Image from "next/image";
-import heartImg from "@/src/assets/images/white-day/heart.png";
-import heart2Img from "@/src/assets/images/white-day/heart2.png";
-import giftGif from "@/src/assets/images/white-day/gift.gif";
+import Image from 'next/image';
+import heartImg from '@/src/assets/images/white-day/heart.png';
+import heart2Img from '@/src/assets/images/white-day/heart2.png';
+import giftGif from '@/src/assets/images/white-day/gift.gif';
 
 interface GiftIntroViewProps {
   receiver: string;
   onOpenGift: () => void;
 }
-export default function GiftIntroView({
-  receiver,
-  onOpenGift,
-}: GiftIntroViewProps) {
+export default function GiftIntroView({ receiver, onOpenGift }: GiftIntroViewProps) {
   return (
     <>
       <div className="pointer-events-none absolute inset-0">
@@ -19,7 +16,7 @@ export default function GiftIntroView({
           alt="heart2"
           width={118}
           height={118}
-          className="absolute rotate-45 opacity-40 -left-7 top-30"
+          className="absolute rotate-40 opacity-40 -left-13 top-30"
         />
         <Image
           src={heartImg}
