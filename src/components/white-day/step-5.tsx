@@ -2,7 +2,7 @@ import Button from "@/src/components/common/button/button";
 import LoadingDots from "@/src/components/common/loading/loading-dots";
 import GiftCard from "@/src/components/white-day/gift-card";
 import KakaoShareButton from "@/src/components/white-day/kakao-share-button";
-import { useWhiteDayContext } from "@/src/contexts/white-day";
+import { MBTI, useWhiteDayContext } from "@/src/contexts/white-day";
 import { db } from "@/src/lib/firebase";
 import { doc, getDoc } from "firebase/firestore";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -11,8 +11,7 @@ import { useEffect, useState } from "react";
 export type Gift = {
   sender: string;
   receiver: string;
-  emoji: string;
-  title: string;
+  mbti: MBTI;
   letter: string;
 };
 

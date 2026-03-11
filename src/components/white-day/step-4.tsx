@@ -11,7 +11,7 @@ import debounce from "@/src/utils/debounce";
 export default function Step4() {
   const router = useRouter();
 
-  const { sender, receiver, result, setLetter } = useWhiteDayContext();
+  const { sender, receiver, result, setLetter, mbti } = useWhiteDayContext();
 
   const [selectedIdx, setSelectedIdx] = useState<number | null>(null);
   const [letterText, setLetterText] = useState("");
@@ -19,17 +19,15 @@ export default function Step4() {
   const handleClickNext = useCallback(async () => {
     setLetter(letterText);
 
-    // TODO: 이미지 src로 변경되며 emoji, title 수정
     const docRef = await addDoc(collection(db, "gifts"), {
       sender,
       receiver,
-      emoji: result?.image ?? "",
-      title: `당신은 ${result?.title} ${result?.image ?? ""}`,
+      mbti: mbti,
       letter: letterText,
     });
 
     router.push(`/white-day/gift/new?step=5&giftId=${docRef.id}`);
-  }, [letterText, result, sender, receiver, router, setLetter]);
+  }, [setLetter, letterText, sender, receiver, mbti, router]);
 
   const debouncedCreate = useMemo(
     () =>
