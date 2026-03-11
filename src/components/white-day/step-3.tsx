@@ -1,7 +1,9 @@
+import { useRouter } from "next/navigation";
+import Image from "next/image";
+
 import { useWhiteDayContext } from "@/src/contexts/white-day";
 import Button from "../common/button/button";
 import Icon from "../common/icon/icon";
-import { useRouter } from "next/navigation";
 
 export default function Step3() {
   const router = useRouter();
@@ -23,22 +25,36 @@ export default function Step3() {
           <span className="text-[#E47F26]">{dessertType}</span> 같은 사람
         </p>
 
-        <span className="inline-flex h-30 items-center text-[120px] leading-none">
-          {result?.emoji}
-        </span>
+        <Image
+          src={result?.image.src ?? ""}
+          alt="디저트 이미지"
+          width={120}
+          height={120}
+          className="w-30 h-30 object-contain"
+          priority
+        />
 
         <div className="flex flex-col gap-3 w-full text-sm leading-[160%] text-[#B5644E]">
           <div className="flex flex-col gap-2 rounded-lg py-5 px-4 bg-[#FFFFFF] items-center">
-            <span className="font-extrabold">
-              {dessertType} 타입 {result?.emoji}
-            </span>
+            <div className="flex items-center gap-1">
+              <span className="font-extrabold">{result?.title}</span>
+              <Image
+                src={result?.image.src ?? ""}
+                alt="디저트 이미지"
+                width={20}
+                height={20}
+                className="w-5 h-5 object-contain"
+                priority
+              />
+            </div>
             <p className="font-medium">{result?.desc}</p>
           </div>
           <div className="flex flex-col gap-2 rounded-lg py-5 px-4 bg-[#FFFFFF] items-center">
             <span className="font-extrabold">좋아하는 말</span>
             <div className="flex flex-col items-center font-medium">
-              <p>{`"${result?.formal}"`} </p>
-              <p>{`"${result?.fun}"`}</p>
+              {result?.recommendedPhrases.map((text) => (
+                <p key={text}>{text}</p>
+              ))}
             </div>
           </div>
         </div>
