@@ -1,6 +1,6 @@
-import { WHITE_DAY_RESULT_BY_MBTI } from '@/src/components/white-day/data/desserts';
-import { Gift } from '@/src/components/white-day/step-5';
-import Image from 'next/image';
+import { WHITE_DAY_RESULT_BY_MBTI } from "@/src/components/white-day/data/desserts";
+import { Gift } from "@/src/components/white-day/step-5";
+import Image from "next/image";
 
 interface GiftCardProps {
   gift: Gift;
@@ -13,7 +13,7 @@ export default function GiftCard({ gift }: GiftCardProps) {
     <div className="flex flex-col gap-5 rounded-lg py-6 px-5 bg-[#FFFFFF] text-[#B5644E] w-full items-center shadow-[0px_0px_12px_0px_#0000001A]">
       <span className="text-sm leading-[160%] font-black">{`To. ${gift.receiver}`}</span>
 
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-3 items-center">
         <Image
           src={giftResult.image.src}
           alt="디저트 이미지"
@@ -41,7 +41,7 @@ export default function GiftCard({ gift }: GiftCardProps) {
         <div
           className="whitespace-pre-wrap text-sm font-medium text-[#B5644E] text-center"
           style={{
-            lineHeight: '25px',
+            lineHeight: "25px",
             backgroundImage: `
         repeating-linear-gradient(
           to bottom,
