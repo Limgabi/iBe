@@ -1,19 +1,19 @@
-import { useRouter } from "next/navigation";
-import Image from "next/image";
+import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
-import { useWhiteDayContext } from "@/src/contexts/white-day";
-import Button from "../common/button/button";
-import Icon from "../common/icon/icon";
+import { useWhiteDayContext } from '@/src/contexts/white-day';
+import Button from '../common/button/button';
+import Icon from '../common/icon/icon';
 
 export default function Step3() {
   const router = useRouter();
 
   const { receiver, result } = useWhiteDayContext();
 
-  const dessertType = result?.title.split(" ")[0];
+  const dessertType = result?.title.split('타입')[0];
 
   const handleClickNext = () => {
-    router.push("/white-day/gift/new?step=4");
+    router.push('/white-day/gift/new?step=4');
   };
 
   return (
@@ -26,7 +26,7 @@ export default function Step3() {
         </p>
 
         <Image
-          src={result?.image.src ?? ""}
+          src={result?.image.src ?? ''}
           alt="디저트 이미지"
           width={120}
           height={120}
@@ -39,7 +39,7 @@ export default function Step3() {
             <div className="flex items-center gap-1">
               <span className="font-extrabold">{result?.title}</span>
               <Image
-                src={result?.image.src ?? ""}
+                src={result?.image.src ?? ''}
                 alt="디저트 이미지"
                 width={20}
                 height={20}
