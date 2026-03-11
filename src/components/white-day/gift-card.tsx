@@ -1,6 +1,6 @@
-import { WHITE_DAY_RESULT_BY_MBTI } from "@/src/components/white-day/data/desserts";
-import { Gift } from "@/src/components/white-day/step-5";
-import Image from "next/image";
+import { WHITE_DAY_RESULT_BY_MBTI } from '@/src/components/white-day/data/desserts';
+import { Gift } from '@/src/components/white-day/step-5';
+import Image from 'next/image';
 
 interface GiftCardProps {
   gift: Gift;
@@ -22,16 +22,26 @@ export default function GiftCard({ gift }: GiftCardProps) {
           className="w-25 h-25 object-contain"
           priority
         />
-        <span className="font-extrabold text-sm leading-[160%] text-center">
-          {giftResult.title}
-        </span>
+        <div className="flex items-center gap-1">
+          <span className="font-extrabold text-sm leading-[160%] text-center">
+            당신은 {giftResult.title}
+          </span>
+          <Image
+            src={giftResult.image.src}
+            alt="디저트 이미지"
+            width={20}
+            height={20}
+            className="w-5 h-5 object-contain"
+            priority
+          />
+        </div>
       </div>
 
       <div className="rounded-lg bg-[#FFFBE8] p-4 w-full">
         <div
-          className="whitespace-pre-wrap text-sm font-medium text-[#B5644E]"
+          className="whitespace-pre-wrap text-sm font-medium text-[#B5644E] text-center"
           style={{
-            lineHeight: "25px",
+            lineHeight: '25px',
             backgroundImage: `
         repeating-linear-gradient(
           to bottom,
