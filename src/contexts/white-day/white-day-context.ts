@@ -1,5 +1,7 @@
 import { createContext } from "react";
 
+import { StaticImageData } from "next/image";
+
 /** 디저트 모드 */
 export type DessertMode = "share" | "solo";
 /** 디저트 취향 */
@@ -35,11 +37,10 @@ export type WhiteDaySelections = {
 };
 
 export type WhiteDayResult = {
-  emoji: string;
+  image: StaticImageData;
   title: string;
   desc: string;
-  formal: string;
-  fun: string;
+  recommendedPhrases: string[];
 };
 
 export type WhiteDayState = {

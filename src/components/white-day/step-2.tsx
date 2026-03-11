@@ -2,18 +2,23 @@ import Button from "@/src/components/common/button/button";
 import Icon from "@/src/components/common/icon/icon";
 import LoadingDots from "@/src/components/common/loading/loading-dots";
 import RadioGroup from "@/src/components/common/radio-group/radio-group";
-import {
-  DESSERT_ICONS,
-  WHITE_DAY_KEYS,
-  WHITE_DAY_OPTIONS,
-  WHITE_DAY_RESULT_BY_MBTI,
-} from "@/src/components/white-day/constants";
+
 import { useWhiteDayContext } from "@/src/contexts/white-day";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { getMbtiFromSelections } from "./get-mbti-from-selections";
+import {
+  DESSERT_IMAGES,
+  WHITE_DAY_RESULT_BY_MBTI,
+} from "@/src/components/white-day/data/desserts";
+import Image from "next/image";
+import {
+  WHITE_DAY_KEYS,
+  WHITE_DAY_OPTIONS,
+} from "@/src/components/white-day/data/white-day-options";
 
-type DessertIcon = (typeof DESSERT_ICONS)[number];
+type DessertImage = (typeof DESSERT_IMAGES)[number];
+
 const pickUnique = <T,>(arr: readonly T[], count: number) => {
   const copy = [...arr];
   const out: T[] = [];
@@ -34,7 +39,9 @@ export default function Step2() {
   const allSelected = WHITE_DAY_KEYS.every((k) => selections[k] != null);
 
   const [isLoading, setIsLoading] = useState(false);
-  const [emoji, setEmoji] = useState<DessertIcon>("🧁");
+  const [dessertImage, setDessertImage] = useState<DessertImage>(
+    DESSERT_IMAGES[0],
+  );
 
   const timersRef = useRef<{ intervalId?: number; timeoutId?: number }>({});
 
@@ -50,13 +57,15 @@ export default function Step2() {
     setMbtiResult(mbti, res);
 
     setIsLoading(true);
-    const seq = pickUnique(DESSERT_ICONS, 5);
-    setEmoji(seq[0]);
+    const seq = pickUnique(DESSERT_IMAGES, 5);
+    setDessertImage(seq[0]);
+
     let idx = 0;
     const intervalId = window.setInterval(() => {
       idx = Math.min(idx + 1, 4);
-      setEmoji(seq[idx]);
+      setDessertImage(seq[idx]);
     }, 1000);
+
     const timeoutId = window.setTimeout(() => {
       window.clearInterval(intervalId);
       router.push("/white-day/gift/new?step=3");
@@ -86,9 +95,14 @@ export default function Step2() {
             <LoadingDots background="#B5644E" />
           </div>
 
-          <span className="inline-flex items-center text-[200px] leading-none">
-            {emoji}
-          </span>
+          <Image
+            src={dessertImage.src}
+            alt="디저트 이미지"
+            width={100}
+            height={100}
+            className="w-25 h-25 object-contain"
+            priority
+          />
         </div>
       ) : (
         <div className="flex flex-col justify-between items-center flex-1 h-full min-h-0 gap-15 overflow-y-auto scrollbar-hide">

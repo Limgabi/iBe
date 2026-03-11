@@ -8,31 +8,23 @@ import { addDoc, collection } from "firebase/firestore";
 import { db } from "@/src/lib/firebase";
 import debounce from "@/src/utils/debounce";
 
-type Tone = "formal" | "fun";
-
 export default function Step4() {
   const router = useRouter();
 
   const { sender, receiver, result, setLetter } = useWhiteDayContext();
 
-  const [selectedTone, setSelectedTone] = useState<Tone | null>(null);
+  const [selectedIdx, setSelectedIdx] = useState<number | null>(null);
   const [letterText, setLetterText] = useState("");
-
-  const recommend = [
-    { tone: "formal" as const, text: result?.formal ?? "" },
-    { tone: "fun" as const, text: result?.fun ?? "" },
-  ].filter((x) => x.text);
 
   const handleClickNext = useCallback(async () => {
     setLetter(letterText);
 
-    const dessertType = result?.title?.split(" ")?.[0] ?? "";
-
+    // TODO: 이미지 src로 변경되며 emoji, title 수정
     const docRef = await addDoc(collection(db, "gifts"), {
       sender,
       receiver,
-      emoji: result?.emoji ?? "",
-      title: `당신은 ${dessertType} 타입 ${result?.emoji ?? ""}`,
+      emoji: result?.image ?? "",
+      title: `당신은 ${result?.title} ${result?.image ?? ""}`,
       letter: letterText,
     });
 
@@ -61,15 +53,15 @@ export default function Step4() {
             <label className="font-semibold leading-[160%]">
               추천 문구(선택하면 자동으로 입력돼요)
             </label>
-            {recommend.map(({ tone, text }) => {
-              const selected = selectedTone === tone;
+            {result?.recommendedPhrases.map((text, idx) => {
+              const selected = selectedIdx === idx;
 
               return (
                 <button
-                  key={tone}
+                  key={idx}
                   type="button"
                   onClick={() => {
-                    setSelectedTone(tone);
+                    setSelectedIdx(idx);
                     setLetterText(text);
                   }}
                   className={[

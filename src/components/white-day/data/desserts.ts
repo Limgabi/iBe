@@ -1,30 +1,42 @@
 import { StaticImageData } from "next/image";
 
-import { MBTI } from "@/src/contexts/white-day";
+import { MBTI, WhiteDayResult } from "@/src/contexts/white-day";
 
-import enfjImg from "../../../assets/images/white-day/enfj.png";
-import enfpImg from "../../../assets/images/white-day/enfp.png";
-import entjImg from "../../../assets/images/white-day/entj.png";
-import entpImg from "../../../assets/images/white-day/entp.png";
-import esfjImg from "../../../assets/images/white-day/esfj.png";
-import esfpImg from "../../../assets/images/white-day/esfp.png";
-import estjImg from "../../../assets/images/white-day/estj.png";
-import estpImg from "../../../assets/images/white-day/estp.png";
-import infjImg from "../../../assets/images/white-day/infj.png";
-import infpImg from "../../../assets/images/white-day/infp.png";
-import intjImg from "../../../assets/images/white-day/intj.png";
-import intpImg from "../../../assets/images/white-day/intp.png";
-import isfjImg from "../../../assets/images/white-day/isfj.png";
-import isfpImg from "../../../assets/images/white-day/isfp.png";
-import istjImg from "../../../assets/images/white-day/istj.png";
-import istpImg from "../../../assets/images/white-day/istp.png";
+import enfjImg from "@/src/assets/images/white-day/enfj.png";
+import enfpImg from "@/src/assets/images/white-day/enfp.png";
+import entjImg from "@/src/assets/images/white-day/entj.png";
+import entpImg from "@/src/assets/images/white-day/entp.png";
+import esfjImg from "@/src/assets/images/white-day/esfj.png";
+import esfpImg from "@/src/assets/images/white-day/esfp.png";
+import estjImg from "@/src/assets/images/white-day/estj.png";
+import estpImg from "@/src/assets/images/white-day/estp.png";
+import infjImg from "@/src/assets/images/white-day/infj.png";
+import infpImg from "@/src/assets/images/white-day/infp.png";
+import intjImg from "@/src/assets/images/white-day/intj.png";
+import intpImg from "@/src/assets/images/white-day/intp.png";
+import isfjImg from "@/src/assets/images/white-day/isfj.png";
+import isfpImg from "@/src/assets/images/white-day/isfp.png";
+import istjImg from "@/src/assets/images/white-day/istj.png";
+import istpImg from "@/src/assets/images/white-day/istp.png";
 
-type WhiteDayResult = {
-  image: StaticImageData;
-  title: string;
-  desc: string;
-  recommendedPhrases: string[];
-};
+export const DESSERT_IMAGES = [
+  infjImg,
+  enfjImg,
+  istjImg,
+  isfjImg,
+  enfpImg,
+  esfpImg,
+  intpImg,
+  esfjImg,
+  isfpImg,
+  infpImg,
+  estpImg,
+  estjImg,
+  entjImg,
+  intjImg,
+  entpImg,
+  istpImg,
+] as const;
 
 const IMAGE_BY_MBTI: Record<MBTI, StaticImageData> = {
   INFJ: infjImg,
