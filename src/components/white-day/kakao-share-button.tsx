@@ -26,7 +26,7 @@ export default function KakaoShareButton({
       objectType: "feed",
       content: {
         title: "iBe - 행운 뽑기 | 선물이 도착했어요!",
-        description: `To. ${gift.receiver}\n${mbtiResultTitle}`,
+        description: `To. ${gift.receiver}\n${mbtiResultTitle} 💌`,
         imageUrl: `https://ibe-lucky.vercel.app/white-day/share-thumbnail.png`,
         imageWidth: 375,
         imageHeight: 242,
