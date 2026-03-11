@@ -14,6 +14,7 @@ export const THEME_UI = {
       primarySoft: "#FE8682",
       disabled: "#BDBDBD",
       outline: "#FBB4B2",
+      text: "#EA706C",
     },
     steps: {
       active: "#EA706C",
@@ -28,6 +29,7 @@ export const THEME_UI = {
       primarySoft: "#CF7C66",
       disabled: "#BDBDBD",
       outline: "#EFA895",
+      text: "#B5644E",
     },
     steps: {
       active: "#CD8572",

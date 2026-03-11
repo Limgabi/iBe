@@ -1,7 +1,7 @@
-import { meongiB } from '@/src/app/fonts';
-import { ReactNode } from 'react';
-import Icon from '../icon/icon';
-import { ThemeKey } from '@/src/constants/theme';
+import { meongiB } from "@/src/app/fonts";
+import { ReactNode } from "react";
+import Icon from "../icon/icon";
+import { THEME_UI, ThemeKey } from "@/src/constants/theme";
 
 interface ModalProps {
   theme: ThemeKey;
@@ -22,21 +22,28 @@ export default function Modal({
   theme,
   onClose,
   children,
-  gapClassName = 'gap-3',
-  zClassName = 'z-100',
+  gapClassName = "gap-3",
+  zClassName = "z-100",
 }: ModalProps) {
+  const mainColor = THEME_UI[theme].inquiry.text;
+
   const modalTitle = () => {
     switch (theme) {
-      case 'new-year':
-        return 'iBe-Lucky';
-      case 'white-day':
-        return 'Sweet Letter';
+      case "new-year":
+        return "iBe-Lucky";
+      case "white-day":
+        return "Sweet Letter";
       default:
-        return 'iBe';
+        return "iBe";
     }
   };
+
   return (
-    <div className={`fixed inset-0 ${zClassName}`} aria-modal="true" role="dialog">
+    <div
+      className={`fixed inset-0 ${zClassName}`}
+      aria-modal="true"
+      role="dialog"
+    >
       {/** 오버레이 */}
       <div className="absolute inset-0 modal-backdrop" />
 
@@ -52,15 +59,16 @@ export default function Modal({
             <span
               className={[
                 `${meongiB.className} absolute left-1/2 -translate-x-1/2 text-modal-service`,
-                theme === 'new-year' && 'text-[#EA706C]',
-                theme === 'white-day' && 'text-[#B5644E]',
-              ].join(' ')}
+              ].join(" ")}
+              style={{
+                color: mainColor,
+              }}
             >
               {modalTitle()}
             </span>
 
             <button className="ml-auto cursor-pointer" onClick={onClose}>
-              <Icon name="x" width={24} height={24} />
+              <Icon name="x" width={24} height={24} color={mainColor} />
             </button>
           </div>
 
