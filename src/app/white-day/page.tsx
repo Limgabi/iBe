@@ -1,11 +1,11 @@
-import { meongiB } from "@/src/app/fonts";
-import Icon from "@/src/components/common/icon/icon";
-import InquiryButton from "@/src/components/common/inquiry/inquiry-button";
-import heartImg from "@/src/assets/images/white-day/heart.png";
-import heart2Img from "@/src/assets/images/white-day/heart2.png";
-import mainCakeImg from "@/src/assets/images/white-day/main-cake.png";
-import Image from "next/image";
-import Link from "next/link";
+import { meongiB } from '@/src/app/fonts';
+import Icon from '@/src/components/common/icon/icon';
+import InquiryButton from '@/src/components/common/inquiry/inquiry-button';
+import heartImg from '@/src/assets/images/white-day/heart.png';
+import heart2Img from '@/src/assets/images/white-day/heart2.png';
+import mainCakeImg from '@/src/assets/images/white-day/main-cake.png';
+import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -30,14 +30,14 @@ export default function Home() {
           alt="heart2"
           width={118}
           height={118}
-          className="absolute rotate-45 opacity-40 -left-7 top-50"
+          className="absolute rotate-40 opacity-40 -left-13 top-48"
         />
         <Image
           src={heartImg}
           alt="heart"
           width={130}
           height={130}
-          className="absolute -rotate-20 opacity-10 -right-10 top-60"
+          className="absolute -rotate-20 opacity-10 -right-12 top-60"
         />
         <Image
           src={heartImg}
@@ -73,12 +73,15 @@ export default function Home() {
           <Image src={mainCakeImg} alt="mainCake" width={281} height={323} />
         </div>
 
-        <div className="w-full pb-18 pt-10 flex flex-col gap-7 items-center">
-          <p className="font-semibold text-base leading-[160%] text-[#B5644E] text-center">
-            그 사람을 떠올리며 성격을 고르면,
-            <br />
-            어울리는 달콤한 선물과 편지가 완성돼요.
-          </p>
+        <div className="w-full pb-18 pt-6 flex flex-col gap-7 items-center">
+          <div className="flex flex-col gap-1 text-[#B5644E] text-center leading-[160%]">
+            <p className="font-extrabold text-xl">상대방은 어떤 디저트 타입일까?</p>
+            <p className="font-semibold text-base">
+              성격을 골라 어울리는 디저트를 찾고
+              <br />
+              편지를 완성해 선물해 보세요!
+            </p>
+          </div>
 
           <Link
             href="/white-day/gift/new?step=1"

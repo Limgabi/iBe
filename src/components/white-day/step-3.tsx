@@ -22,7 +22,7 @@ export default function Step3() {
         <p className="text-2xl text-center font-bold leading-[130%] tracking-[-0.02em] text-[#B5644E]">
           {receiver}님은
           <br />
-          <span className="text-[#E47F26]">{dessertType}</span> 같은 사람
+          <span className="font-black text-[#E47F26]">{dessertType}</span> 같은 사람
         </p>
 
         <Image
