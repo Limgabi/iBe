@@ -1,6 +1,6 @@
-import { ORNAMENT_ICONS } from '@/src/data/ornament-icons';
-import { ORNAMENT_MESSAGES } from '@/src/data/ornament-message';
-import { StaticImageData } from 'next/image';
+import { ORNAMENT_ICONS } from "@/src/components/new-year/data/ornament-icons";
+import { ORNAMENT_MESSAGES } from "@/src/components/new-year/data/ornament-message";
+import { StaticImageData } from "next/image";
 
 export interface Ornament {
   iconId: string;
