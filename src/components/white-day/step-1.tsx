@@ -1,8 +1,8 @@
-import Button from "@/src/components/common/button/button";
-import Icon from "@/src/components/common/icon/icon";
-import Input from "@/src/components/common/input/input";
-import { useWhiteDayContext } from "@/src/contexts/white-day";
-import { useRouter } from "next/navigation";
+import Button from '@/src/components/common/button/button';
+import Icon from '@/src/components/common/icon/icon';
+import Input from '@/src/components/common/input/input';
+import { useWhiteDayContext } from '@/src/contexts/white-day';
+import { useRouter } from 'next/navigation';
 
 export default function Step1() {
   const router = useRouter();
@@ -10,7 +10,7 @@ export default function Step1() {
   const { sender, receiver, setSender, setReceiver } = useWhiteDayContext();
 
   const handleClickNext = () => {
-    router.push("/white-day/gift/new?step=2");
+    router.push('/white-day/gift/new?step=2');
   };
 
   return (
@@ -29,6 +29,7 @@ export default function Step1() {
             value={sender}
             onChange={setSender}
             labelColor="text-[#B5644E]"
+            theme="white-day"
           />
           <Input
             label="받는 사람"
@@ -36,6 +37,7 @@ export default function Step1() {
             value={receiver}
             onChange={setReceiver}
             labelColor="text-[#B5644E]"
+            theme="white-day"
           />
         </div>
       </div>
