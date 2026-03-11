@@ -2,7 +2,7 @@
 
 import MessageModal from "@/src/components/new-year/message-modal";
 import SparkleBurst from "@/src/components/new-year/sparkle-burst";
-import { buildBoard, Ornament } from "@/src/data/ornaments";
+import { buildBoard, Ornament } from "@/src/components/new-year/data/ornaments";
 
 import Image from "next/image";
 import { useMemo, useRef, useState } from "react";

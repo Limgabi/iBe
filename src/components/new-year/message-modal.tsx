@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import KakaoShareButton from '@/src/components/new-year/kakao-share-button';
-import { Ornament } from '@/src/data/ornaments';
+import KakaoShareButton from "@/src/components/new-year/kakao-share-button";
+import { Ornament } from "@/src/components/new-year/data/ornaments";
 
-import Image from 'next/image';
-import { useState } from 'react';
-import Modal from '../common/modal/modal';
+import Image from "next/image";
+import { useState } from "react";
+import Modal from "../common/modal/modal";
 
 interface MessageModalProps {
   open: boolean;
@@ -29,9 +29,9 @@ export default function MessageModal({
           <div className="relative w-73.75 h-96.5">
             <div
               className={[
-                'absolute inset-0 rounded-xl bg-gray-100 animate-pulse transition-opacity duration-200',
-                loaded ? 'opacity-0' : 'opacity-100',
-              ].join(' ')}
+                "absolute inset-0 rounded-xl bg-gray-100 animate-pulse transition-opacity duration-200",
+                loaded ? "opacity-0" : "opacity-100",
+              ].join(" ")}
               aria-hidden="true"
             />
 
@@ -42,9 +42,9 @@ export default function MessageModal({
               alt={ornament.title}
               priority
               className={[
-                'object-contain rounded-xl transition-opacity duration-200',
-                loaded ? 'opacity-100' : 'opacity-0',
-              ].join(' ')}
+                "object-contain rounded-xl transition-opacity duration-200",
+                loaded ? "opacity-100" : "opacity-0",
+              ].join(" ")}
               onLoadingComplete={() => setLoaded(true)}
             />
           </div>
