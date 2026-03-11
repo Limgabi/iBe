@@ -1,4 +1,6 @@
-import { iconMap, IconTypes } from '@/src/components/common/icon/icon-map';
+import { iconMap, IconTypes } from "@/src/components/common/icon/icon-map";
+
+import "./icon.css";
 
 interface IconProps {
   name: IconTypes;
@@ -32,10 +34,16 @@ export default function Icon({
       width={w}
       {...(height ? { height } : {})}
       onClick={onClick}
-      role={onClick ? 'button' : undefined}
-      className={className}
-      style={style}
-      {...(color ? { color } : {})}
+      role={onClick ? "button" : undefined}
+      className={`app-icon ${color ? "app-icon-colored" : ""} ${className ?? ""}`}
+      style={
+        color
+          ? ({
+              ...style,
+              ["--icon-color" as string]: color,
+            } as React.CSSProperties)
+          : style
+      }
     />
   );
 }
