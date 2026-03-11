@@ -1,0 +1,7 @@
+.app-icon {
+  display: inline-block;
+}
+
+.app-icon.app-icon-colored path {
+  fill: var(--icon-color) !important;
+}
