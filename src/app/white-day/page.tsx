@@ -1,11 +1,11 @@
-import { meongiB } from '@/src/app/fonts';
-import Icon from '@/src/components/common/icon/icon';
-import InquiryButton from '@/src/components/common/inquiry/inquiry-button';
-import heartImg from '@/src/assets/images/white-day/heart.png';
-import heart2Img from '@/src/assets/images/white-day/heart2.png';
-import mainCakeImg from '@/src/assets/images/white-day/main-cake.png';
-import Image from 'next/image';
-import Link from 'next/link';
+import { meongiB } from "@/src/app/fonts";
+import Icon from "@/src/components/common/icon/icon";
+import InquiryButton from "@/src/components/common/inquiry/inquiry-button";
+import heartImg from "@/src/assets/images/white-day/heart.png";
+import heart2Img from "@/src/assets/images/white-day/heart2.png";
+import mainCakeImg from "@/src/assets/images/white-day/main-cake.png";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -70,12 +70,20 @@ export default function Home() {
         </h1>
 
         <div className="mt-10 w-fit">
-          <Image src={mainCakeImg} alt="mainCake" width={281} height={323} />
+          <Image
+            src={mainCakeImg}
+            alt="mainCake"
+            width={281}
+            height={323}
+            priority
+          />
         </div>
 
         <div className="w-full pb-18 pt-6 flex flex-col gap-7 items-center">
           <div className="flex flex-col gap-1 text-[#B5644E] text-center leading-[160%]">
-            <p className="font-extrabold text-xl">상대방은 어떤 디저트 타입일까?</p>
+            <p className="font-extrabold text-xl">
+              상대방은 어떤 디저트 타입일까?
+            </p>
             <p className="font-semibold text-base">
               성격을 골라 어울리는 디저트를 찾고
               <br />
