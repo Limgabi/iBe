@@ -31,7 +31,7 @@ export default function Stepper({ theme, steps, currentStep }: StepperProps) {
       </div>
 
       <div className="relative w-full flex-1 min-h-0 overflow-hidden">
-        <AnimatePresence mode="sync" initial={false}>
+        <AnimatePresence mode="sync">
           <motion.div
             key={current?.key ?? safeCurrent}
             initial={{ x: 40, opacity: 0 }}
