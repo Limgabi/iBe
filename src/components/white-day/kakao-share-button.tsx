@@ -1,7 +1,6 @@
 "use client";
 
 import Icon from "@/src/components/common/icon/icon";
-import { WHITE_DAY_RESULT_BY_MBTI } from "@/src/components/white-day/data/desserts";
 import { Gift } from "@/src/components/white-day/step-5";
 
 interface KakaoShareButtonProps {
@@ -13,8 +12,6 @@ export default function KakaoShareButton({
   giftId,
   gift,
 }: KakaoShareButtonProps) {
-  const mbtiResultTitle = WHITE_DAY_RESULT_BY_MBTI[gift.mbti].title;
-
   const handleClickShare = () => {
     if (!window.Kakao) return;
 
@@ -25,8 +22,8 @@ export default function KakaoShareButton({
     window.Kakao.Share.sendDefault({
       objectType: "feed",
       content: {
-        title: "iBe - 행운 뽑기 | 선물이 도착했어요!",
-        description: `To. ${gift.receiver}\n${mbtiResultTitle} 💌`,
+        title: "iBe - 행운 뽑기 | 편지가 도착했어요!",
+        description: `To. ${gift.receiver}`,
         imageUrl: `https://ibe-lucky.vercel.app/white-day/share-thumbnail.png`,
         imageWidth: 375,
         imageHeight: 242,
@@ -37,7 +34,7 @@ export default function KakaoShareButton({
       },
       buttons: [
         {
-          title: "선물 받으러 가기",
+          title: "편지 읽으러 가기",
           link: {
             mobileWebUrl: targetUrl,
             webUrl: targetUrl,
