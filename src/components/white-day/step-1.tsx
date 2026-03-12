@@ -1,8 +1,8 @@
-import Button from '@/src/components/common/button/button';
-import Icon from '@/src/components/common/icon/icon';
-import Input from '@/src/components/common/input/input';
-import { useWhiteDayContext } from '@/src/contexts/white-day';
-import { useRouter } from 'next/navigation';
+import Button from "@/src/components/common/button/button";
+import Icon from "@/src/components/common/icon/icon";
+import Input from "@/src/components/common/input/input";
+import { useWhiteDayContext } from "@/src/contexts/white-day";
+import { useRouter } from "next/navigation";
 
 export default function Step1() {
   const router = useRouter();
@@ -10,7 +10,7 @@ export default function Step1() {
   const { sender, receiver, setSender, setReceiver } = useWhiteDayContext();
 
   const handleClickNext = () => {
-    router.push('/white-day/gift/new?step=2');
+    router.push("/white-day/gift/new?step=2");
   };
 
   return (
@@ -19,7 +19,7 @@ export default function Step1() {
         <p className="text-2xl text-center font-bold leading-[130%] tracking-[-0.02em] text-[#B5644E]">
           누구에게
           <br />
-          선물을 보내고 싶으신가요?
+          편지를 보내고 싶으신가요?
         </p>
 
         <div className="flex flex-col gap-6">

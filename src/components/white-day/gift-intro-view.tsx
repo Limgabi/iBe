@@ -1,13 +1,16 @@
-import Image from 'next/image';
-import heartImg from '@/src/assets/images/white-day/heart.png';
-import heart2Img from '@/src/assets/images/white-day/heart2.png';
-import giftGif from '@/src/assets/images/white-day/gift.gif';
+import Image from "next/image";
+import heartImg from "@/src/assets/images/white-day/heart.png";
+import heart2Img from "@/src/assets/images/white-day/heart2.png";
+import giftGif from "@/src/assets/images/white-day/gift.gif";
 
 interface GiftIntroViewProps {
   receiver: string;
   onOpenGift: () => void;
 }
-export default function GiftIntroView({ receiver, onOpenGift }: GiftIntroViewProps) {
+export default function GiftIntroView({
+  receiver,
+  onOpenGift,
+}: GiftIntroViewProps) {
   return (
     <>
       <div className="pointer-events-none absolute inset-0">
@@ -45,7 +48,7 @@ export default function GiftIntroView({ receiver, onOpenGift }: GiftIntroViewPro
         <p className="text-2xl text-center font-bold leading-[130%] tracking-[-0.02em] pt-10">
           {receiver}님에게
           <br />
-          선물이
+          편지가
           <br />
           도착했어요!
         </p>
@@ -54,7 +57,7 @@ export default function GiftIntroView({ receiver, onOpenGift }: GiftIntroViewPro
           <p>
             아래 선물 상자를 클릭해
             <br />
-            선물을 받아보세요!
+            편지를 열어보세요!
           </p>
           <Image
             src={giftGif}

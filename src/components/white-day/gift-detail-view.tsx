@@ -65,7 +65,7 @@ export default function GiftDetailView({ gift }: GiftDetailViewProps) {
       >
         <Button
           theme="white-day"
-          text="나도 선물 만들기"
+          text="나도 편지 만들기"
           className="text-center items-center"
           onClick={handleClickCreateNewGift}
         />

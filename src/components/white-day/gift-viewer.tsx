@@ -61,7 +61,7 @@ export default function GiftViewer() {
     return (
       <div className="flex flex-col gap-5 items-center flex-1 h-full min-h-0 justify-center">
         <span className="text-[20px] text-center font-bold leading-[130%] tracking-[-0.02em] text-[#B5644E]">
-          선물 가져오는 중
+          편지를 가져오는 중
         </span>
         <LoadingDots background="#B5644E" />
       </div>
@@ -72,7 +72,7 @@ export default function GiftViewer() {
     return (
       <div className="flex flex-col gap-5 items-center flex-1 h-full min-h-0 justify-center">
         <span className="text-[20px] text-center font-bold leading-[130%] tracking-[-0.02em] text-[#B5644E]">
-          선물 정보를 찾을 수 없어요
+          편지 정보를 찾을 수 없어요
         </span>
       </div>
     );
