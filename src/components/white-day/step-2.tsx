@@ -17,6 +17,8 @@ import {
   WHITE_DAY_OPTIONS,
 } from "@/src/components/white-day/data/white-day-options";
 
+import { motion } from "framer-motion";
+
 type DessertImage = (typeof DESSERT_IMAGES)[number];
 
 const pickUnique = <T,>(arr: readonly T[], count: number) => {
@@ -85,7 +87,13 @@ export default function Step2() {
   return (
     <>
       {isLoading ? (
-        <div className="flex flex-col gap-8 items-center flex-1 h-full min-h-0 justify-center overflow-y-auto scrollbar-hide">
+        <motion.div
+          initial={{ x: 40, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          exit={{ x: -40, opacity: 0 }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
+          className="flex flex-col gap-8 items-center flex-1 h-full min-h-0 justify-center overflow-y-auto scrollbar-hide"
+        >
           <div className="flex flex-col gap-5 items-center">
             <p className="text-2xl text-center font-bold leading-[130%] tracking-[-0.02em] text-[#B5644E]">
               {receiver}님과
@@ -103,7 +111,7 @@ export default function Step2() {
             className="w-25 h-25 object-contain"
             priority
           />
-        </div>
+        </motion.div>
       ) : (
         <div className="flex flex-col justify-between items-center flex-1 h-full min-h-0 gap-15 overflow-y-auto scrollbar-hide">
           <div className="flex flex-col gap-12 w-full">
