@@ -1,6 +1,7 @@
+import Image from "next/image";
+
 import { WHITE_DAY_RESULT_BY_MBTI } from "@/src/components/white-day/data/desserts";
 import { Gift } from "@/src/components/white-day/step-5";
-import Image from "next/image";
 
 interface GiftCardProps {
   gift: Gift;
@@ -11,9 +12,11 @@ export default function GiftCard({ gift }: GiftCardProps) {
 
   return (
     <div className="flex flex-col gap-5 rounded-lg py-6 px-5 bg-[#FFFFFF] text-[#B5644E] w-full items-center shadow-[0px_0px_12px_0px_#0000001A]">
-      <span className="text-sm leading-[160%] font-black">{`To. ${gift.receiver}`}</span>
+      {/** 편지 받는 사람 */}
+      <span className="leading-[160%] font-black">{`To. ${gift.receiver}`}</span>
 
-      <div className="flex flex-col gap-3 items-center">
+      {/** 디저트 타입 */}
+      <div className="flex flex-col gap-3 items-center rounded-lg p-4 bg-[#FFFCF3] w-full">
         <Image
           src={giftResult.image.src}
           alt="디저트 이미지"
@@ -22,40 +25,35 @@ export default function GiftCard({ gift }: GiftCardProps) {
           className="w-25 h-25 object-contain"
           priority
         />
-        <div className="flex items-center gap-1">
-          <span className="font-extrabold text-sm leading-[160%] text-center">
+        <div className="flex flex-col gap-0.5 leading-[160%] text-center text-[#B5644E]">
+          <span className="font-extrabold text-sm">
             당신은 {giftResult.title}
           </span>
-          <Image
-            src={giftResult.image.src}
-            alt="디저트 이미지"
-            width={20}
-            height={20}
-            className="w-5 h-5 object-contain"
-            priority
-          />
+          <span className="font-medium text-sm">{giftResult.desc}</span>
         </div>
       </div>
 
-      <div className="rounded-lg bg-[#FFFBE8] p-4 w-full">
-        <div
-          className="whitespace-pre-wrap text-sm font-medium text-[#B5644E] text-center"
-          style={{
-            lineHeight: "25px",
-            backgroundImage: `
-        repeating-linear-gradient(
-          to bottom,
-          transparent 0,
-          transparent 24px,
-          #FFE1BE 24px,
-          #FFE1BE 25px
-        )
-      `,
-          }}
-        >
-          {gift.letter}
-        </div>
+      {/** 편지 내용 */}
+      <div
+        className="w-full whitespace-pre-wrap text-sm font-medium text-[#B5644E] text-center"
+        style={{
+          lineHeight: "32px",
+          backgroundImage: `
+      repeating-linear-gradient(
+        to bottom,
+        transparent 0,
+        transparent 31px,
+        #FFE1BE 31px,
+        #FFE1BE 32px
+      )
+    `,
+        }}
+      >
+        {gift.letter}
       </div>
+
+      {/** 편지 보내는 사람 */}
+      <span className="leading-[160%] font-black">{`From. ${gift.sender}`}</span>
     </div>
   );
 }

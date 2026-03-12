@@ -1,19 +1,19 @@
-import { useRouter } from 'next/navigation';
-import Image from 'next/image';
+import { useRouter } from "next/navigation";
+import Image from "next/image";
 
-import { useWhiteDayContext } from '@/src/contexts/white-day';
-import Button from '../common/button/button';
-import Icon from '../common/icon/icon';
+import { useWhiteDayContext } from "@/src/contexts/white-day";
+import Button from "../common/button/button";
+import Icon from "../common/icon/icon";
 
 export default function Step3() {
   const router = useRouter();
 
   const { receiver, result } = useWhiteDayContext();
 
-  const dessertType = result?.title.split('타입')[0];
+  const dessertType = result?.title.split(" 타입")[0];
 
   const handleClickNext = () => {
-    router.push('/white-day/gift/new?step=4');
+    router.push("/white-day/gift/new?step=4");
   };
 
   return (
@@ -22,11 +22,12 @@ export default function Step3() {
         <p className="text-2xl text-center font-bold leading-[130%] tracking-[-0.02em] text-[#B5644E]">
           {receiver}님은
           <br />
-          <span className="font-black text-[#E47F26]">{dessertType}</span> 같은 사람
+          <span className="font-black text-[#E47F26]">{dessertType}</span> 같은
+          사람
         </p>
 
         <Image
-          src={result?.image.src ?? ''}
+          src={result?.image.src ?? ""}
           alt="디저트 이미지"
           width={120}
           height={120}
@@ -39,7 +40,7 @@ export default function Step3() {
             <div className="flex items-center gap-1">
               <span className="font-extrabold">{result?.title}</span>
               <Image
-                src={result?.image.src ?? ''}
+                src={result?.image.src ?? ""}
                 alt="디저트 이미지"
                 width={20}
                 height={20}
@@ -61,7 +62,7 @@ export default function Step3() {
       </div>
 
       <Button
-        text="편지쓰러 가기"
+        text="편지 쓰러 가기"
         icon={<Icon name="arrowRight" width={16} height={16} />}
         onClick={handleClickNext}
         theme="white-day"

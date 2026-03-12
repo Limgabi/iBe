@@ -3,6 +3,7 @@ import GiftCard from "@/src/components/white-day/gift-card";
 import { Gift } from "@/src/components/white-day/step-5";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
+import { WHITE_DAY_RESULT_BY_MBTI } from "@/src/components/white-day/data/desserts";
 
 interface GiftDetailViewProps {
   gift: Gift | null;
@@ -17,6 +18,19 @@ export default function GiftDetailView({ gift }: GiftDetailViewProps) {
 
   if (!gift) return;
 
+  const giftResult = WHITE_DAY_RESULT_BY_MBTI[gift.mbti];
+  const dessertType = giftResult?.title.split(" 타입")[0];
+
+  const getEulReul = (word: string) => {
+    const normalizedWord = word.trim();
+    if (!normalizedWord) return "";
+
+    const lastChar = normalizedWord.charCodeAt(normalizedWord.length - 1);
+    const hasBatchim = (lastChar - 44032) % 28 !== 0;
+
+    return hasBatchim ? "을" : "를";
+  };
+
   return (
     <motion.div
       className="relative z-10 px-5 pb-14.25 flex flex-col gap-15 items-center"
@@ -26,11 +40,12 @@ export default function GiftDetailView({ gift }: GiftDetailViewProps) {
     >
       <div className="flex flex-col gap-12 w-full items-center">
         <p className="text-2xl text-center font-bold leading-[130%] tracking-[-0.02em] text-[#B5644E] pt-10">
-          {gift.sender}님의
+          {gift.sender}님이
           <br />
-          마음을 담은
+          당신을 떠올리며
           <br />
-          선물이 준비되었어요!
+          <span className="font-black text-[#E47F26]">{dessertType}</span>
+          {getEulReul(dessertType)} 보냈어요
         </p>
 
         <motion.div
@@ -50,7 +65,7 @@ export default function GiftDetailView({ gift }: GiftDetailViewProps) {
       >
         <Button
           theme="white-day"
-          text="나도 선물 만들기"
+          text="나도 편지 만들기"
           className="text-center items-center"
           onClick={handleClickCreateNewGift}
         />

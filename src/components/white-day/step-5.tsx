@@ -62,7 +62,7 @@ export default function Step5() {
     return (
       <div className="flex flex-col gap-5 items-center flex-1 h-full min-h-0 justify-center">
         <span className="text-[20px] text-center font-bold leading-[130%] tracking-[-0.02em] text-[#B5644E]">
-          선물 만드는 중
+          편지를 만드는 중
         </span>
         <LoadingDots background="#B5644E" />
       </div>
@@ -73,7 +73,7 @@ export default function Step5() {
     return (
       <div className="flex flex-col gap-5 items-center flex-1 h-full min-h-0 justify-center">
         <span className="text-[20px] text-center font-bold leading-[130%] tracking-[-0.02em] text-[#B5644E]">
-          선물 정보를 찾을 수 없어요
+          편지 정보를 찾을 수 없어요
         </span>
       </div>
     );
@@ -87,7 +87,7 @@ export default function Step5() {
           <br />
           마음을 담은
           <br />
-          선물이 준비되었어요!
+          편지가 준비되었어요!
         </p>
 
         <GiftCard gift={gift} />
@@ -97,7 +97,7 @@ export default function Step5() {
         <KakaoShareButton giftId={giftId} gift={gift} />
         <Button
           theme="white-day"
-          text="새로운 선물 만들기"
+          text="새로운 편지 만들기"
           className="w-full text-center items-center"
           onClick={handleClickCreateNewGift}
         />

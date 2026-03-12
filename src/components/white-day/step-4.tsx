@@ -1,12 +1,12 @@
-import { useWhiteDayContext } from '@/src/contexts/white-day';
-import { useRouter } from 'next/navigation';
-import Button from '../common/button/button';
-import Icon from '../common/icon/icon';
-import { useCallback, useMemo, useState } from 'react';
-import Textarea from '../common/textarea/textarea';
-import { addDoc, collection } from 'firebase/firestore';
-import { db } from '@/src/lib/firebase';
-import debounce from '@/src/utils/debounce';
+import { useWhiteDayContext } from "@/src/contexts/white-day";
+import { useRouter } from "next/navigation";
+import Button from "../common/button/button";
+import Icon from "../common/icon/icon";
+import { useCallback, useMemo, useState } from "react";
+import Textarea from "../common/textarea/textarea";
+import { addDoc, collection } from "firebase/firestore";
+import { db } from "@/src/lib/firebase";
+import debounce from "@/src/utils/debounce";
 
 export default function Step4() {
   const router = useRouter();
@@ -14,12 +14,12 @@ export default function Step4() {
   const { sender, receiver, result, setLetter, mbti } = useWhiteDayContext();
 
   const [selectedIdx, setSelectedIdx] = useState<number | null>(null);
-  const [letterText, setLetterText] = useState('');
+  const [letterText, setLetterText] = useState("");
 
   const handleClickNext = useCallback(async () => {
     setLetter(letterText);
 
-    const docRef = await addDoc(collection(db, 'gifts'), {
+    const docRef = await addDoc(collection(db, "gifts"), {
       sender,
       receiver,
       mbti: mbti,
@@ -63,11 +63,11 @@ export default function Step4() {
                     setLetterText(text);
                   }}
                   className={[
-                    'py-3 px-4 rounded-md text-left border  leading-[150%] cursor-pointer',
+                    "py-3 px-4 rounded-md text-left border  leading-[150%] cursor-pointer",
                     selected
-                      ? 'font-bold bg-[#F8DCC4] border-[#B5644E]'
-                      : 'font-medium bg-[#FFFFFF] border-[#F8DCC4]',
-                  ].join(' ')}
+                      ? "font-bold bg-[#F8DCC4] border-[#B5644E]"
+                      : "font-medium bg-[#FFFFFF] border-[#F8DCC4]",
+                  ].join(" ")}
                 >
                   {text}
                 </button>
@@ -89,7 +89,7 @@ export default function Step4() {
       </div>
 
       <Button
-        text="선물 만들기"
+        text="편지 만들기"
         icon={<Icon name="arrowRight" width={16} height={16} />}
         onClick={debouncedCreate}
         disabled={!letterText}

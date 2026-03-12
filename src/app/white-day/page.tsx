@@ -87,7 +87,7 @@ export default function Home() {
             <p className="font-semibold text-base">
               성격을 골라 어울리는 디저트를 찾고
               <br />
-              편지를 완성해 선물해 보세요!
+              편지를 완성해 마음을 전달해 보세요!
             </p>
           </div>
 
@@ -95,7 +95,7 @@ export default function Home() {
             href="/white-day/gift/new?step=1"
             className="flex w-fit items-center gap-1 rounded-[365px] bg-[#B5644E] px-6 py-3 text-button text-white"
           >
-            <span>선물 만들기</span>
+            <span>편지 만들기</span>
             <Icon name="gift" width={16} height={16} />
           </Link>
         </div>
