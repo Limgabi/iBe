@@ -1,7 +1,8 @@
-import { useState } from 'react';
-import LoadingDots from '@/src/components/common/loading/loading-dots';
-import Modal from '../modal/modal';
-import { THEME_UI, ThemeKey } from '@/src/constants/theme';
+import { useState } from "react";
+import LoadingDots from "@/src/components/common/loading/loading-dots";
+import Modal from "../modal/modal";
+import { THEME_UI, ThemeKey } from "@/src/constants/theme";
+import Textarea from "@/src/components/common/textarea/textarea";
 
 interface InquiryModalProps {
   theme: ThemeKey;
@@ -11,25 +12,29 @@ interface InquiryModalProps {
 
 const GAS_WEB_APP_URL = process.env.NEXT_PUBLIC_GAS_WEB_APP_URL;
 
-export default function InquiryModal({ theme, open, onClose }: InquiryModalProps) {
+export default function InquiryModal({
+  theme,
+  open,
+  onClose,
+}: InquiryModalProps) {
   const ui = THEME_UI[theme].inquiry;
 
-  const [inquiryText, setInquiryText] = useState('');
+  const [inquiryText, setInquiryText] = useState("");
   const [isSending, setIsSending] = useState(false);
 
   const isEmpty = !inquiryText.trim();
   const isDisabled = isSending || isEmpty;
   const cursorClass = isSending
-    ? 'cursor-default'
+    ? "cursor-default"
     : isEmpty
-      ? 'cursor-not-allowed'
-      : 'cursor-pointer';
+      ? "cursor-not-allowed"
+      : "cursor-pointer";
 
   const handleSendInquiry = async () => {
     const url = GAS_WEB_APP_URL;
     if (!url) {
       console.error(
-        '환경변수 NEXT_PUBLIC_GAS_WEB_APP_URL이 설정되어 있지 않습니다.',
+        "환경변수 NEXT_PUBLIC_GAS_WEB_APP_URL이 설정되어 있지 않습니다.",
       );
       return;
     }
@@ -41,9 +46,9 @@ export default function InquiryModal({ theme, open, onClose }: InquiryModalProps
       setIsSending(true);
 
       const res = await fetch(GAS_WEB_APP_URL, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
         },
         body: new URLSearchParams({ message }).toString(),
       });
@@ -51,10 +56,10 @@ export default function InquiryModal({ theme, open, onClose }: InquiryModalProps
       const json = await res.json().catch(() => ({}));
       if (!json.ok)
         throw new Error(
-          json.error || '의견 전송에 실패했어요. 잠시 후 다시 시도해주세요.',
+          json.error || "의견 전송에 실패했어요. 잠시 후 다시 시도해주세요.",
         );
 
-      setInquiryText('');
+      setInquiryText("");
       onClose();
     } catch (e) {
       console.error(e);
@@ -66,7 +71,12 @@ export default function InquiryModal({ theme, open, onClose }: InquiryModalProps
   if (!open) return null;
 
   return (
-    <Modal theme={theme} onClose={onClose} gapClassName="gap-4" zClassName="z-50">
+    <Modal
+      theme={theme}
+      onClose={onClose}
+      gapClassName="gap-4"
+      zClassName="z-50"
+    >
       <div className="flex flex-col gap-7">
         <div className="flex flex-col gap-5">
           <div className="flex flex-col gap-2 text-start">
@@ -79,21 +89,21 @@ export default function InquiryModal({ theme, open, onClose }: InquiryModalProps
               의견을 남겨주세요.
             </p>
           </div>
-          <textarea
-            className="border border-[#CBD5E1] rounded-md px-4 py-3 text-modal-input text-[#5F5F5F] resize-none h-31 placeholder:text-[#A7ABB1]"
-            style={{ outlineColor: ui.outline }}
-            placeholder="의견을 남겨주세요."
-            onChange={(e) => setInquiryText(e.target.value)}
+          <Textarea
+            theme={theme}
             value={inquiryText}
+            onChange={setInquiryText}
+            placeholder="의견을 남겨주세요."
+            className="h-31"
           />
         </div>
         <button
           onClick={handleSendInquiry}
           disabled={isDisabled}
           className={[
-            'rounded-[365px] h-12 py-3 w-full text-button text-white',
+            "rounded-[365px] h-12 py-3 w-full text-button text-white",
             cursorClass,
-          ].join(' ')}
+          ].join(" ")}
           style={{
             backgroundColor: isSending
               ? ui.primarySoft
@@ -108,7 +118,7 @@ export default function InquiryModal({ theme, open, onClose }: InquiryModalProps
               <LoadingDots />
             </div>
           ) : (
-            '의견 보내기'
+            "의견 보내기"
           )}
         </button>
       </div>
