@@ -115,7 +115,7 @@ const RECOMMENDED_PHRASES_BY_MBTI: Record<MBTI, string[]> = {
   ],
   INTP: [
     "너 얘기 들으면 새로운 관점이 많아서 재밌어",
-    "너는 다른 사람들이 잘 생각 못 하는 걸 보는 것 같아",
+    "넌 다른 사람들이 잘 생각 못 하는 걸 보는 것 같아",
     "역시 너다운 생각이다 싶었어",
   ],
   ISFJ: [
