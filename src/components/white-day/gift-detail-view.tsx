@@ -65,10 +65,11 @@ export default function GiftDetailView({ gift }: GiftDetailViewProps) {
       >
         <Button
           theme="white-day"
-          text="나도 편지 만들기"
           className="text-center items-center"
           onClick={handleClickCreateNewGift}
-        />
+        >
+          나도 편지 만들기
+        </Button>
       </motion.div>
     </motion.div>
   );

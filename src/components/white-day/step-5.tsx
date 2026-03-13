@@ -97,10 +97,11 @@ export default function Step5() {
         <KakaoShareButton giftId={giftId} gift={gift} />
         <Button
           theme="white-day"
-          text="새로운 편지 만들기"
           className="w-full text-center items-center"
           onClick={handleClickCreateNewGift}
-        />
+        >
+          새로운 편지 만들기
+        </Button>
       </div>
     </div>
   );
