@@ -89,12 +89,13 @@ export default function Step4() {
       </div>
 
       <Button
-        text="편지 만들기"
         icon={<Icon name="arrowRight" width={16} height={16} />}
         onClick={debouncedCreate}
         disabled={!letterText}
         theme="white-day"
-      />
+      >
+        편지 만들기
+      </Button>
     </div>
   );
 }

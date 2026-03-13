@@ -2,7 +2,7 @@ import { ThemeKey } from "@/src/constants/theme";
 import { ReactNode } from "react";
 
 interface ButtonProps {
-  text: string;
+  children: ReactNode;
   icon?: ReactNode;
   iconPosition?: "left" | "right";
   className?: string;
@@ -13,7 +13,7 @@ interface ButtonProps {
 }
 
 export default function Button({
-  text,
+  children,
   icon,
   iconPosition = "right",
   className,
@@ -36,7 +36,7 @@ export default function Button({
       ].join(" ")}
     >
       {iconPosition === "left" && icon}
-      <span className="w-full">{text}</span>
+      <span className="w-full">{children}</span>
       {iconPosition === "right" && icon}
     </button>
   );

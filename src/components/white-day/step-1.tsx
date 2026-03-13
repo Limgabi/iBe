@@ -43,12 +43,13 @@ export default function Step1() {
       </div>
 
       <Button
-        text="다음으로"
         icon={<Icon name="arrowRight" width={16} height={16} />}
         onClick={handleClickNext}
         theme="white-day"
         disabled={!sender || !receiver}
-      />
+      >
+        다음으로
+      </Button>
     </div>
   );
 }
