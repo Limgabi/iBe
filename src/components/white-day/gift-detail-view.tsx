@@ -85,20 +85,26 @@ export default function GiftDetailView({ gift }: GiftDetailViewProps) {
           {getEulReul(dessertType)} 보냈어요
         </p>
 
-        <motion.div
-          className="w-full"
-          initial={{ opacity: 0, scale: 0.96 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.12, duration: 0.35 }}
-        >
-          <div ref={cardRef}>
-            {imageUrl ? (
-              <img src={imageUrl} alt="선물 카드" className="w-full" />
-            ) : (
-              <GiftCard gift={gift} />
-            )}
-          </div>
-        </motion.div>
+        <div className="flex flex-col gap-6">
+          <motion.div
+            className="w-full"
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.12, duration: 0.35 }}
+          >
+            <div ref={cardRef}>
+              {imageUrl ? (
+                <img src={imageUrl} alt="선물 카드" className="w-full" />
+              ) : (
+                <GiftCard gift={gift} />
+              )}
+            </div>
+          </motion.div>
+
+          <p className="font-bold text-[14px] leading-[150%] tracking-[-0.03em] text-[#B5644E] text-center">
+            이미지를 꾹 눌러 저장해보세요!
+          </p>
+        </div>
       </div>
 
       <motion.div
