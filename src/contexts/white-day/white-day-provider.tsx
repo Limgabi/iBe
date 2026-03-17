@@ -73,9 +73,5 @@ export function WhiteDayProvider({ children }: WhiteDayProviderProps) {
     };
   }, [sender, receiver, selections, mbti, result, letter, resetWhiteDay]);
 
-  return (
-    <WhiteDayContext.Provider value={value}>
-      {children}
-    </WhiteDayContext.Provider>
-  );
+  return <WhiteDayContext value={value}>{children}</WhiteDayContext>;
 }
