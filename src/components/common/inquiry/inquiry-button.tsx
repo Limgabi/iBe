@@ -1,15 +1,14 @@
-'use client';
+"use client";
 
-import Icon from '@/src/components/common/icon/icon';
-import InquiryModal from '@/src/components/common/inquiry/inquiry-modal';
-import { THEME_UI, ThemeKey } from '@/src/constants/theme';
-import { useState } from 'react';
+import Icon from "@/src/components/common/icon/icon";
+import InquiryModal from "@/src/components/common/inquiry/inquiry-modal";
+import { THEME_UI } from "@/src/constants/theme";
+import { useThemeContext } from "@/src/contexts/theme";
+import { useState } from "react";
 
-interface InquiryButtonProps {
-  theme: ThemeKey;
-}
+export default function InquiryButton() {
+  const { theme } = useThemeContext();
 
-export default function InquiryButton({ theme }: InquiryButtonProps) {
   const ui = THEME_UI[theme].inquiry;
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -24,18 +23,14 @@ export default function InquiryButton({ theme }: InquiryButtonProps) {
             onClick={() => setIsModalOpen(true)}
           >
             <Icon
-              name={theme === 'new-year' ? 'inquiry' : 'inquiryWhiteDay'}
+              name={theme === "new-year" ? "inquiry" : "inquiryWhiteDay"}
               width={16}
               height={16}
             />
           </button>
         </div>
       </div>
-      <InquiryModal
-        theme={theme}
-        open={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-      />
+      <InquiryModal open={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </>
   );
 }

@@ -1,7 +1,7 @@
-import { THEME_UI, ThemeKey } from '@/src/constants/theme';
+import { THEME_UI } from "@/src/constants/theme";
+import { useThemeContext } from "@/src/contexts/theme";
 
 interface TextareaProps {
-  theme: ThemeKey;
   value: string;
   onChange: (value: string) => void;
 
@@ -15,16 +15,17 @@ interface TextareaProps {
 }
 
 export default function Textarea({
-  theme,
   value,
   onChange,
-  placeholder = '의견을 남겨주세요.',
+  placeholder = "의견을 남겨주세요.",
   className,
   disabled = false,
   maxLength,
   name,
   id,
 }: TextareaProps) {
+  const { theme } = useThemeContext();
+
   const ui = THEME_UI[theme].inquiry;
 
   return (
@@ -37,20 +38,22 @@ export default function Textarea({
       placeholder={placeholder}
       onChange={(e) => onChange(e.target.value)}
       className={[
-        'border rounded-md px-4 py-3 text-modal-input text-[#5F5F5F] resize-none placeholder:text-[#A7ABB1]',
-        'outline-none',
-        disabled ? 'cursor-not-allowed bg-[#F1F5F9]' : 'cursor-text bg-[#FFFFFF]',
+        "border rounded-md px-4 py-3 text-modal-input text-[#5F5F5F] resize-none placeholder:text-[#A7ABB1]",
+        "outline-none",
+        disabled
+          ? "cursor-not-allowed bg-[#F1F5F9]"
+          : "cursor-text bg-[#FFFFFF]",
         className,
-      ].join(' ')}
+      ].join(" ")}
       style={{
-        borderColor: '#CBD5E1',
+        borderColor: "#CBD5E1",
       }}
       onFocus={(e) => {
         if (disabled) return;
         e.currentTarget.style.borderColor = ui.outline;
       }}
       onBlur={(e) => {
-        e.currentTarget.style.borderColor = '#CBD5E1';
+        e.currentTarget.style.borderColor = "#CBD5E1";
       }}
     />
   );

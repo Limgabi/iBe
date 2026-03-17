@@ -64,7 +64,6 @@ export default function GiftDetailView({ gift }: GiftDetailViewProps) {
         transition={{ delay: 0.2, duration: 0.35 }}
       >
         <Button
-          theme="white-day"
           className="text-center items-center"
           onClick={handleClickCreateNewGift}
         >

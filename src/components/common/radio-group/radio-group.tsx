@@ -1,4 +1,4 @@
-import { ThemeKey } from "@/src/constants/theme";
+import { useThemeContext } from "@/src/contexts/theme";
 
 interface RadioOption<T extends string | number | boolean = string> {
   value: T;
@@ -7,7 +7,6 @@ interface RadioOption<T extends string | number | boolean = string> {
 }
 
 interface RadioGroupProps<T extends string | number | boolean = string> {
-  theme: ThemeKey;
   label?: string;
   className?: string;
 
@@ -35,7 +34,9 @@ const THEME = {
 
 export default function RadioGroup<
   T extends string | number | boolean = string,
->({ theme, label, className, options, value, onChange }: RadioGroupProps<T>) {
+>({ label, className, options, value, onChange }: RadioGroupProps<T>) {
+  const { theme } = useThemeContext();
+
   const themeStyle = THEME[theme];
 
   return (

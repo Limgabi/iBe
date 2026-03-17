@@ -1,22 +1,20 @@
 import { useState } from "react";
 import LoadingDots from "@/src/components/common/loading/loading-dots";
 import Modal from "../modal/modal";
-import { THEME_UI, ThemeKey } from "@/src/constants/theme";
+import { THEME_UI } from "@/src/constants/theme";
 import Textarea from "@/src/components/common/textarea/textarea";
+import { useThemeContext } from "@/src/contexts/theme";
 
 interface InquiryModalProps {
-  theme: ThemeKey;
   open: boolean;
   onClose: () => void;
 }
 
 const GAS_WEB_APP_URL = process.env.NEXT_PUBLIC_GAS_WEB_APP_URL;
 
-export default function InquiryModal({
-  theme,
-  open,
-  onClose,
-}: InquiryModalProps) {
+export default function InquiryModal({ open, onClose }: InquiryModalProps) {
+  const { theme } = useThemeContext();
+
   const ui = THEME_UI[theme].inquiry;
 
   const [inquiryText, setInquiryText] = useState("");
@@ -71,12 +69,7 @@ export default function InquiryModal({
   if (!open) return null;
 
   return (
-    <Modal
-      theme={theme}
-      onClose={onClose}
-      gapClassName="gap-4"
-      zClassName="z-50"
-    >
+    <Modal onClose={onClose} gapClassName="gap-4" zClassName="z-50">
       <div className="flex flex-col gap-7">
         <div className="flex flex-col gap-5">
           <div className="flex flex-col gap-2 text-start">
@@ -90,7 +83,6 @@ export default function InquiryModal({
             </p>
           </div>
           <Textarea
-            theme={theme}
             value={inquiryText}
             onChange={setInquiryText}
             placeholder="의견을 남겨주세요."

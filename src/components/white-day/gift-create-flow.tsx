@@ -25,7 +25,6 @@ export default function GiftCreateFlow() {
   return (
     <WhiteDayProvider>
       <Stepper
-        theme="white-day"
         currentStep={step}
         steps={[
           { key: "s1", content: <Step1 /> },

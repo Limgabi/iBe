@@ -64,7 +64,6 @@ export default function Step3() {
       <Button
         icon={<Icon name="arrowRight" width={16} height={16} />}
         onClick={handleClickNext}
-        theme="white-day"
       >
         편지 쓰러 가기
       </Button>

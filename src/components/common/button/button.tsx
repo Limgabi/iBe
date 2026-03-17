@@ -1,4 +1,4 @@
-import { ThemeKey } from "@/src/constants/theme";
+import { useThemeContext } from "@/src/contexts/theme";
 import { ReactNode } from "react";
 
 interface ButtonProps {
@@ -6,7 +6,6 @@ interface ButtonProps {
   icon?: ReactNode;
   iconPosition?: "left" | "right";
   className?: string;
-  theme: ThemeKey;
   disabled?: boolean;
   onClick?: () => void;
   type?: "button" | "submit" | "reset";
@@ -17,11 +16,12 @@ export default function Button({
   icon,
   iconPosition = "right",
   className,
-  theme,
   disabled = false,
   onClick,
   type = "button",
 }: ButtonProps) {
+  const { theme } = useThemeContext();
+
   return (
     <button
       type={type}
