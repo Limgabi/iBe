@@ -1,9 +1,13 @@
+/* eslint-disable react-hooks/rules-of-hooks */
+/* eslint-disable @next/next/no-img-element */
 import Button from "@/src/components/common/button/button";
 import GiftCard from "@/src/components/white-day/gift-card";
 import { Gift } from "@/src/components/white-day/step-5";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { WHITE_DAY_RESULT_BY_MBTI } from "@/src/components/white-day/data/desserts";
+import { useEffect, useRef, useState } from "react";
+import { toPng } from "html-to-image";
 
 interface GiftDetailViewProps {
   gift: Gift | null;
@@ -12,11 +16,44 @@ interface GiftDetailViewProps {
 export default function GiftDetailView({ gift }: GiftDetailViewProps) {
   const router = useRouter();
 
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [imageUrl, setImageUrl] = useState("");
+
   const handleClickCreateNewGift = () => {
     router.push("/white-day");
   };
 
   if (!gift) return;
+
+  useEffect(() => {
+    let isMounted = true;
+
+    const convert = async () => {
+      try {
+        if (!cardRef.current) return;
+
+        await document.fonts.ready;
+        await new Promise((resolve) => setTimeout(resolve, 700));
+
+        const dataUrl = await toPng(cardRef.current, {
+          cacheBust: true,
+          pixelRatio: 2,
+        });
+
+        if (isMounted) {
+          setImageUrl(dataUrl);
+        }
+      } catch (error) {
+        console.error("PNG 변환 실패", error);
+      }
+    };
+
+    convert();
+
+    return () => {
+      isMounted = false;
+    };
+  }, [gift]);
 
   const giftResult = WHITE_DAY_RESULT_BY_MBTI[gift.mbti];
   const dessertType = giftResult?.title.split(" 타입")[0];
@@ -48,14 +85,26 @@ export default function GiftDetailView({ gift }: GiftDetailViewProps) {
           {getEulReul(dessertType)} 보냈어요
         </p>
 
-        <motion.div
-          className="w-full"
-          initial={{ opacity: 0, scale: 0.96 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.12, duration: 0.35 }}
-        >
-          <GiftCard gift={gift} />
-        </motion.div>
+        <div className="flex flex-col gap-6">
+          <motion.div
+            className="w-full"
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.12, duration: 0.35 }}
+          >
+            <div ref={cardRef}>
+              {imageUrl ? (
+                <img src={imageUrl} alt="선물 카드" className="w-full" />
+              ) : (
+                <GiftCard gift={gift} />
+              )}
+            </div>
+          </motion.div>
+
+          <p className="font-bold text-[14px] leading-[150%] tracking-[-0.03em] text-[#B5644E] text-center">
+            이미지를 꾹 눌러 저장해보세요!
+          </p>
+        </div>
       </div>
 
       <motion.div
