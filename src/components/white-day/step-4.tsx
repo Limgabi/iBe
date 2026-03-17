@@ -78,7 +78,6 @@ export default function Step4() {
           <div className="flex flex-col gap-2">
             <label className="font-semibold leading-[160%]">편지 내용</label>
             <Textarea
-              theme="white-day"
               value={letterText}
               onChange={setLetterText}
               placeholder="편지를 작성해 주세요."
@@ -92,7 +91,6 @@ export default function Step4() {
         icon={<Icon name="arrowRight" width={16} height={16} />}
         onClick={debouncedCreate}
         disabled={!letterText}
-        theme="white-day"
       >
         편지 만들기
       </Button>

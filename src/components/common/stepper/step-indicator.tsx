@@ -1,16 +1,17 @@
-import { THEME_UI, ThemeKey } from "@/src/constants/theme";
+import { THEME_UI } from "@/src/constants/theme";
+import { useThemeContext } from "@/src/contexts/theme";
 
 interface StepIndicatorProps {
-  theme: ThemeKey;
   currentStep: number;
   totalStep: number;
 }
 
 export default function StepIndicator({
-  theme,
   currentStep,
   totalStep,
 }: StepIndicatorProps) {
+  const { theme } = useThemeContext();
+
   const { active, inactive } = THEME_UI[theme].steps;
 
   return (

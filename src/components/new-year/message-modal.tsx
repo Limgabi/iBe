@@ -23,7 +23,7 @@ export default function MessageModal({
   if (!open || !ornament) return null;
 
   return (
-    <Modal theme="new-year" onClose={onClose}>
+    <Modal onClose={onClose}>
       <div className="flx flex-col">
         <div className="pt-3 flex justify-center">
           <div className="relative w-73.75 h-96.5">

@@ -128,7 +128,6 @@ export default function Step2() {
                 return (
                   <RadioGroup
                     key={group.title}
-                    theme="white-day"
                     label={group.title}
                     options={group.options}
                     value={selections[key]}
@@ -142,7 +141,6 @@ export default function Step2() {
           <Button
             icon={<Icon name="arrowRight" width={16} height={16} />}
             onClick={handleClickNext}
-            theme="white-day"
             disabled={!allSelected}
           >
             다음으로

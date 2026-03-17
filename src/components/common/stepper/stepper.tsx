@@ -1,5 +1,4 @@
 import StepIndicator from "@/src/components/common/stepper/step-indicator";
-import { ThemeKey } from "@/src/constants/theme";
 import { AnimatePresence, motion } from "framer-motion";
 import { ReactNode } from "react";
 
@@ -10,12 +9,11 @@ interface StepItem {
 }
 
 interface StepperProps {
-  theme: ThemeKey;
   steps: StepItem[];
   currentStep: number; // 1-based
 }
 
-export default function Stepper({ theme, steps, currentStep }: StepperProps) {
+export default function Stepper({ steps, currentStep }: StepperProps) {
   const totalStep = steps.length;
   const safeCurrent = Math.min(Math.max(1, currentStep), totalStep);
   const current = steps[safeCurrent - 1];
@@ -23,11 +21,7 @@ export default function Stepper({ theme, steps, currentStep }: StepperProps) {
   return (
     <div className="flex flex-col gap-12 w-full flex-1 min-h-0">
       <div className="flex justify-center">
-        <StepIndicator
-          theme={theme}
-          currentStep={safeCurrent}
-          totalStep={totalStep}
-        />
+        <StepIndicator currentStep={safeCurrent} totalStep={totalStep} />
       </div>
 
       <div className="relative w-full flex-1 min-h-0 overflow-hidden">

@@ -29,7 +29,6 @@ export default function Step1() {
             value={sender}
             onChange={setSender}
             labelColor="text-[#B5644E]"
-            theme="white-day"
           />
           <Input
             label="받는 사람"
@@ -37,7 +36,6 @@ export default function Step1() {
             value={receiver}
             onChange={setReceiver}
             labelColor="text-[#B5644E]"
-            theme="white-day"
           />
         </div>
       </div>
@@ -45,7 +43,6 @@ export default function Step1() {
       <Button
         icon={<Icon name="arrowRight" width={16} height={16} />}
         onClick={handleClickNext}
-        theme="white-day"
         disabled={!sender || !receiver}
       >
         다음으로

@@ -100,7 +100,7 @@ export default function Home() {
           </Link>
         </div>
 
-        <InquiryButton theme="white-day" />
+        <InquiryButton />
       </div>
     </>
   );

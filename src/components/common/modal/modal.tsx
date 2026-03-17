@@ -1,10 +1,10 @@
 import { meongiB } from "@/src/app/fonts";
 import { ReactNode } from "react";
 import Icon from "../icon/icon";
-import { THEME_UI, ThemeKey } from "@/src/constants/theme";
+import { THEME_UI } from "@/src/constants/theme";
+import { useThemeContext } from "@/src/contexts/theme";
 
 interface ModalProps {
-  theme: ThemeKey;
   onClose: () => void;
   children: ReactNode;
   gapClassName?: string; // ex) gap-3 | gap-4 | gap-6
@@ -19,12 +19,13 @@ interface ModalProps {
  * - zClassName: 모달 컨테이너의 z-index 지정 (기본: z-100)
  */
 export default function Modal({
-  theme,
   onClose,
   children,
   gapClassName = "gap-3",
   zClassName = "z-100",
 }: ModalProps) {
+  const { theme } = useThemeContext();
+
   const mainColor = THEME_UI[theme].inquiry.text;
 
   const modalTitle = () => {

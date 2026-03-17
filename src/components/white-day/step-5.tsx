@@ -96,7 +96,6 @@ export default function Step5() {
       <div className="flex flex-col gap-2">
         <KakaoShareButton giftId={giftId} gift={gift} />
         <Button
-          theme="white-day"
           className="w-full text-center items-center"
           onClick={handleClickCreateNewGift}
         >
