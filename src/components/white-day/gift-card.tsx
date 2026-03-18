@@ -1,17 +1,25 @@
 import Image from "next/image";
+import { HTMLAttributes } from "react";
 
 import { WHITE_DAY_RESULT_BY_MBTI } from "@/src/components/white-day/data/desserts";
 import { Gift } from "@/src/components/white-day/step-5";
 
-interface GiftCardProps {
+interface GiftCardProps extends HTMLAttributes<HTMLDivElement> {
   gift: Gift;
 }
 
-export default function GiftCard({ gift }: GiftCardProps) {
+export default function GiftCard({
+  gift,
+  className = "",
+  ...props
+}: GiftCardProps) {
   const giftResult = WHITE_DAY_RESULT_BY_MBTI[gift.mbti];
 
   return (
-    <div className="flex flex-col gap-5 rounded-lg py-6 px-5 bg-[#FFFFFF] text-[#B5644E] w-full items-center shadow-[0px_0px_12px_0px_#0000001A]">
+    <div
+      className={`flex flex-col gap-5 rounded-lg py-6 px-5 bg-[#FFFFFF] text-[#B5644E] w-full items-center shadow-[0px_0px_12px_0px_#0000001A] ${className}`.trim()}
+      {...props}
+    >
       {/** 편지 받는 사람 */}
       <span className="leading-[160%] font-black">{`To. ${gift.receiver}`}</span>
 
