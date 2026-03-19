@@ -1,10 +1,3 @@
-export const THEMES = {
-  NEW_YEAR: "new-year",
-  WHITE_DAY: "white-day",
-} as const;
-
-export type ThemeKey = (typeof THEMES)[keyof typeof THEMES];
-
 export const THEME_UI = {
   "new-year": {
     inquiry: {
