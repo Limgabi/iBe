@@ -35,7 +35,7 @@ export default function Modal({
       case "white-day":
         return "Sweet Letter";
       default:
-        return "iBe";
+        return "iBe-Lucky";
     }
   };
 
