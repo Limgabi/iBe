@@ -1,11 +1,15 @@
-import type { Metadata } from 'next';
-import { pretendard } from '@/src/app/fonts';
-import './globals.css';
-import KakaoScript from '@/src/components/common/kakao-script/kakao-script';
-import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google';
-import { ToastProvider } from '@/src/components/common/toast/toast';
+import type { Metadata } from "next";
+import { pretendard } from "@/src/app/fonts";
+import "./globals.css";
+import KakaoScript from "@/src/components/common/kakao-script/kakao-script";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
+import { ToastProvider } from "@/src/components/common/toast/toast";
+import getThemeMetadata from "@/src/utils/get-theme-metadata";
 
 export const metadata: Metadata = {
+  ...getThemeMetadata({
+    theme: "default",
+  }),
   verification: {
     google: process.env.GOOGLE_SITE_VERIFICATION,
   },
