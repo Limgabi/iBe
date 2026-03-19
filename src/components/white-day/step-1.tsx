@@ -41,7 +41,7 @@ export default function Step1() {
       </div>
 
       <Button
-        icon={<Icon name="arrowRight" width={16} height={16} />}
+        icon={<Icon name="arrowRight" width={16} height={16} color="#FFFFFF" />}
         onClick={handleClickNext}
         disabled={!sender || !receiver}
       >

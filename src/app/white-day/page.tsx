@@ -96,7 +96,7 @@ export default function Home() {
             className="flex w-fit items-center gap-1 rounded-[365px] bg-[#B5644E] px-6 py-3 text-button text-white"
           >
             <span>편지 만들기</span>
-            <Icon name="gift" width={16} height={16} />
+            <Icon name="gift" width={16} height={16} color="#FFFFFF" />
           </Link>
         </div>
 

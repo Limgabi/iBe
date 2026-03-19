@@ -81,8 +81,8 @@ export default function DrawBanner() {
           <Logo />
           <div className="flex gap-1 items-center justify-center">
             <h2 className="text-service-subtitle">아이비의 행운 뽑기</h2>
-            <Icon name="rectangle" width={8} height={8} />
-            <Icon name="rectangle-2" width={8} height={8} />
+            <Icon name="rectangle" width={8} height={8} color="#EA706C" />
+            <Icon name="rectangle-2" width={8} height={8} color="#EA706C" />
           </div>
         </div>
         <div className="relative">
