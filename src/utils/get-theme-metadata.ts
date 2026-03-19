@@ -1,10 +1,11 @@
 import { Metadata } from "next";
-import { THEME_META_DATA, ThemeKey } from "../constants/theme";
+import { THEME_META_DATA } from "../constants/theme";
+import { ThemeType } from "@/src/contexts/theme";
 
 export default function getThemeMetadata({
   theme,
 }: {
-  theme: ThemeKey;
+  theme: ThemeType;
 }): Metadata {
   const meta = THEME_META_DATA[theme];
 
