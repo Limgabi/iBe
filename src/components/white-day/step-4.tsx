@@ -88,7 +88,7 @@ export default function Step4() {
       </div>
 
       <Button
-        icon={<Icon name="arrowRight" width={16} height={16} />}
+        icon={<Icon name="arrowRight" width={16} height={16} color="#FFFFFF" />}
         onClick={debouncedCreate}
         disabled={!letterText}
       >

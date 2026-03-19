@@ -23,9 +23,10 @@ export default function InquiryButton() {
             onClick={() => setIsModalOpen(true)}
           >
             <Icon
-              name={theme === "new-year" ? "inquiry" : "inquiryWhiteDay"}
+              name={"inquiry"}
               width={16}
               height={16}
+              color={theme === "new-year" ? "#FFFFFF" : "#B5644E"}
             />
           </button>
         </div>
