@@ -16,6 +16,13 @@ interface RadioGroupProps<T extends string | number | boolean = string> {
 }
 
 const THEME = {
+  default: {
+    text: "text-[#5AC978]",
+    border: "border-[#B2E7C0]",
+    bg: "bg-[#FFFDF6]",
+    selectedBg: "bg-[#B2E7C0]",
+    selectedBorder: "border-[#5AC978]",
+  },
   "new-year": {
     text: "text-[#EA706C]",
     border: "border-[#F8DCC4]",
