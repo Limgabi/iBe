@@ -26,7 +26,7 @@ export default function InquiryButton() {
               name={"inquiry"}
               width={16}
               height={16}
-              color={theme === "new-year" ? "#FFFFFF" : "#B5644E"}
+              color={ui.textButton}
             />
           </button>
         </div>
