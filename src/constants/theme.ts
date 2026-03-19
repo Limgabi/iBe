@@ -1,4 +1,19 @@
 export const THEME_UI = {
+  default: {
+    inquiry: {
+      iconButton: "#D6FFD9",
+      textButton: "#5AC978",
+      primary: "#5AC978",
+      primarySoft: "#7DDE97",
+      disabled: "#BDBDBD",
+      outline: "#B2E7C0",
+      text: "#5AC978",
+    },
+    steps: {
+      active: "#5AC978",
+      inactive: "#7DDE97",
+    },
+  },
   "new-year": {
     inquiry: {
       iconButton: "#EA706C",
@@ -32,6 +47,15 @@ export const THEME_UI = {
 };
 
 export const THEME_META_DATA = {
+  default: {
+    title: "iBe - Lucky | 기념일 테마 기반 시즌형 웹 서비스",
+    description:
+      "기념일에 맞춘 다양한 테마 이벤트를 통해 특별한 즐거움을 경험해 보세요",
+    ogImage: "/og-card.png",
+    ogImageWidth: 1200,
+    ogImageHeight: 630,
+    ogImageAlt: "iBe - Lucky OG 이미지",
+  },
   "new-year": {
     title: "iBe - 행운 뽑기 | 설날 맞이 행운 뽑기",
     description:
