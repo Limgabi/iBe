@@ -8,6 +8,7 @@ export const THEME_UI = {
       disabled: "#BDBDBD",
       outline: "#B2E7C0",
       text: "#5AC978",
+      icon: "#4DD371",
     },
     steps: {
       active: "#5AC978",
@@ -23,6 +24,7 @@ export const THEME_UI = {
       disabled: "#BDBDBD",
       outline: "#FBB4B2",
       text: "#EA706C",
+      icon: "#FFFFFF",
     },
     steps: {
       active: "#EA706C",
@@ -38,6 +40,7 @@ export const THEME_UI = {
       disabled: "#BDBDBD",
       outline: "#EFA895",
       text: "#B5644E",
+      icon: "#B5644E",
     },
     steps: {
       active: "#CD8572",
