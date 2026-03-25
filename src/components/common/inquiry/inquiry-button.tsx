@@ -22,12 +22,7 @@ export default function InquiryButton() {
             aria-label="문의하기"
             onClick={() => setIsModalOpen(true)}
           >
-            <Icon
-              name={"inquiry"}
-              width={16}
-              height={16}
-              color={ui.textButton}
-            />
+            <Icon name={"inquiry"} width={16} height={16} color={ui.icon} />
           </button>
         </div>
       </div>
