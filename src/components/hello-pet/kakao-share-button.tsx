@@ -43,7 +43,7 @@ export default function KakaoShareButton() {
       onClick={handleClickShare}
       className="border-none outline-none cursor-pointer"
     >
-      <Icon name="whiteDayKakao" width={222} height={48} />
+      <Icon name="helloPetKakao" width={222} height={48} />
     </button>
   );
 }
