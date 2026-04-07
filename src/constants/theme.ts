@@ -47,6 +47,22 @@ export const THEME_UI = {
       inactive: "#F0DDBD",
     },
   },
+  "hello-pet": {
+    inquiry: {
+      iconButton: "#A0BCFF",
+      textButton: "#4073F0",
+      primary: "#4073F0",
+      primarySoft: "#6894FF",
+      disabled: "#BDBDBD",
+      outline: "#A9C2FF",
+      text: "#4073F0",
+      icon: "#FFFFFF",
+    },
+    steps: {
+      active: "#6491FF",
+      inactive: "#D4D4DA",
+    },
+  },
 };
 
 export const THEME_META_DATA = {
@@ -76,5 +92,13 @@ export const THEME_META_DATA = {
     ogImageWidth: 1200,
     ogImageHeight: 630,
     ogImageAlt: "Sweet Letter OG 이미지",
+  },
+  "hello-pet": {
+    title: "iBe | Hello Pet!",
+    description: "간단한 테스트를 통해\n나와 닮은 동물을 알아보세요!",
+    ogImage: "/hello-pet/og-card.png",
+    ogImageWidth: 1200,
+    ogImageHeight: 630,
+    ogImageAlt: "Hello Pet OG 이미지",
   },
 };
