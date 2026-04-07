@@ -5,7 +5,7 @@ type MBTI = `${"E" | "I"}${"N" | "S"}${"T" | "F"}${"J" | "P"}`;
 const MBTI_MAP = {
   animalEncounterStyle: { approach: "E", admire: "I" },
   petNamingStyle: { meaningful: "N", fitting: "S" },
-  newPlaceStyle: { "check-first": "T", "help-adapt": "F" },
+  productPickStyle: { "need-first": "T", "preference-first": "F" },
   walkStyle: { routine: "J", free: "P" },
 } as const;
 
@@ -19,8 +19,8 @@ export function getMbtiFromSelections(
     selections.petNamingStyle &&
     MBTI_MAP.petNamingStyle[selections.petNamingStyle];
   const t_f =
-    selections.newPlaceStyle &&
-    MBTI_MAP.newPlaceStyle[selections.newPlaceStyle];
+    selections.productPickStyle &&
+    MBTI_MAP.productPickStyle[selections.productPickStyle];
   const j_p = selections.walkStyle && MBTI_MAP.walkStyle[selections.walkStyle];
 
   if (!e_i || !n_s || !t_f || !j_p) return null;
