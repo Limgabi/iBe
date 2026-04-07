@@ -34,6 +34,8 @@ export default function Modal({
         return "iBe-Lucky";
       case "white-day":
         return "Sweet Letter";
+      case "hello-pet":
+        return "Hello Pet!";
       default:
         return "iBe-Lucky";
     }

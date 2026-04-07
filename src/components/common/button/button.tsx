@@ -32,6 +32,7 @@ export default function Button({
         "disabled:bg-[#BDBDBD] disabled:cursor-not-allowed",
         theme === "new-year" && "bg-[#EA706C]",
         theme === "white-day" && "bg-[#B5644E]",
+        theme === "hello-pet" && "bg-[#4073F0]",
         className,
       ].join(" ")}
     >

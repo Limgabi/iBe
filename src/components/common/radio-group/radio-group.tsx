@@ -37,6 +37,13 @@ const THEME = {
     selectedBg: "bg-[#F8DCC4]",
     selectedBorder: "border-[#B5644E]",
   },
+  "hello-pet": {
+    text: "text-[#4073F0]",
+    border: "border-[#D0EAFF]",
+    bg: "bg-[#FFFFFF]",
+    selectedBg: "bg-[#D8EEFF]",
+    selectedBorder: "border-[#4073F0]",
+  },
 } as const;
 
 export default function RadioGroup<
