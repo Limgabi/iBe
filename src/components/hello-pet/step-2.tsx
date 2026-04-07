@@ -45,7 +45,7 @@ export default function Step2() {
               <strong className="font-black">{title}</strong>와 닮았어요!
             </p>
             <div className="flex flex-col gap-6">
-              <div className="relative h-95 w-76.75">
+              <div className="relative h-95 w-76.75 rounded-lg border border-white shadow-[0px_0px_12px_0px_#00000033]">
                 <Image
                   src={image as string}
                   alt={title as string}
