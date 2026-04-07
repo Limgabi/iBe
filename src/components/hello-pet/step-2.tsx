@@ -18,7 +18,7 @@ export default function Step2() {
   const [loaded, setLoaded] = useState(false);
 
   const handleClickRetry = () => {
-    router.push("/white-day");
+    router.push("/hello-pet");
     resetHelloPet();
   };
 
