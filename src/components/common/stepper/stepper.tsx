@@ -11,18 +11,25 @@ interface StepItem {
 interface StepperProps {
   steps: StepItem[];
   currentStep: number; // 1-based
+  showStepIndicator?: boolean;
 }
 
-export default function Stepper({ steps, currentStep }: StepperProps) {
+export default function Stepper({
+  steps,
+  currentStep,
+  showStepIndicator = true,
+}: StepperProps) {
   const totalStep = steps.length;
   const safeCurrent = Math.min(Math.max(1, currentStep), totalStep);
   const current = steps[safeCurrent - 1];
 
   return (
     <div className="flex flex-col gap-12 w-full flex-1 min-h-0">
-      <div className="flex justify-center">
-        <StepIndicator currentStep={safeCurrent} totalStep={totalStep} />
-      </div>
+      {showStepIndicator && (
+        <div className="flex justify-center">
+          <StepIndicator currentStep={safeCurrent} totalStep={totalStep} />
+        </div>
+      )}
 
       <div className="relative w-full flex-1 min-h-0 overflow-hidden">
         <AnimatePresence mode="sync">

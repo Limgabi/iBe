@@ -3,7 +3,6 @@ import backgroundImg from "@/src/assets/images/hello-pet/background.png";
 import mainPetImg from "@/src/assets/images/hello-pet/main-pet.png";
 import InquiryButton from "@/src/components/common/inquiry/inquiry-button";
 import { meongiB } from "@/src/app/fonts";
-import Button from "@/src/components/common/button/button";
 import Link from "next/link";
 
 export default function Home() {
@@ -37,7 +36,7 @@ export default function Home() {
           </div>
         </div>
         <Link
-          href="/hello-pet?step=1"
+          href="/hello-pet/new?step=1"
           className="flex w-fit items-center gap-1 rounded-[365px] bg-[#4073F0] px-6 py-3 text-button text-white"
         >
           <span>테스트하기</span>
