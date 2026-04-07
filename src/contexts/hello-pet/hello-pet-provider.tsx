@@ -16,7 +16,7 @@ type HelloPetProviderProps = {
 const initialSelections: HelloPetSelections = {
   animalEncounterStyle: null,
   petNamingStyle: null,
-  newPlaceStyle: null,
+  productPickStyle: null,
   walkStyle: null,
 };
 
@@ -24,7 +24,7 @@ export function HelloPetProvider({ children }: HelloPetProviderProps) {
   const [selections, setSelections] = useState<HelloPetSelections>({
     animalEncounterStyle: null,
     petNamingStyle: null,
-    newPlaceStyle: null,
+    productPickStyle: null,
     walkStyle: null,
   });
   const [mbti, setMbti] = useState<MBTI | null>(null);

@@ -12,7 +12,7 @@ type HelloPetOptions = {
 export const HELLO_PET_KEYS = [
   "animalEncounterStyle",
   "petNamingStyle",
-  "newPlaceStyle",
+  "productPickStyle",
   "walkStyle",
 ] as const;
 
@@ -33,11 +33,11 @@ export const HELLO_PET_OPTIONS = {
       { value: "fitting", label: "잘 어울리는 이름" },
     ],
   },
-  newPlaceStyle: {
-    title: "반려동물과 새로운 장소를 간다면?",
+  productPickStyle: {
+    title: "반려동물 용품을 고른다면?",
     options: [
-      { value: "check-first", label: "상태 체크가 먼저" },
-      { value: "help-adapt", label: "적응 도와주는 게 먼저" },
+      { value: "preference-first", label: "좋아할지 먼저 생각" },
+      { value: "need-first", label: "필요한지 먼저 고민" },
     ],
   },
   walkStyle: {

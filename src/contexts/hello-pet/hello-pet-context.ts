@@ -1,13 +1,11 @@
 import { createContext } from "react";
 
-import { StaticImageData } from "next/image";
-
 /** 동물 발견 반응 */
 export type AnimalEncounterStyle = "approach" | "admire";
 /** 반려동물 이름 짓기 스타일 */
 export type PetNamingStyle = "meaningful" | "fitting";
 /** 새로운 장소에서의 반응 */
-export type NewPlaceStyle = "check-first" | "help-adapt";
+export type ProductPickStyle = "preference-first" | "need-first";
 /** 산책 스타일 */
 export type WalkStyle = "routine" | "free";
 
@@ -32,7 +30,7 @@ export type MBTI =
 export type HelloPetSelections = {
   animalEncounterStyle: AnimalEncounterStyle | null;
   petNamingStyle: PetNamingStyle | null;
-  newPlaceStyle: NewPlaceStyle | null;
+  productPickStyle: ProductPickStyle | null;
   walkStyle: WalkStyle | null;
 };
 
