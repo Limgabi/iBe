@@ -94,7 +94,7 @@ export const THEME_META_DATA = {
     ogImageAlt: "Sweet Letter OG 이미지",
   },
   "hello-pet": {
-    title: "iBe | Hello Pet!",
+    title: "iBe - 나와 닮은 동물은? | Hello Pet!",
     description: "간단한 테스트를 통해\n나와 닮은 동물을 알아보세요!",
     ogImage: "/hello-pet/og-card.png",
     ogImageWidth: 1200,

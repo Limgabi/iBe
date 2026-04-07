@@ -16,7 +16,7 @@ export default function KakaoShareButton() {
     window.Kakao.Share.sendDefault({
       objectType: "feed",
       content: {
-        title: `iBe - ${result?.title}`,
+        title: `iBe - 나와 닮은 동물은? | ${result?.title}`,
         description: result?.desc,
         imageUrl: `https://ibe-lucky.vercel.app/${result?.image}`,
         imageWidth: 375,
