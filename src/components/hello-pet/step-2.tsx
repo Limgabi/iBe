@@ -23,7 +23,7 @@ export default function Step2() {
   };
 
   return (
-    <div className="relative h-screen w-full overflow-hidden flex flex-col gap-12 px-5 pt-8 pb-14.25">
+    <div className="relative min-h-screen w-full overflow-y-auto flex flex-col gap-12 px-5 pt-8 pb-14.25">
       <Image
         src={backgroundImg}
         alt="background"
